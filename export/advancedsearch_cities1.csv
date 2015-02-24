@@ -1,0 +1,53 @@
+"City Name","Number of Sites","Number of School Year Sites","Number of Summer Sites","Number of Sites with Tutoring/Academic Enrichment as an Activity","Number of Sites with Arts and Culture as an Activity","Number of Sites with Sports and Recreation as an Activity","Number of Sites with Volunteering/Community Service as an Activity","Number of Sites with Character Education as an Activity","Number of Sites with Leadership as an Activity","Number of Sites with Nutrition as an Activity","Number of Sites with Prevention as an Activity","Number of Sites with Mentoring as an Activity","Number of Sites with Support Services as an Activity","Number of Sites with STEM as an Activity","Number of Sites with College and Career Readiness as an Activity","Number of Sites Serving Ages 5-8","Number of Sites Serving Ages 9-11","Number of Sites Serving Ages 12-14","Number of Sites Serving Ages 15-18"
+Anthem,8,4,4,4,8,6,0,8,2,8,2,2,0,0,0,8,6,6,0
+"Apache Junction",1,1,0,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0
+Arivaca,2,1,1,2,2,2,2,2,2,2,0,0,2,0,0,2,2,2,2
+"Arizona Village",2,1,1,2,2,2,2,2,2,2,2,2,0,0,0,2,2,2,2
+Avondale,7,4,3,7,7,5,5,7,3,4,2,2,0,0,0,6,6,7,3
+Bisbee,1,0,0,1,1,1,0,1,1,1,0,1,0,0,0,1,1,1,1
+Buckeye,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0
+"Casas Adobes",21,12,9,21,18,17,9,8,8,13,7,7,1,0,0,20,21,15,3
+Catalina,4,2,2,2,2,4,4,0,0,2,0,2,0,0,0,4,4,4,0
+"Catalina Foothills",15,10,5,7,15,11,7,13,3,9,6,4,0,0,0,14,12,7,2
+Chandler,71,41,30,42,59,60,13,40,25,48,25,20,4,0,0,67,63,46,6
+Coolidge,1,1,0,1,1,1,0,1,0,1,1,0,0,0,0,1,0,1,0
+"Corona de Tucson",5,3,2,1,3,3,0,0,1,2,2,3,2,0,0,4,5,1,1
+Cottonwood,2,1,1,2,2,2,2,2,2,2,0,2,0,0,0,2,2,2,2
+"Drexel Heights",9,5,4,9,9,9,4,7,7,9,4,6,0,0,0,7,7,4,0
+"El Mirage",2,1,1,1,2,2,0,1,1,2,0,0,1,1,0,2,2,2,1
+Flagstaff,15,12,3,14,14,12,12,12,12,14,4,12,3,7,6,14,13,7,1
+"Flowing Wells",16,9,7,14,14,16,14,6,10,16,6,8,5,0,0,14,14,16,6
+Gilbert,44,25,19,38,41,41,9,25,26,27,11,20,2,0,0,39,40,38,4
+Glendale,55,33,22,42,46,44,17,36,27,41,25,24,6,1,0,49,49,42,4
+Goodyear,13,8,5,9,13,13,2,8,4,6,4,2,2,0,0,13,13,13,0
+"Green Valley",2,1,1,2,2,2,0,0,0,2,0,0,2,0,0,2,2,0,0
+Guadalupe,4,2,2,2,2,2,2,2,2,2,2,2,0,0,0,2,2,2,2
+Komatke,2,1,1,2,2,2,2,2,2,2,2,2,2,0,0,2,2,2,2
+"Litchfield Park",1,0,1,0,1,1,1,1,0,1,0,0,0,0,0,1,1,0,0
+Marana,6,4,2,3,4,4,1,3,3,3,3,3,1,0,0,6,6,5,0
+Maricopa,2,1,1,2,2,2,2,2,2,0,0,2,0,0,0,2,2,0,0
+Mesa,75,53,22,61,33,58,17,45,47,51,45,41,9,0,0,67,66,67,14
+Morristown,2,1,1,2,2,2,0,0,0,2,0,0,0,0,0,2,2,2,0
+"Oro Valley",10,5,5,4,8,8,0,4,6,6,2,4,0,0,0,10,10,4,2
+"Paradise Valley",3,2,1,3,3,3,3,3,3,3,1,3,0,0,0,3,3,3,0
+Peoria,45,31,14,41,45,43,12,17,37,39,35,35,6,0,0,45,45,45,2
+Phoenix,326,202,124,248,285,285,153,203,194,207,107,157,43,1,3,276,269,264,65
+"Picture Rocks",2,1,1,2,2,2,0,0,2,2,2,0,2,0,0,2,2,2,0
+Pinetop-Lakeside,1,1,0,1,1,1,1,1,0,1,0,1,0,0,0,0,1,1,0
+"Queen Creek",4,2,2,4,3,4,3,3,3,2,2,2,0,0,0,2,3,3,2
+"San Luis",2,1,1,2,2,2,0,0,0,0,2,0,0,0,0,2,2,2,0
+"San Tan Valley",4,3,1,0,1,1,0,0,0,0,0,0,0,1,0,4,4,4,0
+Scottsdale,66,42,24,49,62,61,34,52,47,46,41,38,9,0,1,62,58,52,17
+"Sierra Vista",2,1,1,2,2,2,2,2,2,2,0,0,0,0,0,2,2,2,0
+Somerton,2,1,1,2,2,2,0,2,2,2,2,2,0,0,0,0,2,2,0
+"South Tucson",2,1,1,2,2,2,2,2,2,2,2,2,0,0,0,2,2,2,2
+Surprise,13,11,2,9,12,12,0,8,9,9,0,0,0,8,0,12,12,12,2
+"Tanque Verde",10,5,5,6,4,6,4,4,2,4,0,2,2,2,0,6,6,4,2
+Tempe,44,34,10,36,37,40,32,36,34,39,34,37,8,20,1,41,39,33,6
+"Three Points",6,4,2,4,6,6,1,6,2,6,0,0,0,0,0,5,6,2,0
+Tolleson,3,2,1,3,3,3,3,3,2,3,3,3,0,0,0,3,3,3,2
+Tubac,1,1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,1,1,0
+Tucson,211,118,93,139,179,169,77,108,104,135,81,83,25,1,2,168,162,140,53
+Vail,2,1,1,0,0,0,2,0,0,2,0,0,0,0,0,2,2,2,0
+"Valencia West",1,1,0,1,1,1,0,0,0,1,0,1,0,0,0,1,1,1,1
+Yuma,2,2,0,0,1,0,0,1,1,1,0,0,0,0,0,1,1,1,0

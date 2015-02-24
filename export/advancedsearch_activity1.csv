@@ -1,0 +1,13 @@
+Activity,"Number of Sites","Number of School Year Sites","Number of Summer Sites","Number of Sites with Tutoring/Academic Enrichment as an Activity","Number of Sites with Arts and Culture as an Activity","Number of Sites with Sports and Recreation as an Activity","Number of Sites with Volunteering/Community Service as an Activity","Number of Sites with Character Education as an Activity","Number of Sites with Leadership as an Activity","Number of Sites with Nutrition as an Activity","Number of Sites with Prevention as an Activity","Number of Sites with Mentoring as an Activity","Number of Sites with Support Services as an Activity","Number of Sites with STEM as an Activity","Number of Sites with College and Career Readiness as an Activity","Number of Sites Serving Ages 5-8","Number of Sites Serving Ages 9-11","Number of Sites Serving Ages 12-14","Number of Sites Serving Ages 15-18"
+"Tutoring/Academic Enrichment",868,540,327,868,762,775,393,575,559,629,414,463,123,42,9,788,778,684,153
+"Arts and Culture",983,598,384,762,983,897,426,638,580,735,424,476,132,41,5,896,877,770,170
+"Sports and Recreation",993,619,373,775,897,993,420,652,593,765,448,502,127,40,5,912,896,775,156
+"Volunteering/Community Service",464,272,192,393,426,420,464,368,380,361,267,301,86,28,10,399,402,392,148
+"Character Education",697,427,269,575,638,652,368,697,523,581,399,431,113,40,6,640,624,548,136
+Leadership,653,403,249,559,580,593,380,523,653,523,400,468,109,40,11,570,572,552,155
+Nutrition,799,502,296,629,735,765,361,581,523,799,426,451,117,39,5,740,719,649,142
+Prevention,473,287,186,414,424,448,267,399,400,426,473,362,96,22,0,434,422,412,112
+Mentoring,543,339,203,463,476,502,301,431,468,451,362,543,99,27,12,488,486,454,135
+"Support Services (medical, dental, mental health, etc.)",140,76,64,123,132,127,86,113,109,117,96,99,140,2,1,128,117,110,41
+"Science, Technology, Engineering, and Mathematics",43,40,3,42,41,40,28,40,40,39,22,27,2,43,7,42,42,36,1
+"College and Career Readiness",13,12,1,9,5,5,10,6,11,5,0,12,1,7,13,6,7,7,7

@@ -1,0 +1,254 @@
+/* global */
+html{height: 100%;}
+
+body
+{ font-family:Arial, Helvetica, sans-serif;
+                font-size:12px;
+                color:#403e40;
+}
+
+p
+{ margin: 0px;
+  padding: 0px 0px 12px 0px;
+  line-height: 1.7em;
+  text-align: left;
+}
+
+h1
+{ font-family:Arial, Helvetica, sans-serif;
+                font-size:14px;
+                font-weight:bold;
+                color:#bc2122;
+}
+
+h1 a:link {
+  font-size:14px;
+}
+
+h2
+{  font-family:Arial, Helvetica, sans-serif;
+                font-size:12px;
+                font-weight:bold;
+                color:#000000;
+}
+
+span.required
+{ color:#bc2122;
+	font-style:italic}
+
+span.name
+{ font-family:Arial, Helvetica, sans-serif;
+                font-size:20px;
+                font-weight:bold;
+                color:#bc2122;
+}
+
+span.verified
+{ font-family:Arial, Helvetica, sans-serif;
+                font-size:12px;
+                font-weight:bold;
+                color:#00cc00;
+}
+
+a:link { 
+	font-family:Arial, Helvetica, sans-serif;
+                font-size:12px;
+	color: #bc2122;
+	}
+a:visited { 
+	color: #bc2122;
+	}
+a:hover { 
+	color: #000000;
+	text-decoration: none;
+	}
+
+select {
+ font-family:Arial, Helvetica, sans-serif;
+                font-size:11px;
+                color:#403e40;
+}
+
+.submit
+{ 
+ border-style: none;
+  text-indent: -10000px;
+  overflow: hidden;
+  font-size: 0;
+  background: transparent url(save.jpg) no-repeat scroll top left;
+   width: 117px;
+  height: 41px;
+  cursor: pointer;
+}
+
+.search
+{ 
+ border-style: none;
+  text-indent: -10000px;
+  overflow: hidden;
+  font-size: 0;
+  background: transparent url(search.jpg) no-repeat scroll top left;
+   width: 117px;
+  height: 41px;
+  cursor: pointer;
+}
+
+.addnew
+{ 
+ border-style: none;
+  text-indent: -10000px;
+  overflow: hidden;
+  font-size: 0;
+  background: transparent url(addnew.jpg) no-repeat scroll top left;
+   width: 200px;
+  height: 41px;
+  cursor: pointer;
+}
+
+.homeTable {
+    margin-bottom: 15px;
+    width: 250px;
+}
+
+.homeTableMenuItem, .homeTableMenuSelectedItem {
+    border-bottom: 1px solid #B3B3B4;
+    color: #9A999A;
+    font-weight: bold;
+    padding: 6px 0;
+    width: 274px;
+}
+
+.hoursTable {
+	width:auto;
+	border-collapse:collapse;	
+}
+
+.hoursTable th, .hoursTable td {
+	border:2px solid #CCCCCC;
+	padding:3px 7px 2px 7px;
+}
+
+.hoursTable th {
+	font-size:12px;
+	text-align:center;
+	padding-top:5px;
+	padding-bottom:4px;
+	background-color:#CCCCCC;
+}
+
+.hoursTable tr.alt {
+	background-color:#EEEEEE;
+}
+
+.hoursTable tr.notverified {
+	background-color:#EEEEEE;
+}
+
+.hoursTable td.firstcol {
+	background-color:#EEEEEE;
+}
+
+.hoursTable th.lastcol, td.lastcol {
+	background-color:#F7F5F6;
+	border:0px;
+}
+
+.boxes{
+	padding: 10px;
+	width: 800px;
+}
+
+h4{
+	cursor: pointer;
+}
+
+.heading{
+	border: 1px solid #EEEEEE;
+	background: #504E51;
+	padding-left: 5px;
+	color: #FFFFFF;
+}
+
+.panel{
+	border: 1px solid #EEEEEE;
+	padding: 10px;
+}
+
+div.m {
+	float:left; 
+	padding:15px 0 4px;
+}
+div.m div.mlabel {
+	color:#667777; 
+	display:block; 
+	font-size:11px; 
+	font-weight:normal; 
+	overflow:hidden; 
+	padding:0 10px; 
+	white-space:nowrap;
+}
+div.m div.mnumber {
+	color:#bc2122; 
+	display:block; 
+	font-size:20px; 
+	height:22px; 
+	overflow:hidden; 
+	padding:0 0 0 20px;
+}
+
+
+
+
+#clear {clear:both;}
+
+#footer {
+	height:30px;
+	background-color:#EEEEEE;
+	border-top:1px solid #CCCCCC;
+	padding:0px 10px 0px 10px;
+	line-height:30px;
+	color:#000;
+	font-size: 11px;
+	text-align: center; 
+}
+
+#footer a {
+	text-decoration:none;
+}
+
+#footer a:hover {
+	text-decoration:none;
+}
+
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   speak for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('loading.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
