@@ -26,6 +26,8 @@ require('language.php');
 		<td align="right" width="100"><b><?php echo $langtext['Within']; ?>: </b></td>
 		<td align="left">
 			<select name="zoom">
+			<option value="9">50</option>
+			<option value="11">25</option>
 			<option value="12">15</option>
 			<option value="13" selected="selected">5</option>
 			<option value="14">3</option>

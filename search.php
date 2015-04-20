@@ -63,7 +63,11 @@ $json = json_decode(file_get_contents($request_url));
 $latsearch = $json->results[0]->geometry->location->lat;
 $lonsearch = $json->results[0]->geometry->location->lng;
 
-if ($zoom == "12") {
+if ($zoom == "9") {
+	$latlonbounds = 1.0;
+}elseif ($zoom == "11") {
+	$latlonbounds = 0.3;
+}elseif ($zoom == "12") {
 	$latlonbounds = 0.1;
 }elseif ($zoom == "13") {
 	$latlonbounds = 0.05;
@@ -259,7 +263,7 @@ $countschoolyear = pg_result($countresult, 0, 0);
 
 if ($countschoolyear>0) {
 
-	$schoolyearsites = '<h2>' . $langtext['School Year Programs'] . '</h2><ul>';
+	$schoolyearsites = '<h2>' . $langtext['School Year Programs'] . '</h2><ul style=\"line-height: 1.7em; \">';
 	// pull and store all the school year sites associated with this location
 	$sitequery = "SELECT siteid, name, namesp FROM azcase_sites WHERE summer = FALSE AND verified = 1 AND siteid IN (SELECT siteid FROM azcase_sites_locations_junction WHERE locationid = $locationid);";
 	$record1 = pg_query($connection, $sitequery);
@@ -287,7 +291,21 @@ if ($countschoolyear>0) {
 			$sitename = $sitenamesp;
 		}else{}
 
-		$schoolyearsites .= '<li><a href=\"http://maps.nijel.org/azcase/site.php?siteid=';
+		// if signed the make it count pledge, add in quality icon
+		$wp_pledge_id = '';
+		$pledgeIDquery = "SELECT wp_pledge_id FROM azcase_sites_locations_junction WHERE siteid = $siteid AND locationid = $locationid;";
+		$pledgerecord = pg_query($connection, $pledgeIDquery);
+		for ($pledgecount = 0; $pledgecount < pg_numrows($pledgerecord); $pledgecount++) {
+			$wp_pledge_id = pg_result($pledgerecord, $pledgecount, 0);
+		}
+
+		if ($wp_pledge_id) {
+			$pledgeIcon = '<img src=\"http://maps.nijel.org/azcase_dev/Pledge_Icon.png\" style=\"width: 24px; height: 24px; padding-left: 5px; margin-bottom: -7px;\" />';
+		} else {
+			$pledgeIcon = '';
+		}
+
+		$schoolyearsites .= '<li><a href=\"http://maps.nijel.org/azcase_dev/site.php?siteid=';
 		$schoolyearsites .= $siteid;
 		$schoolyearsites .= '&locationid=';
 		$schoolyearsites .= $locationid;
@@ -305,7 +323,7 @@ if ($countschoolyear>0) {
 		$schoolyearsites .= $zoom;
 		$schoolyearsites .= '\">';
 		$schoolyearsites .= $sitename;
-		$schoolyearsites .= '</a></li>';
+		$schoolyearsites .= '</a>' . $pledgeIcon . '</li>';
 
 	}
 
@@ -321,7 +339,7 @@ $countsummer = pg_result($countresult, 0, 0);
 
 if ($countsummer>0) {
 
-	$summersites = '<h2>' . $langtext['Summer Programs'] . '</h2><ul>';
+	$summersites = '<h2>' . $langtext['Summer Programs'] . '</h2><ul style=\"line-height: 1.7em; \">';
 	// pull and store all the school year sites associated with this location
 	$sitequery = "SELECT siteid, name, namesp FROM azcase_sites WHERE summer = TRUE AND verified = 1 AND siteid IN (SELECT siteid FROM azcase_sites_locations_junction WHERE locationid = $locationid);";
 	$record1 = pg_query($connection, $sitequery);
@@ -349,7 +367,21 @@ if ($countsummer>0) {
 			$sitename = $sitenamesp;
 		}else{}
 
-		$summersites .= '<li><a href=\"http://maps.nijel.org/azcase/site.php?siteid=';
+		// if signed the make it count pledge, add in quality icon
+		$wp_pledge_id = '';
+		$pledgeIDquery = "SELECT wp_pledge_id FROM azcase_sites_locations_junction WHERE siteid = $siteid AND locationid = $locationid;";
+		$pledgerecord = pg_query($connection, $pledgeIDquery);
+		for ($pledgecount = 0; $pledgecount < pg_numrows($pledgerecord); $pledgecount++) {
+			$wp_pledge_id = pg_result($pledgerecord, $pledgecount, 0);
+		}
+
+		if ($wp_pledge_id) {
+			$pledgeIcon = '<img src=\"http://maps.nijel.org/azcase_dev/Pledge_Icon.png\" style=\"width: 24px; height: 24px; padding-left: 5px; margin-bottom: -7px;\" />';
+		} else {
+			$pledgeIcon = '';
+		}
+
+		$summersites .= '<li><a href=\"http://maps.nijel.org/azcase_dev/site.php?siteid=';
 		$summersites .= $siteid;
 		$summersites .= '&locationid=';
 		$summersites .= $locationid;
@@ -367,7 +399,7 @@ if ($countsummer>0) {
 		$summersites .= $zoom;
 		$summersites .= '\">';
 		$summersites .= $sitename;
-		$summersites .= '</a></li>';
+		$summersites .= '</a>' . $pledgeIcon . '</li>';
 
 	}
 
@@ -421,6 +453,7 @@ $sidebar .= "</table>";
 
 ?>
 <body onload="initialize()">
+<p><a href="searchhome.php?language=<?php echo $language; ?>">&#60;&#60; <?php echo $langtext['Search Again']; ?></a></p>
 <h1><?php echo $langtext['Search Results']; ?></h1>
 <table width="100%">
 	<tr>
@@ -444,14 +477,14 @@ $sidebar .= "</table>";
 		</td>
 	<tr>
 </table>
-<table border="0">
+<table border="0" width="100%">
 	<tr>
-		<td width="300" valign="top">
+		<td width="30%" valign="top">
 			<div id="the_side_bar" style="height:550px;overflow:auto;"><?php echo $sidebar; ?></div>
 		</td>
-		<td>
+		<td width="70%">
 			<!--****Google Map****-->
-			<div id="afterschoolgmap" style="border: 2px solid #979797; background-color: #e5e3df; width: 550px; height: 550px;"></div>
+			<div id="afterschoolgmap" style="border: 2px solid #979797; background-color: #e5e3df; width: 100%; height: 550px;"></div>
 			<!--****End Google Map****-->
 		</td>
 	</tr>
@@ -484,27 +517,31 @@ function setupMarkers() {
 
     for (var i = 0; i < markersLayer.length; i++) {
         var markerLatLng = new google.maps.LatLng(markersLayer[i][0], markersLayer[i][1]);
-	var image = new google.maps.MarkerImage(iconsLayer[i][0],
-		new google.maps.Size(32, 32), 
-		new google.maps.Point(0,0), 
-		new google.maps.Point(0, 32)
-		);
 
-	var shadow = new google.maps.MarkerImage(shadowsLayer[i][0],
-		new google.maps.Size(51, 37), 
-		new google.maps.Point(0,0), 
-		new google.maps.Point(0, 37)
-		);
+		var image = {
+			url: iconsLayer[i][0],
+			size: new google.maps.Size(32, 32),
+			origin: new google.maps.Point(0, 0),
+			anchor: new google.maps.Point(12, 32)
+		};
 
-        var marker = new google.maps.Marker({
-		position: markerLatLng,
-		map: map,
-		shadow: shadow,
-		icon: image,
-		title: titlesLayer[i][0]
-	});
+		var shadow = {
+			url: shadowsLayer[i][0],
+			size: new google.maps.Size(51, 37),
+			origin: new google.maps.Point(0, 0),
+			anchor: new google.maps.Point(0, 37)
+		};
 
-	attachSecretMessage(marker, i);
+
+	    var marker = new google.maps.Marker({
+			position: markerLatLng,
+			map: map,
+			shadow: shadow,
+			icon: image,
+			title: titlesLayer[i][0]
+		});
+
+		attachSecretMessage(marker, i);
  
         markers.push(marker);
     }

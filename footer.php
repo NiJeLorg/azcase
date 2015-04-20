@@ -8,10 +8,6 @@ if (!$language) {
 
 ?>
 <div id="clear"></div>
-<br /><br />
-<div id="footer"><a href="searchhome.php?language=<?php echo $language; ?>"><?php echo $langtext['Find Programs Near You']; ?></a> | <a href="providerhome.php?language=<?php echo $language; ?>"><?php echo $langtext['Provider Login']; ?></a> | <?php echo $langtext['Powered by NiJeL']; ?>
-</div>
-
 </body>
 </html>
 
@@ -24,5 +20,13 @@ function loadSubmit() {
     return true;
 
 } 
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61309035-2', 'auto');
+  ga('send', 'pageview');
 
 </script>

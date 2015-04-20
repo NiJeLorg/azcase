@@ -1,0 +1,26 @@
+{% extends "azcase_admin/base.html" %}
+{% load staticfiles %}
+{% load bootstrap_tags %}
+
+{% block head_js_block %}
+	<script type="text/javascript" src="{% static 'azcase_admin/js/iframeResizer.min.js' %}"></script>
+	<script>
+	  $(document).ready(function () {
+	    $('iframe').iFrameResize();
+	    
+	    function changeURL( url ) {
+		    document.location = url;
+		}
+	  });
+	</script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    	<div class="row">
+			<div class="col-md-12">
+				<iframe frameborder="0" width="100%" src="http://maps.nijel.org/azcase_dev/azcase/phpadmin/adminedituser.php?userid={{ userid }}" onload="scroll(0,0);"></iframe>
+			</div>
+		</div>
+    </div> <!-- /container -->
+{% endblock %}

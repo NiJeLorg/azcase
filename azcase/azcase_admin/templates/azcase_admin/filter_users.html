@@ -1,0 +1,178 @@
+<div class="row">
+    {% if siteName or siteEmail or sitePhone %}
+      <h4>Program Search Terms:</h4>
+      <ul>
+      {% if siteName %}
+        <li>Program Name: <span id="siteNameAjax"><strong>{{ siteName }}</strong></span></li>  
+      {% endif %}
+      {% if siteEmail %}
+        <li>Program Email: <span id="siteEmailAjax"><strong>{{ siteEmail }}</strong></span></li>  
+      {% endif %}
+      {% if sitePhone %}
+        <li>Program Phone: <span id="sitePhoneAjax"><strong>{{ sitePhone }}</strong></span></li>
+      {% endif %}
+      </ul>
+    {% endif %}
+    {% if userName or userEmail or userOrgName %}
+      <h4>User Search Terms:</h4>
+      <ul>
+      {% if userName %}
+        <li>User Name: <span id="userNameAjax"><strong>{{ userName }}</strong></span></li>  
+      {% endif %}
+      {% if userEmail %}
+        <li>User Email: <span id="userEmailAjax"><strong>{{ userEmail }}</strong></span></li> 
+      {% endif %}
+      {% if userOrgName %}
+        <li>Organization Name: <span id="userOrgNameAjax"><strong>{{ userOrgName }}</strong></span></li>
+      {% endif %}
+      </ul>
+    {% endif %}
+    {% if locationName or locationAddress or locationCity or locationZip %}
+      <h4>Location Search Terms:</h4>
+      <ul>
+      {% if locationName %}
+        <li>Location Name: <span id="locationNameAjax"><strong>{{ locationName }}</strong></span></li>  
+      {% endif %}
+      {% if locationAddress %}
+        <li>Address: <span id="locationAddressAjax"><strong>{{ locationAddress }}</strong></span></li> 
+      {% endif %}
+      {% if locationCity %}
+        <li>City: <span id="locationCityAjax"><strong>{{ locationCity }}</strong></span></li>
+      {% endif %}
+      {% if locationZip %}
+        <li>Zip Code: <span id="locationZipAjax"><strong>{{ locationZip }}</strong></span></li>
+      {% endif %}
+      </ul>
+    {% endif %}
+
+  </p>
+</div>
+<br />
+<div class="row">
+    <button type="button" class="btn btn-default btn-sm" id="selectAllUsers">Select All</button>
+    <button type="button" class="btn btn-default btn-sm" id="selectNoneUsers">Select None</button>
+    <button type="button" class="btn btn-default btn-sm" id="editUsers">Edit</button>
+    <a class="btn btn-default btn-sm" href="#" role="button">Remove</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">Compare</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">Send Email To</a>
+</div>
+<div id="usersTable" class="row">
+  <table class="table table-striped table-condensed sortable">
+    <thead>
+      <th>Select</th>
+      <th>Number of Programs</th>
+      <th>Name</th>
+      <th>Organization Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Last Updated</th>
+      <th>Possible Duplicates</th>    
+    </thead>
+    <tbody>
+      {% for userObject in userObjects %}
+        <tr>
+          <td><input type="checkbox" value="{{ userObject.userid }}"></td>
+          <td>
+            {% if userObject.sitesUsers %}
+              <a href="#" data-toggle="modal" data-target="#userid_{{ userObject.userid }}">{{ userObject.siteCount }}</a>
+            {% else %}
+              {{ userObject.siteCount }}
+            {% endif %}
+          </td>
+          <td>{{ userObject.username }}</td>
+          <td>{{ userObject.orgname }}</td>
+          <td>{{ userObject.useremail }}</td>
+          {% if userObject.address %}
+            <td>{{ userObject.address }}; {{ userObject.city }}, {{ userObject.state }} {{ userObject.zip }}</td>
+          {% else %}
+            <td></td>
+          {% endif %}
+          <td>{{ userObject.phone }}</td>
+          <td data-dateformat="MMM D, YYYY">
+            {{ userObject.updated|date:"M j, Y" }}
+          </td>
+          <td>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+  <nav>
+    <ul class="pagination">
+      {% if userObjects.has_previous %}
+      <li>
+        <a href="?userPage={{ userObjects.previous_page_number }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li><a href="?userPage=1&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}">1</a></li>
+      <li class="disabled"><a href="#">...</a></li>
+      <li><a href="?userPage={{ userObjects.previous_page_number }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}">{{ userObjects.previous_page_number }}</a></li>
+      <li class="active"><a href="?userPage={{ userObjects.number }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}">{{ userObjects.number }}</a></li>    
+      {% else %}
+      <li class="disabled">
+        <a href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="active"><a href="?userPage={{ userObjects.number }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}">{{ userObjects.number }}</a></li>
+      {% endif %}
+      {% if userObjects.has_next %}
+      <li><a href="?userPage={{ userObjects.next_page_number }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}">{{ userObjects.next_page_number }}</a></li>
+      <li class="disabled"><a href="#">...</a></li>
+      <li><a href="?userPage={{ user_number_of_pages }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}">{{ user_number_of_pages }}</a></li>
+      <li>
+        <a href="?userPage={{ userObjects.next_page_number }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      {% else %}
+      <li class="disabled">
+        <a href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>    
+      {% endif %}
+    </ul>
+  </nav>
+
+</div>
+
+
+
+<!-- Modals for seeing which programs are associated with which locations-->
+{% for userObject in userObjects %}
+<div class="modal fade" id="userid_{{ userObject.userid }}" tabindex="-1" role="dialog" aria-labelledby="sitesLocations" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="sitesLocations">Programs for {{ userObject.username }}</h4>
+      </div>
+      <div class="modal-body">
+        {% for site in userObject.sitesUsers %}
+          <p>
+            <strong>{{ site.name }}</strong><br />
+            {% if site.phone %}
+              {{ site.phone }}<br />
+            {% endif %}
+            {% if site.email %}
+              {{ site.email }}<br />
+            {% endif %}
+            <a class="btn btn-default btn-sm" href="/editPrograms?siteid={{ site.siteid }}">Edit</a>
+            <a class="btn btn-default btn-sm" href="/removePrograms?siteid={{ site.siteid }}">Remove</a>
+          </p>
+          <br />
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+	
+	
+

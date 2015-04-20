@@ -3,7 +3,9 @@
 global.php
 connect.php
 login.php
+logintemplate.php
 .giosave*
+env/
 
 # Compiled source #
 ###################
@@ -32,6 +34,8 @@ login.php
 *.log
 *.sql
 *.sqlite
+*.sqlite3
+*.pyc
  
 # OS generated files #
 ######################

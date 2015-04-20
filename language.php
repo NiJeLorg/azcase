@@ -60,6 +60,7 @@ if ($language==2) {
 		"You searched for" => "Usted buscó",
 		"School Year Programs" => "Programas Durante el Año Escolar",
 		"Summer Programs" => "Programas de Verano",
+		"Summer Program" => "Programa de Verano",
 		"Public Transit Directions To Here From" => "Instrucciones de Llegada Aquí Desde",
 		"Back to Your Search" => "Regresar a Su Búsqueda",
 		"Last Updated" => "Última actualización",
@@ -131,7 +132,8 @@ if ($language==2) {
 		"Saturday" => "Sábado",
 		"Sunday" => "Domingo",
 		"Science, Technology, Engineering, and Mathematics" => "Ciencia, Tecnología, Ingeniería, y Matemáticas",
-		"College and Career Readiness" => "Preparación para la Universidad y Una Carrera"
+		"College and Career Readiness" => "Preparación para la Universidad y Una Carrera",
+		"Search Again" => "Buscar de Nuevo"
 
 
 
@@ -189,6 +191,7 @@ if ($language==2) {
 		"You searched for" => "You searched for",
 		"School Year Programs" => "School Year Programs",
 		"Summer Programs" => "Summer Programs",
+		"Summer Program" => "Summer Program",
 		"Public Transit Directions To Here From" => "Public Transit Directions To Here From",
 		"Back to Your Search" => "Back to Your Search",
 		"Last Updated" => "Last Updated",
@@ -260,7 +263,8 @@ if ($language==2) {
 		"Saturday" => "Saturday",
 		"Sunday" => "Sunday",
 		"Science, Technology, Engineering, and Mathematics" => "Science, Technology, Engineering, and Mathematics",
-		"College and Career Readiness" => "College and Career Readiness"
+		"College and Career Readiness" => "College and Career Readiness",
+		"Search Again" => "Search Again"
 
 
 

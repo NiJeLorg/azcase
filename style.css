@@ -2,8 +2,8 @@
 html{height: 100%;}
 
 body
-{ font-family:Arial, Helvetica, sans-serif;
-                font-size:12px;
+{ font-family:Roboto, Arial, Helvetica, sans-serif;
+                font-size:14px;
                 color:#403e40;
 }
 
@@ -15,10 +15,10 @@ p
 }
 
 h1
-{ font-family:Arial, Helvetica, sans-serif;
-                font-size:14px;
+{ font-family:Roboto, Arial, Helvetica, sans-serif;
+                font-size:18px;
                 font-weight:bold;
-                color:#bc2122;
+                color:#b92b29;
 }
 
 h1 a:link {
@@ -26,46 +26,47 @@ h1 a:link {
 }
 
 h2
-{  font-family:Arial, Helvetica, sans-serif;
-                font-size:12px;
+{  font-family:Roboto, Arial, Helvetica, sans-serif;
+                font-size:16px;
                 font-weight:bold;
                 color:#000000;
 }
 
 span.required
-{ color:#bc2122;
+{ color:#b92b29;
 	font-style:italic}
 
 span.name
-{ font-family:Arial, Helvetica, sans-serif;
+{ font-family:Roboto, Arial, Helvetica, sans-serif;
                 font-size:20px;
                 font-weight:bold;
-                color:#bc2122;
+                color:#b92b29;
 }
 
 span.verified
-{ font-family:Arial, Helvetica, sans-serif;
-                font-size:12px;
+{ font-family:Roboto, Arial, Helvetica, sans-serif;
+                font-size:14px;
                 font-weight:bold;
                 color:#00cc00;
 }
 
 a:link { 
-	font-family:Arial, Helvetica, sans-serif;
-                font-size:12px;
-	color: #bc2122;
+	font-family:Roboto, Arial, Helvetica, sans-serif;
+                font-size:14px;
+	color: #b92b29; 
 	}
 a:visited { 
-	color: #bc2122;
-	}
-a:hover { 
-	color: #000000;
-	text-decoration: none;
+	color: #b92b29;
 	}
 
+a:hover, a:focus { 
+  color: #fe0000;
+  text-decoration: none; 
+}
+
 select {
- font-family:Arial, Helvetica, sans-serif;
-                font-size:11px;
+ font-family:Roboto, Arial, Helvetica, sans-serif;
+                font-size:14px;
                 color:#403e40;
 }
 
@@ -188,7 +189,7 @@ div.m div.mlabel {
 	white-space:nowrap;
 }
 div.m div.mnumber {
-	color:#bc2122; 
+	color:#b92b29; 
 	display:block; 
 	font-size:20px; 
 	height:22px; 

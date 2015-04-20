@@ -1,0 +1,268 @@
+{% extends 'azcase_admin/base.html' %}
+{% load staticfiles %}
+
+{% block css_block %}
+{% endblock %}
+
+{% block head_js_block %}
+{% endblock %}
+	
+
+{% block content %}
+
+    <div class="container">
+      <div class="row">
+        <div class="center-block">
+          <h2 class="text-center azcase-text-color">AZ Afterschool Program Directory Admin Dashboard</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center-block">
+          {% if verifiedCount %}
+            <p class="text-center azcase-text-color"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><strong>{{ verifiedCount }} New Programs Submitted</strong> <a class="btn btn-default" href="{% url 'verifyPrograms' %}" role="button">Verify Programs</a></p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+         <h4 class="azcase-text-color">Searching the Directory</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            <form class="pull-left marginRightBottom4" action="{% url 'programs' %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="programPage" value="1">
+              <input class="btn btn-default" type="submit" value="Go to Table of All Programs">
+            </form>
+            <form class="pull-left marginRightBottom4" action="{% url 'users' %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="userPage" value="1">
+              <input class="btn btn-default" type="submit" value="Go to Table of All Users">
+            </form>
+            <form class="pull-left marginRightBottom4" action="{% url 'locations' %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="locationPage" value="1">
+              <input class="btn btn-default" type="submit" value="Go to Table of All Locations">
+            </form>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+          	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#searchSites">Search for Programs</button>
+          	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#searchUsers">Search for Users</button>
+          	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#searchLocations">Search for Locations</button>
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+         <h4 class="azcase-text-color">Adding to the Directory</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+           <a class="btn btn-default" href="{% url 'addPrograms' %}" role="button">Add Programs</a>
+           <a class="btn btn-default" href="{% url 'addUsers' %}" role="button">Add Users</a>
+           <a class="btn btn-default" href="{% url 'addLocations' %}" role="button">Add Locations</a>
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+         <h4 class="azcase-text-color">Handling Duplicate Records (UNDER CONSTRUCTION)</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+           2 Duplicates Detected
+           <a class="btn btn-default" href="#" role="button">Address Duplicate Records</a>
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+         <h4 class="azcase-text-color">Download Directory Data</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+           <a class="btn btn-default" href="{% url 'downloadData' %}" role="button">Download Data</a>
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+         <h4 class="azcase-text-color">Communications (UNDER CONSTRUCTION)</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+           <a class="btn btn-default" href="#" role="button">Send Email to Users</a>
+           <a class="btn btn-default" href="#" role="button">Review Communications Sent to Users</a>
+           <a class="btn btn-default" href="#" role="button">Set Admin Email "From" Address</a>
+           <a class="btn btn-default" href="#" role="button">Edit Auto-Emails</a>
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+         <h4 class="azcase-text-color">User Management (UNDER CONSTRUCTION)</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+           <a class="btn btn-default" href="#" role="button">Reassign Programs to New Users</a>
+           <a class="btn btn-default" href="#" role="button">Edit Administrator Accounts</a>
+           <a class="btn btn-default" href="#" role="button">Set Public Advanced Search Settings</a>
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+         <h4 class="azcase-text-color">Custom Reports (UNDER CONSTRUCTION)</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+           <a class="btn btn-default" href="#" role="button">Generate Custom Reports</a>
+           <a class="btn btn-default" href="#" role="button">Set Public Custom Report Generator Settings</a>
+          </p>
+        </div>
+      </div>
+
+
+    </div> <!-- /container -->
+
+
+{% endblock %}
+
+{% block modal_block %}
+<!-- Modal for searching by site-->
+<div class="modal fade" id="searchSites" tabindex="-1" role="dialog" aria-labelledby="searchSitesLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="searchSites">Search by Program</h4>
+      </div>
+      <form action="{% url 'programs' %}" method="post">
+      	{% csrf_token %}
+        <input type="hidden" name="programPage" value="1">
+	      <div class="modal-body">
+			  <div class="form-group">
+			    <label for="siteName">Program Name</label>
+			    <input type="text" class="form-control" name="siteName" id="siteName">
+			  </div>
+			  <div class="form-group">
+			    <label for="siteEmail">Program Email</label>
+			    <input type="email" class="form-control" name="siteEmail" id="siteEmail">
+			  </div>
+			  <div class="form-group">
+			    <label for="sitePhone">Program Phone Number</label>
+			    <input type="text" class="form-control" name="sitePhone" id="sitePhone">
+			  </div>
+	      </div>
+	      <div class="modal-footer">
+	        <input class="btn btn-primary" type="submit" value="Submit">
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for ajax searching by user-->
+<div class="modal fade" id="searchUsers" tabindex="-1" role="dialog" aria-labelledby="searchUsersLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="searchUsersLabel">Search by User</h4>
+      </div>
+      <form action="{% url 'users' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="userPage" value="1">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="userName">User Name</label>
+            <input type="text" class="form-control" name="userName" id="userName">
+          </div>
+          <div class="form-group">
+            <label for="userEmail">User Email</label>
+            <input type="email" class="form-control" name="userEmail" id="userEmail">
+          </div>
+          <div class="form-group">
+            <label for="userOrgName">User Organization Name</label>
+            <input type="text" class="form-control" name="userOrgName" id="userOrgName">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input class="btn btn-primary" type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for ajax searching by location-->
+<div class="modal fade" id="searchLocations" tabindex="-1" role="dialog" aria-labelledby="searchLocationsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="searchLocationsLabel">Search by Location</h4>
+      </div>
+      <form action="{% url 'locations' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="locationPage" value="1">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="locationName">Location Name</label>
+            <input type="text" class="form-control" name="locationName" id="locationName">
+          </div>
+          <div class="form-group">
+            <label for="locationAddress">Address</label>
+            <input type="text" class="form-control" name="locationAddress" id="locationAddress">
+          </div>
+          <div class="form-group">
+            <label for="locationCity">City</label>
+            <input type="text" class="form-control" name="locationCity" id="locationCity">
+          </div>
+          <div class="form-group">
+            <label for="locationZip">Zip Code</label>
+            <input type="text" class="form-control" name="locationZip" id="locationZip">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input class="btn btn-primary" type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block js_block %}
+{% endblock %}
+
+
+	
+	
+

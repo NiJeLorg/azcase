@@ -274,27 +274,30 @@ $mapjs .= $titlesLayer;
 $mapjs .= "
     for (var i = 0; i < markersLayer.length; i++) {
         var markerLatLng = new google.maps.LatLng(markersLayer[i][0], markersLayer[i][1]);
-	var image = new google.maps.MarkerImage(iconsLayer[i][0],
-		new google.maps.Size(32, 32), 
-		new google.maps.Point(0,0), 
-		new google.maps.Point(0, 32)
-		);
 
-	var shadow = new google.maps.MarkerImage(shadowsLayer[i][0],
-		new google.maps.Size(51, 37), 
-		new google.maps.Point(0,0), 
-		new google.maps.Point(0, 37)
-		);
+		var image = {
+			url: iconsLayer[i][0],
+			size: new google.maps.Size(32, 32),
+			origin: new google.maps.Point(0, 0),
+			anchor: new google.maps.Point(12, 32)
+		};
+
+		var shadow = {
+			url: shadowsLayer[i][0],
+			size: new google.maps.Size(51, 37),
+			origin: new google.maps.Point(0, 0),
+			anchor: new google.maps.Point(0, 37)
+		};
 
         var marker = new google.maps.Marker({
-		position: markerLatLng,
-		map: map,
-		shadow: shadow,
-		icon: image,
-		title: titlesLayer[i][0]
-	});
-	
-	attachSecretMessage(marker, i);
+			position: markerLatLng,
+			map: map,
+			shadow: shadow,
+			icon: image,
+			title: titlesLayer[i][0]
+		});
+		
+		attachSecretMessage(marker, i);
  
         markers.push(marker);
     }
