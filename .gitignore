@@ -6,6 +6,9 @@ login.php
 logintemplate.php
 .giosave*
 env/
+settings.py
+*.csv
+*.kml
 
 # Compiled source #
 ###################
