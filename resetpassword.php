@@ -16,6 +16,7 @@ require('header.php');
 $temp_pass = $_REQUEST['42'];
 $md5pass = md5($temp_pass);
 
+
 /* Pull userid from related to the temporary password */
 $passquery = "SELECT userid FROM azcase_users WHERE temp_pass = '$md5pass';";
 $result = pg_query($connection, $passquery);

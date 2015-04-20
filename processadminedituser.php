@@ -9,7 +9,7 @@ require("connect.php");
 require('login.php');
 
 // processing login script
-//displayLogin();
+displayLogin();
 
 // requests a user to log in if they haven't already
 global $logged_in;
@@ -130,7 +130,7 @@ if ($useremail!=$useremailold) {
 	$subject = "AZ Afterschool Program Directory | User Account Changes";
 	$headers = "From: Genevieve Burns <gburns@azafterschool.org> \r\n";
 	$headers .= "Content-type: text/html\r\n"; 
-	$url = "http://maps.nijel.org/azcase/resetpassword.php?42=$randompassword";
+	$url = "http://maps.nijel.org/azcase_dev/resetpassword.php?42=$randompassword";
 
 	$message = "
 Hello $useremail,
@@ -162,6 +162,6 @@ Arizona Center for Afterschool Excellence
 }else{}
 
 
-header("Location: http://maps.nijel.org/azcase/endadminedituser.php?userid=$userid&searchusername=$searchusername&searchuseremail=$searchuseremail&searchorgname=$searchorgname");
+header("Location: http://maps.nijel.org/azcase_dev/endadminedituser.php?userid=$userid&searchusername=$searchusername&searchuseremail=$searchuseremail&searchorgname=$searchorgname");
 ?>
 

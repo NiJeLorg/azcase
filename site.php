@@ -16,6 +16,7 @@ require('language.php');
 
 $siteid = $_REQUEST['siteid'];
 $locationid = $_REQUEST['locationid'];
+$pledge = $_REQUEST['pledge'];
 $language = $_REQUEST['language'];
 $zoom = $_REQUEST['zoom'];
 $language = $_REQUEST['language'];
@@ -573,22 +574,64 @@ $contentsLayer .= '\" /><input type=\"hidden\" name=\"daddr\" value=\"';
 $contentsLayer .= $printaddress;
 $contentsLayer .= '\" /><input type=\"hidden\" name=\"hl\" value=\"en\" /><input type=\"hidden\" name=\"mra\" value=\"ls\" /><input type=\"hidden\" name=\"dirflg\" value=\"r\" /></form>"';
 
+// adding in the make it count pledge through the wordpress api
+// see if pledge page ID has been set first and pass that as url
+$wp_pledge_id = '';
+$pledgeIDquery = "SELECT wp_pledge_id FROM azcase_sites_locations_junction WHERE siteid = $siteid AND locationid = $locationid;";
+$record = pg_query($connection, $pledgeIDquery);
+for ($lt = 0; $lt < pg_numrows($record); $lt++) {
+	$wp_pledge_id = pg_result($record, $lt, 0);
+}
+
+if ($wp_pledge_id) {
+	$WPUrl = "http://azafterschool.org/wp-json/posts?type=pledge&filter[page_id]=" . urlencode($wp_pledge_id);
+} else {
+	// remove extraneous characters
+	$search =  '!"#$%&/()=?*+\'-.,;:_' ;
+	$search = str_split($search);
+	$sitenamesearch = str_replace($search, "", $sitename);
+	$preps = array(' and', ' an', ' a', ' the', ' or', ' of', ' by');
+	$sitenamesearch = str_replace($preps, "", $sitenamesearch);
+	//let's only use the first four words for matching
+	$sitenamesearch = explode(" ", $sitenamesearch);
+	$sitenamesearch = array_slice($sitenamesearch, 0, 5);
+	$sitenamesearch = implode(" ", $sitenamesearch);
+
+	$WPUrl = "http://azafterschool.org/wp-json/posts?type=pledge&filter[s]=" . urlencode($sitenamesearch);
+}
+
+$pledgeQuery = file_get_contents($WPUrl);
+$pledgeData = json_decode($pledgeQuery);
+if ($pledgeData) {
+	$pledge = 1;
+	$pledgeURL = $pledgeData[0] -> link;
+} elseif ($pledge == 1) {
+	$pledgeURL = "http://azafterschool.org/promoting-quality/make-it-count-pledge/";
+} else {}
+
+
 ?>
 <body onload="initialize()">
-	<p><a href="<?php echo $searchurl; ?>">&#60;&#60; <?php echo $langtext['Back to Your Search']; ?></a></p>
-	<table width="800">
+	<table width="100%">
 		<tr>
-			<td align="left"><span class="name"><?php echo $sitename; ?></span></td>
+			<td align="left"><p><a href="searchhome.php?language=<?php echo $language; ?>">&#60;&#60; <?php echo $langtext['Search Again']; ?></a> | <a href="<?php echo $searchurl; ?>">&#60;&#60; <?php echo $langtext['Back to Your Search']; ?></a></p></td>
 			<td align="right"><b><?php echo $langtext['Last Updated']; ?>:</b> <?php echo $updated; ?></td>
 		</tr>
 		<tr>
-			<td align="left"><b><?php echo $langtext['Website']; ?>: </b><a href="<?php echo $url; ?>"><?php echo $url; ?></a></td>
+			<td align="left" valign="top"><span class="name"><?php echo $sitename; ?></span><br /><b><?php echo $langtext['Website']; ?>: </b><a href="<?php echo $url; ?>" target="_blank"><?php echo $url; ?></a></td>
+			<?php 
+				if ($pledge == 1) {
+			?>
+					<td align="right"><a href="<?php echo $pledgeURL; ?>" target="_blank"><img src="MIC_Pledge_Badge.png"/></a></td>
+			<?php 
+				}
+			?>
 		</tr>
 	</table>
 	<br />
-	<table width="800" cellpadding="4">
+	<table width="924">
 		<tr>
-			<td align="left" valign="top">
+			<td width="374" valign="top" style="padding-right: 10px;">
 				<b><?php echo $langtext['Address']; ?>: </b><?php echo $printaddress; ?><br />
 				<b><?php echo $langtext['Phone']; ?>: </b><?php echo $phone; ?><br />
 				<?php if (!$fax) {} else { echo '<b>'. $langtext['Fax'] . ':</b> '.$fax.'<br />'; } ?>
@@ -597,7 +640,7 @@ $contentsLayer .= '\" /><input type=\"hidden\" name=\"hl\" value=\"en\" /><input
 				<?php echo $activities; ?>
 				<b><?php echo $langtext['Ages Served']; ?>:</b> <?php echo $agesserved; ?>				
 			</td>
-			<td align="left"><div id="afterschoolgmap" style="border: 1px solid #979797; background-color: #e5e3df; width: 450px; height: 250px;"></div></td>
+			<td><div id="afterschoolgmap" style="border: 1px solid #979797; background-color: #e5e3df; width: 550px; height: 250px;"></div></td>
 		</tr>
 	</table>
 	<br />

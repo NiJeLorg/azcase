@@ -9,7 +9,7 @@ require("connect.php");
 require('login.php');
 
 // processing login script
-//displayLogin();
+displayLogin();
 
 // requests a user to log in if they haven't already
 global $logged_in;
@@ -347,6 +347,6 @@ require('inserteditsites.php');
 }else{}
 
 
-header("Location: http://maps.nijel.org/azcase/editsitesurvey.php?siteid=$siteid&siteid_old=$siteid_old&locationid=$locationid&locationid_old=$locationid_old");
+header("Location: http://maps.nijel.org/azcase_dev/editsitesurvey.php?siteid=$siteid&siteid_old=$siteid_old&locationid=$locationid&locationid_old=$locationid_old");
 ?>
 

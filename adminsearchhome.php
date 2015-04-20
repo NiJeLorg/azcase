@@ -1,5 +1,5 @@
 <?php
-ini_set('session.cache_limiter', 'private');
+ini_set('session.cache_limiter', 'nocache');
 session_start(); 
 
 // privacy policy for cookies

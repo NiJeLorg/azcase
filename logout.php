@@ -5,7 +5,7 @@ session_start();
 header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
 
 require("connect.php");
-//require("login.php");
+require("login.php");
 
 // Logout script
 
@@ -22,13 +22,20 @@ if(isset($_COOKIE['cookname']) && isset($_COOKIE['cookpass'])){
 //header
 require('header.php');
 
-/* Kill session variables */
-unset($_SESSION['useremail']);
-unset($_SESSION['password']);
-$_SESSION = array(); // reset session array
-session_destroy();   // destroy session.
-echo "<body><h1>Logged Out</h1>\n";
-echo "<p>You have successfully <b>logged out</b>. Back to <a href=\"index.php\">home</a></p>";
+if(!$logged_in){
+   echo "<body><h1>Error!</h1>\n";
+   echo "<p>You are not currently logged in, logout failed. Back to <a href=\"index.php\">home</a></p>";
+}
+else{
+   /* Kill session variables */
+   unset($_SESSION['useremail']);
+   unset($_SESSION['password']);
+   $_SESSION = array(); // reset session array
+   session_destroy();   // destroy session.
+
+   echo "<body><h1>Logged Out</h1>\n";
+   echo "<p>You have successfully <b>logged out</b>. Back to <a href=\"index.php\">home</a></p>";
+}
 
 //footer
 require('footer.php');

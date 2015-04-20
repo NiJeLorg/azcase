@@ -9,7 +9,7 @@ require("connect.php");
 require('login.php');
 
 // processing login script
-//displayLogin();
+displayLogin();
 
 // requests a user to log in if they haven't already
 global $logged_in;
@@ -147,6 +147,6 @@ for ($lt = 0; $lt < pg_numrows($siteidloopresult); $lt++) {
 }else{}
 
 
-header("Location: http://maps.nijel.org/azcase/thankyoudecline.php");
+header("Location: http://maps.nijel.org/azcase_dev/thankyoudecline.php");
 ?>
 

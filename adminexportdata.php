@@ -12,10 +12,10 @@ require("connect.php");
 require('login.php');
 
 // create header
-//require('header.php');
+require('header.php');
 
 // processing login script
-//displayLogin();
+displayLogin();
 
 // requests a user to log in if they haven't already
 global $logged_in;
@@ -1665,7 +1665,7 @@ if ($countschoolyear>0) {
 		$sitename = addslashes($sitename);
 		$sitename = trim($sitename);
 
-		$schoolyearsites .= '<li><a href="http://maps.nijel.org/azcase/site.php?siteid=';
+		$schoolyearsites .= '<li><a href="http://maps.nijel.org/azcase_dev/site.php?siteid=';
 		$schoolyearsites .= $siteid;
 		$schoolyearsites .= '&locationid=';
 		$schoolyearsites .= $locationid;
@@ -1702,7 +1702,7 @@ if ($countsummer>0) {
 		$sitename = addslashes($sitename);
 		$sitename = trim($sitename);
 
-		$summersites .= '<li><a href="http://maps.nijel.org/azcase/site.php?siteid=';
+		$summersites .= '<li><a href="http://maps.nijel.org/azcase_dev/site.php?siteid=';
 		$summersites .= $siteid;
 		$summersites .= '&locationid=';
 		$summersites .= $locationid;

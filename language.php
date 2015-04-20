@@ -60,6 +60,7 @@ if ($language==2) {
 		"You searched for" => "Usted buscó",
 		"School Year Programs" => "Programas Durante el Año Escolar",
 		"Summer Programs" => "Programas de Verano",
+		"Summer Program" => "Programa de Verano",
 		"Public Transit Directions To Here From" => "Instrucciones de Llegada Aquí Desde",
 		"Back to Your Search" => "Regresar a Su Búsqueda",
 		"Last Updated" => "Última actualización",
@@ -112,7 +113,7 @@ if ($language==2) {
 		"Invalid characters in your zip code. Please try again." => "Los caracteres no válidos en su código postal. Por favor, inténtelo de nuevo.",
 		"The hyphen character should be used with a properly formatted 5 digit+four zip code, like 12345-6789. Please try again." => "El carácter de guión debe ser utilizado con un formato adecuado 5 dígitos del código postal 4, al igual que 12345-6789. Por favor, inténtelo de nuevo.",
 		"Other Options Chosen" => "Otras Opciones Elegidas",
-		"No Locations Match Your Search Criteria. Unfortunately, your search returned no matching results. Please go back and pick a new location or select different search criteria. Thank you." => "<h1>No hay ubicaciones que coinciden con su criterio de búsqueda.<h1><p>Desafortunadamente, su búsqueda no produjo resultados coincidentes. Por favor, <a href=\"advancedsearchhome.php?language=2\">volver atrás</a> y elija una nueva ubicación o seleccioné diferentes criterios de búsqueda. Gracias.</p>",
+		"No Locations Match Your Search Criteria. Unfortunately, your search returned no matching results. Please go back and pick a new location or select different search criteria. Thank you." => "<h1>No hay ubicaciones que coinciden con su criterio de búsqueda.<h1><p>Desafortunadamente, su búsqueda no produjo resultados coincidentes. Por favor, <a href=\"searchhome.php?language=2\">volver atrás</a> y elija una nueva ubicación o seleccioné diferentes criterios de búsqueda. Gracias.</p>",
 		"Go!" => "Ir!",
 		"Not Updated" => "No Se Actualiza",
 		"This program charges a fee" => "Este programa cobra una tarifa",
@@ -131,7 +132,8 @@ if ($language==2) {
 		"Saturday" => "Sábado",
 		"Sunday" => "Domingo",
 		"Science, Technology, Engineering, and Mathematics" => "Ciencia, Tecnología, Ingeniería, y Matemáticas",
-		"College and Career Readiness" => "Preparación para la Universidad y Una Carrera"
+		"College and Career Readiness" => "Preparación para la Universidad y Una Carrera",
+		"Search Again" => "Buscar de Nuevo"
 
 
 
@@ -189,6 +191,7 @@ if ($language==2) {
 		"You searched for" => "You searched for",
 		"School Year Programs" => "School Year Programs",
 		"Summer Programs" => "Summer Programs",
+		"Summer Program" => "Summer Program",
 		"Public Transit Directions To Here From" => "Public Transit Directions To Here From",
 		"Back to Your Search" => "Back to Your Search",
 		"Last Updated" => "Last Updated",
@@ -241,7 +244,7 @@ if ($language==2) {
 		"Invalid characters in your zip code. Please try again." => "Invalid characters in your zip code. Please try again.",
 		"The hyphen character should be used with a properly formatted 5 digit+four zip code, like 12345-6789. Please try again." => "The hyphen character should be used with a properly formatted 5 digit+four zip code, like 12345-6789. Please try again.",
 		"Other Options Chosen" => "Other Options Chosen",
-		"No Locations Match Your Search Criteria. Unfortunately, your search returned no matching results. Please go back and pick a new location or select different search criteria. Thank you." => "<h1>No Locations Match Your Search Criteria.</h1><p>Unfortunately, your search returned no matching results. Please <a href=\"advancedsearchhome.php\">go back</a> and pick a new location or select different search criteria. Thank you.</p>",
+		"No Locations Match Your Search Criteria. Unfortunately, your search returned no matching results. Please go back and pick a new location or select different search criteria. Thank you." => "<h1>No Locations Match Your Search Criteria.</h1><p>Unfortunately, your search returned no matching results. Please <a href=\"searchhome.php\">go back</a> and pick a new location or select different search criteria. Thank you.</p>",
 		"Go!" => "Go!",
 		"Not Updated" => "Not Updated",
 		"This program charges a fee" => "This program charges a fee",
@@ -260,7 +263,8 @@ if ($language==2) {
 		"Saturday" => "Saturday",
 		"Sunday" => "Sunday",
 		"Science, Technology, Engineering, and Mathematics" => "Science, Technology, Engineering, and Mathematics",
-		"College and Career Readiness" => "College and Career Readiness"
+		"College and Career Readiness" => "College and Career Readiness",
+		"Search Again" => "Search Again"
 
 
 

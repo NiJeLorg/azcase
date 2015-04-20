@@ -12,7 +12,7 @@ require("connect.php");
 require('login.php');
 
 // processing login script
-//displayLogin();
+displayLogin();
 
 // requests a user to log in if they haven't already
 global $logged_in;
@@ -46,11 +46,11 @@ $countquery = "SELECT count(*) FROM azcase_user_sites_junction WHERE siteid = $s
 $countresult = pg_query($connection, $countquery);
 $countsite = pg_result($countresult, 0, 0);
 if ($countsite==0) {
-	header("Location: http://maps.nijel.org/azcase/summersites.php");
+	header("Location: http://maps.nijel.org/azcase_dev/summersites.php");
 }else{
 
 // create header
-//require('header.php');
+require('header.php');
 
 // if siteid exists then pull site name and location
 	$sitenamequery = "SELECT name FROM azcase_sites WHERE siteid = $siteid;";

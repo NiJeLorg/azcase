@@ -9,7 +9,7 @@ require("connect.php");
 require('login.php');
 
 // processing login script
-//displayLogin();
+displayLogin();
 
 // requests a user to log in if they haven't already
 global $logged_in;
@@ -63,6 +63,6 @@ pg_send_query($connection, $removelocation);
 }else{}
 
 
-header("Location: http://maps.nijel.org/azcase/endadminremovelocation.php?zoom=$zoom&searchstreet=$searchstreet&searchcity=$searchcity&searchstate=$searchstate&searchzip=$searchzip");
+header("Location: http://maps.nijel.org/azcase_dev/endadminremovelocation.php?zoom=$zoom&searchstreet=$searchstreet&searchcity=$searchcity&searchstate=$searchstate&searchzip=$searchzip");
 ?>
 

@@ -3,9 +3,9 @@
 734,"479 S. Lake Powel Blvd.","Page Public Library","479 S. Lake Powel Blvd.","P.O. Box 1776",Page,AZ,86040
 789,"AAEC-Red Mountain","AAEC-Red Mountain","2165 N. Power Rd",,Mesa,AZ,85215
 1086,"Abraham Lincoln Traditional School",,"10444 N. 39th Ave. ",,Phoenix,AZ,85051
-122,"Acacia Elementary School",,"3021 W Evans Dr",,Phoenix,AZ,85053
 390,"Acacia Elementary School",,"3021 W. Evans Dr",,Phoenix,AZ,85051
 9,"Acacia Elementary School",,"12955 E. Colossal Cave Rd",,Vail,AZ,85641
+122,"Acacia Elementary School",,"3021 W Evans Dr",,Phoenix,AZ,85053
 681,"Academic Help Desk",,"2030 E Broadway Blvd.",#205,Tucson,AZ,85719
 130,"Academy Adventures Primary School",,"3902 N. Flowing Wells Rd.",,Tucson,AZ,85705
 94,"Academy of Math and Science",,"1557 W. Prince",,Tucson,AZ,85705
@@ -26,7 +26,7 @@
 951,"American Leadership Academy",,"4507 S Mountain Road",,Mesa,AZ,85212
 396,"AmeriSchools Academy",,"1150 N country club",,tucson,AZ,85716
 357,"AmeriSchools Academy Camelback",,"1333 W Camelback Rd",,Phoenix,AZ,85013
-368,"AmeriSchools Academy Yuma",,"2098 S. 3rd Ave",,Yuma,AZ,85364
+368,"AmeriSchools Academy YUma",,"2098 S. 3rd Ave",,Yuma,AZ,85364
 638,"Amy L. Houston Academy",,"7139 South 10th Street",,Phoenix,AZ,
 639,"Anasazi Elementary School",,"12121 N. 124th St.",,Scottsdale,AZ,85259
 317,"Andersen Elementary",,"1350 w. Pennington",,Chandler,AZ,85224
@@ -41,11 +41,11 @@
 465,"Anthem Tutor Time",,"3720 W. Anthem Way",,Anthem,AZ,85086
 467,"AOE Phoenix",,"425 N. 36th St",,Phoenix,AZ,
 501,"Apache Elementary",,"8633 W. John Cabot Rd.",,Peoria,AZ,85382
-802,"Apollo Middle School",,"265 W. Nebraska St",,Tucson,AZ,85706
 359,"Apollo Middle School",,"2797 N. Introspect Drive",,Tucson,AZ,85745
+802,"Apollo Middle School",,"265 W. Nebraska St",,Tucson,AZ,85706
 1145,"Archer Recreation Center",,"1665 S. La Cholla",,Tucson,AZ,85713
-1057,"Archway Glendale Prep",,"23276 N 83rd Ave",,"Peoria ",AZ,85383
 1062,"Archway Glendale Prep",,"23276 N 83rd Ave",,Peoria,AZ,85383
+1057,"Archway Glendale Prep",,"23276 N 83rd Ave",,"Peoria ",AZ,85383
 96,"Arivaca Community Center",,"16012 W. Universal Ranch Rd.","Box 36",Arivaca,AZ,85601
 759,"Arizona City Branch",,"15115 W. Benito Ave.",,"Arizona City",AZ,85123
 1042,"Arizona Desert Elementary School",,"8803 W. Van Buren St.",,"Tolleson ",AZ,85353
@@ -64,14 +64,15 @@
 835,"Ashton Ranch Elementary",,"14898 W. Acoma Drive",,Surprise,AZ,85379
 950,"ASU Polytechnic",,"7001 E Williams Field Rd",,Mesa,AZ,85212
 594,"ASU Preparatory Academy",,"735 East Fillmore",,Phoenix,AZ,85006
-1082,"As You Wish Pottery",,"2000 E Rio Salado Parkway #1141",,Tempe,AZ,85281
-1083,"As You Wish Pottery",,"4905 East Ray Rd. #103AZ ",," Phoenix",AZ,85044
+1079,"As You Wish Pottery",,"4905 East Ray Rd. #103",,Phoenix,AZ,85044
 1081,"As You Wish Pottery",,"1649 S Stapley #101",,Mesa,AZ,85204
 1080,"As You Wish Pottery",,"2970 E Germann Rd #4",,Chandler,AZ,85286
 1078,"As You Wish Pottery",,"21001 N Tatum Blvd",,Phoenix,AZ,85050
 1077,"As You Wish Pottery",,"3009 W Agua Fria Fwy",,Phoenix,AZ,85027
-1069,"ATA Martial Arts","ATA Artes Marciales","13735 W. Auto Dr.",,Goodyear,AZ,85338
+1082,"As You Wish Pottery",,"2000 E Rio Salado Parkway #1141",,Tempe,AZ,85281
+1083,"As You Wish Pottery",,"4905 East Ray Rd. #103AZ ",," Phoenix",AZ,85044
 1070,"ATA Martial Arts","ATA Artes Marciales","29850 N. Tatum Blvd ",#105,"Cave Creek",AZ,85331
+1069,"ATA Martial Arts","ATA Artes Marciales","13735 W. Auto Dr.",,Goodyear,AZ,85338
 448,"Augusta Ranch Elementary",,"9430 E. Neville Ave.",,Mesa,AZ,85209
 921,AzCASE,,"3205 S. Rural Rd.",,Tempe,AZ,85282
 895,"Bahsa Elementary",,"3535 E Basha Road",,Chandler,AZ,85248
@@ -104,8 +105,7 @@
 487,"Borton Elementary School",,"700 E 22nd Street",,Tucson,AZ,85713
 540,"Boulder Creek Elementary",,"22801 N. 22nd Street",,Phoenix,AZ,85024
 148,"Boys and Girls Club",,"5047 W. Pecos Rd.",,Laveen,AZ,85339
-166,"Boys and Girls Clubs of Greater Scottsdale Vestar Branch",,"3975 e lockwood",,phoenix,AZ,85050
-1179,"Boys and Girls Clubs of Greater Scottsdale Virginia G. Piper Branch","Boys and Girls Clubs of Greater Scottsdale Virginia G. Piper Branch","10515 E. Lakeview Dr.",,Scottsdale,AZ,85258
+619,"Boys and Girls Clubs of Greater Scottsdale - Piper Branch",,"10515 Lakeview Dr",,Scottsdale,AZ,85258
 1138,"Boys and Girls Clubs of the East Valley Queen Creek Branch",,"22557 S. Ellsworth Rd. ",,"Queen Creek",AZ,85142
 1004,"Boy Scouts of America","Office, Scout Store","5049 E Broadway Blvd",#200,Tucson,AZ,85711
 1052,"Boys & Girls Club Grant Woods ",,"221 W. 6th Ave",,Mesa,AZ,85210
@@ -151,8 +151,8 @@
 228,"Butterfield Elementary",,"3400 W. Massingale",,Tucson,AZ,85741
 545,"Cactus View Elementary School",,"17602 N. Central",,Phoenix,AZ,85022
 89,"Cactus Wren Elementary School",,"9650 N. 39th Ave",,Phoenix,AZ,85032
-1091,"Camelback Bible Church",,"3900 E Stanford Dr ",,"Paradise Valley ",AZ,85253
 1072,"Camelback Bible Church",,"3900 E Stanford Dr",,"Paradise Valley",AZ,85253
+1091,"Camelback Bible Church",,"3900 E Stanford Dr ",,"Paradise Valley ",AZ,85253
 1136,"Camp Foothills",,"4300 E. Sunrise Drive",,Tucson,AZ,85718
 1025,"Camp Iwannago","Thomas Elementary","3330 E. Lockett Ave. ",,Flagstaff,AZ,86004
 296,"Campo Bello Elementary School",,"2650 E. Contention Mine",,Phoenix,AZ,85032
@@ -175,14 +175,16 @@
 258,"Casas Christian School",,"10801 N La Cholla Blvd",,Tucson,AZ,85742
 1131,"Catalina Foothills High School",,"4300 E. Sunrise Dr.",,Tucson,AZ,85718
 462,"Catalina Recreation Center",,"16562 N. Oracle Rd.",,Tucson,AZ,85739
-71,"Centennial Elementary School",,"2200 W. Wetmore Rd.",,Tucson,AZ,85705
 991,"Centennial Elementary School ",,"3507 S. Ranch House Parkway ",,"Gilbert ",AZ,85297
+71,"Centennial Youth Enrichment Services",,"2200 W. Wetmore Rd.",,Tucson,AZ,85705
 362,"Centerra Mirage School",,"15151 Centerra Drive South",,Goodyear,AZ,85338
 198,"Central Mesa",,"466 S. Bellview St.",,Mesa,AZ,85204
 149,"Central Park Neighborhood Center",,"140 E. Tonto Street",,Phoenix,AZ,85004
 23,"Central United Methodist Church",,"1875 North Central Avenue",,Phoenix,AZ,85004
+50,"Central & Western Avenue",,"301 E. Western Avenue",,Avondale,AZ,85323
 348,"C. E. Rose",,"710 W. Michigan Dr",,,AZ,85748
 281,"Cerritos Elementary",,"14620 S. Desert Foothills Parkway",,Phoenix,AZ,85048
+633,"Cerritos Elementary School",,"14620 S Desert Foothills Pky.",,Phoenix,AZ,85018
 1050,"Cesar Chavez Community School",,"4001 S. 3rd Street",,Phoenix,AZ,85040
 346,"Cesar Chavez Elementary School",,"4001 S. Third St",,Phoenix,AZ,85040
 239,"Challenge Charter School",,"5801 West Greenbriar Dr.",,Glendale,AZ,85308
@@ -215,7 +217,6 @@
 415,"City High School",,"48 E. Pennington Street",,Tucson,AZ,85705
 1098,"City of Chandler Community Center",,"125 E. Commonwealth Ave.",,Chandler,AZ,85225
 584,"City of Tempe Westside Multi-Generation Center",,"715 W 5th St",,Tempe,AZ,85281
-1182,"Civitan Foundation","Civitan Foundation","12635 N. 42nd Street",,Phoenix,AZ,85032
 666,"Clarendon School",,"1225 West Clarendon",,Phoenix,AZ,85013
 39,"Classic Cooking Academy",,"10411 E. McDowell Mountain Ranch Rd.",,Scottsdale,AZ,85255
 45,"Clements Center",,"8155 E. Poinciana Dr",,Tucson,AZ,85730
@@ -234,8 +235,8 @@
 524,"Community Bridges",,"1811 S Alma School Road","ste 160",mesa,AZ,85210
 53,"Community Literacy Center",,"949 E 35th St",,Tucson,AZ,85713
 298,"Community Schools Office",,"9313 North 95th Way",,Scottsdale,AZ,85258
-673,"Conley Elementary School",,"1525 W. Frye Rd.",,Chandler,AZ,85224
 644,"Conley Elementary School",,"500 S. Arrowhead Dr.",,Chandler,AZ,85224
+673,"Conley Elementary School",,"1525 W. Frye Rd.",,Chandler,AZ,85224
 1032,"Copper Basin Family YMCA",,"28300 N. Main Street",,"San Tan Valley",AZ,85143
 421,"Copper Canyon Elementary School",,"17650 N. 54th St.",,Scottsdale,AZ,85254
 1113,"Copper Creek Before and After School Program",,"11620 N. Copper Springs Trail",,Tucson,AZ,85737
@@ -249,6 +250,8 @@
 580,"Coronado K-8 School",,"3401 E. Wilds Rd",,Tucson,AZ,85739
 1034,"Coronado School Age Program",,"3401 E. Wilds Road",,Tucson,AZ,85738
 55,"Corona Foothills Middle School",,"16705 South Houghton Road",,Vail,AZ,85641
+969,"Corte Sierra Elementary",,"3300 N Sante Fe Trail",,Avondale,AZ,85392
+861,"Corte Sierra Elementary",,"3300 Santa Fe Trail",,Avondale,AZ,85392
 245,"Cotton Boll elementary",,"8540 W. Butler Dr.",,Peoria,AZ,85345
 152,"Cotton Boll Elementary School",,"8540 W. Butler Ave",,Peoria,AZ,85345
 596,"Cotton Boll School",,"8540 West Butler",,Peoria,AZ,85345
@@ -273,7 +276,7 @@
 164,"CTA Liberty",,"550 N Emmett",,,AZ,85225
 207,"Curry Elementary",,"1974 E. Meadow Dr.",,Tempe,AZ,85282
 218,"Curry School",,"1974 E Meadow Dr.",,Tempe,AZ,85282
-343,"Daisy Education Corp",,"2325  W SUNSET RD",,TUCSON,AZ,85741
+343,"DAISY EDUCATION CORP",,"2325  W SUNSET RD",,TUCSON,AZ,85741
 700,"Davidson Elementary",,"6935 West Osborn Road",,Phoenix,AZ,85033
 604,"Davidson Elementary",,"3950 E Paradise Falls",,Tucson,AZ,85712
 32,"Davis Monthan",,"5741 E Broadway Blvd",,Tucson,AZ,85708
@@ -281,7 +284,6 @@
 335,"Degracia Elementary school",,"5070 w. warbler St.",,Tucson,AZ,85742
 883,"DeGrazia Elementary",,"5051 W. Overton Rd",,Tucson,AZ,85742
 783,"DeMiguel FACTS",,"3500 S. Gillenwater Dr.",,Flagstaff,AZ,86001
-1172,"Desert Botanical Garden",,"1201 N Galvin Pakwy",,Phoenix,AZ,85008
 497,"Desert Canyon Elementary School",,"10203 E. McDowell Mtn. Ranch Rd.",,Scottsdale,AZ,85255
 472,"Desert Cove Elementary",,"11020 N. 28th st.",,phoenix,AZ,85024
 663,"Desert Cove Elementary School",,"11020 North 28th Street",,Phoenix,AZ,85028
@@ -297,7 +299,7 @@
 780,"Desert Mountain Before/after Care Program",,"35959 N 7th ave ",,Phoenix,AZ,85027
 765,"Desert MountainBefore/After Care program",,"35959 N 7th Ave",,"Desert Hills",AZ,85086
 4,"Desert Mountain Elementary School",,"22301 S. Hawes Road",,"Queen Creek",AZ,85242
-1173,"Desert Oasis Elementary School",,"17161 West Bajada Road",,Surprise,AZ,85387
+1108,"Desert Oasis Elementary",,"17161 W Bajada Road",,Surprise,AZ,85371
 1044,"Desert Oasis Elementary School",,"8802 W. McDowell Rd. ",,"Phoenix ",AZ,85037
 408,"Desert Sage Elementary School",,"4035 W. Alameda",,Glendale,AZ,85310
 367,"Desert Shadows Elementary",,"5902 E. Sweetwater",,Scottsdale,AZ,85254
@@ -305,9 +307,9 @@
 615,"Desert Star School",,"2131 S 157th Ave",,Goodyear,AZ,85338
 161,"Desert Sun Academy",,"27880 N 64th St",,Scottsdale,AZ,85262
 379,"Desert Trails Elementary",,"4315 E. Cashman Drive",,Phoenix,AZ,85050
-706,"Desert View Elementary School",,"8621 N. 3rd Street",,Phoenix,AZ,85020
 414,"Desert View Elementary School",,"8621 N. 3rd Streeet",,Phoenix,AZ,85020
 672,"Desert View Elementary School",,"1508 N 10th Ave",,"San Luis",AZ,85349
+706,"Desert View Elementary School",,"8621 N. 3rd Street",,Phoenix,AZ,85020
 543,"Desert View School",,"8621 N. 3rd Street",,Phoenix,AZ,85020
 439,"Desert Vista Elementary",,"3701 E. Broadway Ave.",,"Apache Junction",AZ,85210
 272,"Desert Willow Elementary",,"4322  E. Desert Willow Parkway",,"Cave Creek",AZ,85331
@@ -316,12 +318,14 @@
 111,"Dietz Elementary School",,"7575 E. Palma",,Tucson,AZ,85710
 1087,"DISCOVER Summer",,"108 N. 40th Street",,Phoenix,AZ,85034
 84,"Discovery Elementary School",,"7910 W. Maryland Ave.",,Glendale,AZ,85303
-428,"Discovery Learning Center",,"6601 E. broadway",,Tucson,AZ,85710
 489,"Discovery Learning Center",,"6601 E. Broadway blvd",,tucson,AZ,85710
+428,"Discovery Learning Center",,"6601 E. broadway",,Tucson,AZ,85710
 431,"Discovery Time Childcare",,"1425 W Southern"," #7",Tempe,AZ,85282
 1127,"Dobson Academy Charter school",,"2207 N Dobson Rd",,Chandler,AZ,85224
 733,"Dobson Montessori Elementary and Jr.  High School",,"745 S. Extension",,Mesa,AZ,85210
 732,"Dobson Montessori Preschool",,"1130 S. San Jose",,Mesa,AZ,85202
+1114,"Donaldson Before and After School Program",,"2040 W. Omar Rd.",,Tucson,AZ,85704
+1035,"Donaldson School Age Program",,"2040 W. Omar Drive",,Tucson,AZ,85704
 857,"Dreaming Summit Elementary",,"13335 W. Missouri Ave",,"Litchfield Park",AZ,85340
 595,"Drexel Heights Community Center",,"5220 S. San Joaquin Ave.",,Tucson,AZ,85746
 224,"Dunham Elementary",,"9850 E. 29th St",,Tucson,AZ,85748
@@ -351,7 +355,6 @@
 760,"Fight Ready",,"2954 N Hayden Rd",,Scottsdale,AZ,85251
 553,"Finley Farms Elementary",,"375 S Columbus Dr",,Gilbert,AZ,85296
 582,"First Baptist Children's Center",,"4801 E. Brown Rd",,Mesa,AZ,85205
-653,"First Pentecostal Church Community Center",,"2709 E. Marguerite",,Phoenix,AZ,85040
 817,"Flagstaff Family YMCA",,"1001 N Turquoise",,Flagstaff,AZ,86001
 854,"Flagstaff Public Library",,"300 W. Aspen Ave.",,Flagstaff,AZ,86001
 670,"Flowing Wells Early Childhood Education Center  ",,"1444 W. Prince Road",,Tucson,AZ,85705
@@ -362,8 +365,8 @@
 755,"Foundation for Blind Children",,"1235 E. Harmont Drive",,Phoenix,AZ,85020
 320,"Fountain of Life School",,"710 S Kolb Rd",,Tucson,AZ,85710
 833,"Frances Brandon Pickett Elementary",,"22076 E. Village Loop Road",,"Queen Creek",AZ,85142
+289,"freedom center",,"6930 e. golf links circle",,tucson,AZ,85730
 575,"Freedom Center",,"5000 E. 29th St",,Tucson,AZ,85711
-289,"Freedom Center",,"6930 e. golf links circle",,tucson,AZ,85730
 579,"Freedom Park Center",,"5000 E. 29th Street",,Tucson,AZ,85711
 113,"Freestone Recreation Center",,"1141 E Guadalupe Rd",,Gilbert,AZ,85234
 634,"Freestone Recreation Center",,"90 E Civic Center Dr",,Gilbert,AZ,85296
@@ -387,9 +390,12 @@
 726,"Girl Scouts at Santa Clara Elementary",,"6910 S. Santa Clara Ave. ",,"Tucson ",AZ,85756
 518,"Glendale Community Center",,"5401 W Ocotillo Rd",,Glendale,AZ,85301
 459,"Glendale/Peoria Family YMCA",,"14711 North 59th Avenue",,Glendale,AZ,85306
+812,"Glendale/Peoria Family YMCA",,"14711 N 59th Ave",,Glendale,AZ,85306
+811,"Glendale/Peoria YMCA",,"14711 N. 59th Ave",,Glendale,AZ,85306
 983,"Globe Public Library",,"339 S Broad Street",,Globe,AZ,85501
 877,"Golden Gate Community Center ",,"1625 N. 39th Ave ",,Phoenix,AZ,85009
 488,"Grayhawk Elementary",,"15032 N 32nd Street",,Phoenix,AZ,85032
+768,"Greenbrier Before/After Care program",,"6150 W Greenbriar",,Glendale,AZ,85308
 332,"Greenbrier Elementary",,"6150 W. Greenbriar",,Glendale,AZ,85086
 630,"Greenbrier Elementary School",,"6150 W. Greenbriar Dr.",,Glendale,AZ,85308
 502,"Green Fields Country Day School",,"6000 N Camino de la Tierra",,Tucson,AZ,85741
@@ -397,7 +403,7 @@
 693,"Griffith Elementary School",,"4505 East Palm Lane",,Phoenix,AZ,85008
 263,"Grijalva Elementry School",,"1956 W Bagley Way",,Tucson,AZ,85746
 312,"Hale Elementary School",,"1425 N 23 St",,mesa,AZ,85213
-491,"Hancock Elementary",,"2425 S. PLEASANT DR.",,CHANDLER,AZ,85286
+491,"HANCOCK ELEMENTARY",,"2425 S. PLEASANT DR.",,CHANDLER,AZ,85286
 338,"Harelson Elementary School",,"826 W. Chapala Dr.",,Tucson,AZ,85704
 1036,"Harelson School Age Program",,"826 W. Chapala Drive",,Tucson,AZ,85704
 456,"Harold K. Smith Elementary School",,"6420 N Maryland Ave",,Glendale,AZ,85301
@@ -418,7 +424,7 @@
 548,"Holdeman School",,"1326 W 18th St.",,Tempe,AZ,85281
 642,"Hollinger elementary",,"150 West Ajo Way",,Tucson,AZ,85713
 406,"Hollinger Elementary",,"150 W. Ajo Way",,Tucson,AZ,85713
-340,"Homer Davis Elementary",,"4250 N. Romero Rd.",,Tucson,AZ,85705
+340,"Homer Davis Elementary",,"250 N. Romero Rd.",,Tucson,AZ,85705
 150,"Hopi Elementary",,"5110 E. Lafayette Boulevard",,Phoenix,AZ,85018
 711,"Horizon Park and Community Center",,"15444 N. 100th Street",,Scottsdale,AZ,85260
 938,"Horizon School",,"8520 N 47th Avenue",,Glendale,AZ,85302
@@ -484,10 +490,10 @@
 710,Kiddyland,,"9671 E Banbridge",,Tucson,AZ,85747
 922,"Kids and Company Miller Valley",,"900 Iron Springs Road",,Prescott,AZ,86305
 923,"Kids and Company Washington",,"300 Gurley Street",,Prescott,AZ,86301
-682,"Kids can Doodle",,"2200 North Arizona Avenue",,chandler,AZ,85225
 691,"Kids can Doodle",,"3552 West Glendale Avenue",,phoenix,AZ,85051
-662,"Kids Can Doodle",,"1100 Southern Avenue",,Mesa,AZ,85210
+682,"Kids can Doodle",,"2200 North Arizona Avenue",,chandler,AZ,85225
 667,"Kids Can Doodle",,"1255 West Elliot Road",,tempe,AZ,85224
+662,"Kids Can Doodle",,"1100 Southern Avenue",,Mesa,AZ,85210
 742,"Kid's Club-Bobcat Club","Black Mountain Elementary","33606 N. 60th St.",,Scottsdale,AZ,85266
 1016,"Kids Club - Centennial Elementary (HUSD)",,"3507 S. Ranch House Pkwy",,Gilbert,AZ,85297
 1017,"Kids Club - Chaparral Elementary (HUSD)",,"3380 E. Frye Road",,Gilbert,AZ,85295
@@ -501,8 +507,8 @@
 981,"Kids Talk, Speech and Language Pathology Services",,"10617 N Hayden Road, B-108",,Scottsdale,AZ,85260
 197,"Kidz Kampus",,"8215 W. Indian School Road",,Phoenix,AZ,85033
 249,"Killip Elementary School",,"2300 E. 6th Ave",,Flagstaff,AZ,86004
-498,KinderCare,,"1802 E. Irvington Rd.",,Tucson,AZ,85714
 352,KinderCare,,"3107 E. Pima St.",,Tucson,AZ,85716
+498,KinderCare,,"1802 E. Irvington Rd.",,Tucson,AZ,85714
 623,"Kinder care learning center",,"1802 e. Irvington Rd",,Tucson,AZ,85714
 190,"KinderCare - Oro Valley",,"10455 N. LaCanada Dr.",,"Oro Valley",AZ,85737
 843,"Kingswood Elementary",,"15150 W. Mondell Rd.",,Surprise,AZ,85374
@@ -513,9 +519,10 @@
 16,"Knowledge Universe",,"7251 N Meredith Blvd",,Tucson,AZ,85741
 688,"Kuban Elementary School",,"3201 West Sherman Street",,Phoenix,AZ,85009
 648,"Kumon of Tucson Casas Adobes",,"6004 N Oracle Rd",,Tucson,AZ,85704
-1028,"Kyrene Akimel A-al",,"2720 E. Liberty Lane ",,"Phoenix ",AZ,85048
+1028,"Kyrene Akimel A-al",,"Kyrene Akimel A-al","2720 E. Liberty Lane ","Phoenix ",AZ,85048
 1029,"Kyrene Aprende",,"777 N. Desert Breeze Blvd. East #2",,Chandler,AZ,85044
 1030,"Kyrene Centennial",,"13808 South 36th Street",,"Phoenix ",AZ,85044
+464,"Kyrene de la Colina Elementary School",,"13612 S. 36th St.",,Phoenix,AZ,85044
 671,"Kyrene De La Esperanza",,"14841 S. 41st Place",,Phoenix,AZ,85044
 141,"Kyrene de la Mariposa",,"50 E. Knox Rd",,Tempe,AZ,85284
 2,"Kyrene de la Mirada",,"5500 W. Galveston Street",,Chandler,AZ,85226
@@ -532,12 +539,13 @@
 233,"Kyrene de los Ninos",,"1330 E. Dava Dr.",,Tempe,AZ,85283
 256,"Kyrene del Sureno",,"3375 W. Galveston Street",,Chandler,AZ,85226
 1031,"Kyrene Middle School College Preparatory Academy",,"1050 E. Carver Road ",,Tempe,AZ,85284
+386,"Kyrene Monte Vista",,"15221 S Ray Road",,Phoenix,AZ,85048
 389,"Kyrene Monte Vista",,"15221 S. Ray Road",,Phoenix,AZ,85048
 477,"La Cima Middle School",,"5600 N. La Canada Blvd",,Tucson,AZ,85704
-259,"Laguna Elementary",,"5001 N. Shannon Rd.",,Tucson,AZ,85705
 493,"Laguna Elementary",,"5001 N Shannon Rd.",,Tucson,AZ,85705
-573,"Laguna Elementary School",,"5001 N. Shannon",,Tucson,AZ,85705
+259,"Laguna Elementary",,"5001 N. Shannon Rd.",,Tucson,AZ,85705
 525,"Laguna Elementary School",,"10475 E.Lakeview Drive",,Scottsdale,AZ,85258
+573,"Laguna Elementary School",,"5001 N. Shannon",,Tucson,AZ,85705
 463,"La Joya Community High School",,"11650 West Whyman Avenue",,Avondale,AZ,85323
 40,"Lake Pleasant Elementary",,"31501 N. Westland Rd.",,Peoria,AZ,85383
 499,"Lakeview Elementary School",,"3040 West Yucca",,Phoenix,AZ,85029
@@ -583,6 +591,7 @@
 845,"Luke Elementary",,"7300 N. Dysart Rd.",,Glendale,AZ,85307
 924,"Lynn-Urquides Elementary School",,"1573 W. Ajo Way",,Tucson,AZ,85713
 244,"Mabel Padgett Elem.",,"15430 W. Turney Ave",,Goodyear,AZ,85395
+859,"Mabel Padgett Elementary",,"15430 W. Turney",,Goodyear,AZ,85395
 535,"MacArthur Elementary",,"1435 E. McLellan Rd",,Mesa,AZ,
 1110,"MACH1 Makerspace",,"Burton Barr Central Library","1221 N Central Ave",Phoenix,AZ,85004
 402,"Madison Baptist Church",,"6202 N. 12th Street",,Phoenix,AZ,85014
@@ -598,6 +607,7 @@
 949,"Madison Traditional Academy",,"925 E Maryland",,Phoenix,AZ,85014
 757,"Main Branch",,"798 N. Picacho Ave.",,85122,AZ,85122
 748,"Maldonado Elementary",,"3535 W. Messala Way",,Tucson,AZ,85746
+1132,"Manzanita Elementary",,"3000 E. Manzanita Ave.",,Tucson,AZ,85718
 38,"Manzanita Elementary School",,"3000 E. Manzanita Ave",,Tucson,AZ,85718
 230,"Manzanita Elementary School",,"8430 N. 39th Avenue",,Phoenix,AZ,85051
 327,"Manzanita Elementary School",,"8430 N. 39th Ave",,Phoenix,AZ,85051
@@ -639,6 +649,7 @@
 702,"Montecito Community School",,"715 E. Montecito Ave.",,Phoenix,AZ,85014
 82,"Montessori de Santa Cruz Charter",,"18 Calle Baca",,Tubac,AZ,85646
 427,"Montessori School of Flagstaff/  Westside location",,"575 W. University Ave.",,Flagstaff,AZ,86001
+551,"Monte Vista Elementary School",,"15221 South Ray Rd",,Phoenix,AZ,85048
 669,"Moon Mountain Elementary School",,"13426 N 19th Ave",,Phoenix,AZ,85029
 24,"Morris K. Udall Escuela de Bellas Artes",,"3715 W. Roosevelt",,Phoenix,AZ,85009
 140,"Morristown Elementary School",,"25950 N. Rockaway Hills Drive",,Morristown,AZ,85342
@@ -655,7 +666,7 @@
 713,"Musical Surprise",,"16846 W. Bell Rd., Ste 106",,Surprise,AZ,85374
 975,"Myers Neighborhood",,"5000 E Andrew St",,"Tucson ",AZ,85711
 934,"NACA ",,"2717 North Steves ","Ste. #11",flagstaff,AZ,86004
-1174,"Nadaburg Elementary School",,"21419 W Dove Valley Rd",,Wittmann,AZ,85361
+1107,"Nadaburg Elementary",Nadaburg,"21419 W Dove Valley Road",,Wittmann,AZ,85361
 1109,"Narthex Youth Center",,"6659 E. University Drive",,Mesa,AZ,85205
 549,"Nash elem.",,"242 w. lester street",,Tucson,AZ,85705
 1049,"Native American COnnections Coral Canyon Complex",,"4545 N. 15th Street",,Phoenix,AZ,85014
@@ -668,14 +679,13 @@
 891,NiJeL,.0,"630 Flushing Ave.",,Brooklyn,NY,11206
 328,"Nina Mason Pulliam Rio Salado Audubon Center",,"3131 S. Central Ave.",,Phoenix,AZ,85040
 530,"Norterra Canyon",,"2200 W Maya Way",,Phoenix,AZ,85085
-1180,"North Bible Church",,"15678 N Greenway Hayden Lp",,Scottsdale,AZ,85254
 274,"Northeast Elementary",,"7042 East Adobe",,Mesa,AZ,85207
 737,"Northern Arizona College Resource Center",,"1001 North Turquoise Dr.",,Flagstaff,AZ,86001
 544,"North Ranch Elementary",,"16406 N. 61st Place",,Scottsdale,AZ,85254
+1092,"North Scottsdale United Methodist",,"11735 North Scottsdale Road",,Scottsdale,AZ,85254
 1073,"North Scottsdale United Methodist Church",,"11735 N Scottsdale Rd",,Scottsdale,AZ,85254
 449,"North Tempe Multigenerational Center",,"1555 N. Bridalwreath St.",,Tempe,AZ,85008
 474,"Northwest Center",,"2160 N. 6th Ave",,Tucson,AZ,
-1176,"Northwest Valley Family YMCA","Northwest Valley Family YMCA","12450 W. Cinnabar Avenue",,"El Mirage",AZ,85335
 441,"Nosotros campus",,"440 N Grande Ave",,Tucson,AZ,85745
 475,"Oakwood Elementary",,"12900 N. 71 Ave",,Peoria,AZ,85345
 187,"Oasis Elementary",,"7841 W. Sweetwater",,Peoria,AZ,85345
@@ -726,7 +736,6 @@
 481,"Peter Howell Elementary",,"401 N. Irving",,Tucson,AZ,85711
 242,"P.H. Gonzales Elementary",,"9401 W. Garfield",,Tolleson,AZ,85353
 903,"Phoenix Burton Barr Library",,"1221 N. Central Ave.",,Phoenix,AZ,85003
-1181,"Phoenix Center for the Arts",,"1202 N 3rd St",,Phoenix,AZ,85004
 703,"Phoenix Conservatory of Music",,"7801 North Black Canyon Highway","Ste. C",Phoenix,AZ,85021
 1162,"Phoenix Conservatory of Music (Main Campus)",,"9617 N. Metro Parkway West","Suite 2000",Phoenix,AZ,85051
 133,"Phoenix Day Child & Family Learning Center",,"115 E. Tonto St.",,Phoenix,AZ,85004
@@ -740,6 +749,7 @@
 808,"Pima County ONESTOP at Rio Nuevo","ONESTOP del Condado de Pima","340 N Commerce Park Loop",,Tucson,AZ,85745
 550,"Pima Elementary School",,"8330 e osborn",,scottsdale,AZ,85251
 394,"Pima Park",,"8600 E. Thomas Rd",,Scottsdale,AZ,85251
+1161,"Pima Partnership Academy",,"1346 N. Stone Ave",,Tucson,AZ,85705
 54,"Pima Partnership School",,"1346 N. Stone",,Tucson,AZ,85705
 179,"Pio Decimo Center",,"848 S. 7th Ave.",,Tucson,AZ,85701
 574,"Pioneer Elementary School",,"1535 N Greenfield Rd",,Gilbert,AZ,85234-8532
@@ -779,7 +789,8 @@
 515,"Red Mtn Ranch",,"6650 E Raftriver",,Mesa,AZ,85215
 627,"Rhythm Industry Performance Factory",,"1013 S Tyndal Ave",,Tucson,AZ,85719
 265,"Richard E Miller School",,"2021 W Alice",,Phoenix,AZ,85021
-1124,"Richardson Elementary School",,"6901 N. Camino De La Tierra",,Tucson,AZ,85705
+199,"Richardson Elementary",,"6901 N. Camino de la Tierra",,Tucson,AZ,85741
+1124,"Richardson Y.E.S.",,"6901 N. Camino De La Tierra",,Tucson,AZ,85705
 1060,"Ridgeline Academy",,"33625 N N Valley Pkwy",,"Phoenix ",AZ,85085
 1063,"Ridgeline Academy",,"33625 N North Valley Pkwy",,Phoenix,AZ,85085
 557,"Riggs Elementary School",,"6930 S. Seville Blvd.",,Gilbert,AZ,85298
@@ -821,10 +832,12 @@
 862,"Scott Libby Elementary",,"18701 W. Thomas Ave",,"Litchfield ",AZ,85340
 542,"Scott LIbby Elementary School",,"18701 W Thomas Rd",,"Litchfield Park",AZ,85340
 1067,"Scottsdale Artists' School",,"3720 North Marshall Way",,Scottsdale,AZ,85251
-1090,"Scottsdale Bible Church - Chapel",,"7901 E Shea Blvd",,Scottsdale,AZ,85260
+1099,"Scottsdale Bible Church",,"7901 E. Shea Blvd ",,Scottsdale,AZ,85260
+1090,"Scottsdale Bible Church - Chapel",,"7601 E Shea Blvd",,Scottsdale,AZ,85260
 99,"Scottsdale Child Care & Learning Center at Kierland",,"6440 E. Greenway Parkway",,Scottsdale,AZ,85254
 904,"Scottsdale Civic Center Library",,"3939 North Drinkwater Boulevard",,Scottsdale,AZ,85251
-398,"Scottsdale/Paradise Valley YMCA",,"6869 E. Shea Blvd",,Scottsdale,AZ,85254
+814,"Scottsdale/Paradise Valley Family YMCA ",,"6869 East Shea Boulevard",,Scottsdale,AZ,85254
+398,"Scottsdale/PV YMCA",,"6869 E. Shea Blvd",,Scottsdale,AZ,85254
 892,"Scottsdale Worship Center",,"6508 East Cactus Road ",,Scottsdale,AZ,85254
 787,"Sechrist FACTS",,"2230 N. Fort Valley Rd.",,Flagstaff,AZ,86001
 925,"Senita Valley Elementary School ",,"10750 E. Bilby Rd.",,Tucson,AZ,85747
@@ -845,15 +858,17 @@
 1076,"Snedigar Recreation Center",,"4500 S. Basha Rd.",,Chandler,AZ,85248
 750,"Soleng Tom Elementary",,"10520 E Camino Quince",,Tucson,AZ,85748
 12,"Somerton Middle School",,"1011 N. Somerton Ave",,Somerton,AZ,85350
-1177,"Somerton Youth Center",,"235 W Canal Street",,Somerton,AZ,85350
 850,"Sonoran Heights Elementary",,"11405 N. Greer Ranch Pkwy.",,Surprise,AZ,85379
+321,"Sonoran Sky Elementary",,"12990 N. 75th Street",,Scottsdale,AZ,85260
 252,"Sonoran Sky Elementary",,"12990 N. 75th ST",,Scottsdale,AZ,85260
+653,"Southminster Presbyterian Church",,"1923 E. Broadway Road",,Phoenix,AZ,85040
 982,"South Pointe Elementary",,"2033 E. Southern Ave",,"Phoenix ",AZ,85040
 217,"South Scottsdale",,"6535 E. Osborn",,Scottsdale,AZ,85257
 112,"Southside Community School",,"2701 S. Campbell Avenue",,Tucson,AZ,85713
 686,"Southwest Autism Research & Resource Center (SARRC)",,"300 N. 18th Street",,Phoenix,AZ,85006
 523,"Southwest Elementary School",,"1111 W. Dobbins Road",,Phoenix,AZ,85042
 278,"Southwest Valley Family YMCA",,"2919 N. Litchfield Rd.",,Goodyear,AZ,85395
+815,"Southwest Valley Family YMCA",,"1919 N Litchfield Rd",,Goodyear,AZ,85395
 816,"SouthwestValley Family YMCA @ Garden Lakes Elem",,"10825 W Garden Lakes",,Phoenix,AZ,85338
 232,"Spectrum elementary",,"2846 s spectrum way",,Gilbert,AZ,85295
 905,"Sports & Fitness Center (SpoFit)",,"5031 E. Washington Street",,Phoenix,AZ,85034
@@ -870,14 +885,15 @@
 436,"St. Joseph School",,"215 S. Craycroft Rd.",,Tucson,AZ,85711
 1003,"Summer Camp Iwannago",,"3330 E. Lockett",,Flagstaff,AZ,86004
 1143,"Sundance Elementary",,"23800 W. Hadley Rd",,Buckeye,AZ,85326
-206,"Sundance Elementary School",,"7051 W. Cholla",,Peoria,AZ,85345
 701,"Sundance Elementary School",,"7051 W. Cholla Ave.",,Peoria,AZ,85345
+206,"Sundance Elementary School",,"7051 W. Cholla",,Peoria,AZ,85345
 1101,"Sunnyslope HS",,"35 W. Dunlap Ave.",,Phoenix,AZ,85020
 777,"Sunrise Before/After Care program",,"17624 N 31st Ave ",,Phoenix,AZ,85053
 1013,"Sunrise Discovery Club","Sunrise Discovery Club","9943 E. 28th Street",,Yuma,AZ,85367
 68,"Sunrise Drive Elementary",,"5301 E Sunrise Dr",,Tucson,AZ,85718
-555,"Sunrise Elementary",,"17624 North 31st Ave",,Phoenix,AZ,85053
+1133,"Sunrise Drive Elementary",,"5301 E. Sunrise Dr.",,Tucson,AZ,85718
 546,"Sunrise Elementary",,"17624 N 31st AVE",,Phoenix,AZ,85053
+555,"Sunrise Elementary",,"17624 North 31st Ave",,Phoenix,AZ,85053
 522,"Sunset Canyon Elementary",,"2727 E. Siesta Lane",,Phoenix,AZ,85050
 153,"Sunset Elementary School",,"4626 W. Mountain View Rd",,Glendale,AZ,85302
 848,"Sunset Hills Elementary",,"17825 W. Sierra Montana Loop",,Surprise,AZ,85388
@@ -885,6 +901,7 @@
 940,"Sunset Vista School",,"7775 W Orangewood Ave",,Glendale,AZ,85303
 291,"Sun Valley Elementary School",,"8361 N. 95 Ave.",,Peoria,AZ,85345
 412,"Superstition Springs Elementary",,"7125 E. Monterey",,Mesa,AZ,85209
+521,"Sureno Elementary School",,"3375 W. Galveston St.",,Chandler,AZ,85226
 849,"Surprise Elementary",,"12907 W. Greenway Rd.",,"El Mirage",AZ,85335
 1123,"SWIMkids USA",,"2725 W Guadalupe Rd",,Mesa,AZ,85202
 1055,"Sybil B. Harrington Campus for Imagination and Wonder",,"900 S. Mitchell Drive",,Tempe,AZ,85281
@@ -894,7 +911,7 @@
 720,"Tartesso Kid's BASE",,"29677 W Indianola Rd.",,Buckeye,AZ,85396
 184,"Tarwater Elementary",,"2300 S Gardner",,Chandler,AZ,85248
 349,"Tavan Elementary School",,"4610 E Osborn",,Phoenix,AZ,85018
-351,"Tavan Elementary School",,"4610 E. Osborn",,Phoenix,AZ,85015
+351,"Tavan Elementary School",,"3610 E. Osborn",,Phoenix,AZ,85015
 813,"Tempe Family YMCA",,"7070 S Rural Rd",,Tempe,AZ,85283
 220,"Terramar Elementary",,"7000 West Happy Valley Road",,Peoria,AZ,85083
 388,"Terramar School",,"7000 W Happy Valley Road",,Peoria,AZ,85383
@@ -911,12 +928,13 @@ The Montessori Schoolhouse of Tucson, Inc.",,"1127 N. 6th Avenue",,Tucson,AZ,
 The Montessori Schoolhouse of Tucson, Inc.",,"1301 E. Ft. Lowell Rd",,Tucson,AZ,
 1068,"The Salvation Army Kroc Center",,"1375 E. Broadway Rd",,Phoenix,AZ,85040
 820,"The Zone",,"101 N Greenfield RD",,Gilbert,AZ,85296
-788,"Thomas FACTS",,"3330 E. Lockett ",,Flagstaff,AZ,86004
 911,"Thomas FACTS",,"3330 E. Locket",,Flagstaff,AZ,86004
+788,"Thomas FACTS",,"3330 E. Lockett ",,Flagstaff,AZ,86004
 880,"Thompson Ranch Elementary School",,"11800 W Thompson Ranch Rd",,"El Mirage",AZ,85335
 485,"Three Points Childcare Center",,"15530 W. Ajo Way",,Tucson,AZ,85735
 1103,"Thunderbird Academy",,"7410 East Sutton Drive",,Scottsdale,AZ,85260
 1139,"Thunderbirds Branch",,"20199 N 78th place",,Scottsdale,AZ,85255
+225,"Thunderbirds Branch",,"20199 N. 78th Place",,Scottsdale,AZ,85255
 601,"Thunderbirds Branch - Guadalupe",,"9225 S. Avenida Del Yaqui",,Guadalupe,AZ,85283
 216,"Tiny Tots West Preschool & Childcare",,"1024 W. University Dr.",,Mesa,AZ,85201
 64,"Tolleson Az",,"9251 W. Washington Street",,Tolleson,AZ,85353
@@ -929,9 +947,7 @@ The Montessori Schoolhouse of Tucson, Inc.",,"1301 E. Ft. Lowell Rd",,Tucson,AZ,
 657,"Tots unlimited preschool and childcare",,"8311 W Glendale Ave",,Glendale,AZ,85305
 470,"Towne Meadows Elementary School",,"1101 N. Recker Rd.",,Gilbert,AZ,85234
 369,"Tri-City Baptist Church",,"2211 West Germann Road",,Chandler,AZ,85286
-50,"Tri-City West/Thornwood Branch",,"301 E. Western Avenue",,Avondale,AZ,85323
 450,"Trinity Lutheran Church and School",,"830 E. Plaza Circle",,"Litchfield Park",AZ,85392
-1175,"Tucson Botanical Gardens",,"2150 N. Alvernon Way",,Tucson,AZ,85712
 569,"Tucson Cheer Academy",,"320 S Plumer Ave",,Tucson,AZ,85719
 1159,"Tucson Jewish Community Center",,"3800 E. River Road",,Tucson,AZ,85718
 561,"Tucson Nursery School",,"2385 S. Plumer Ave.",,Tucson,AZ,85713
@@ -946,13 +962,14 @@ The Montessori Schoolhouse of Tucson, Inc.",,"1301 E. Ft. Lowell Rd",,Tucson,AZ,
 461,"Udall Regional Center",,"7200 E. Tanque Verde",,Tucson,AZ,
 101,"UMOM New Day Center",,"3333 E Van Buren St",,Phoenix,AZ,85008
 832,USA,USA,"20217 E. Chandler Heights Road",,"Queen Creek",AZ,85142
-1178,"UU Kids Kamp",,"4027 E. Lincoln Dr.",,"Paradise Valley",AZ,85253
 172,"Valley View Elementary School",,"8220 S 7th Ave",,Phoenix,AZ,85042
 637,"Valley Youth Theatre",,"525 North First Street",,Phoenix,AZ,85004
 158,"Val Vista Lakes Elementary",,"1030 N. Blue Grotto Drive",,Gilbert,AZ,85234
+1134,"Ventana Vista Elementary",,"6085 N. Kolb Rd.",,Tucson,AZ,85750
 606,"Ventana Vista Elementary School",,"6085 N Kolb Rd",,Tucson,AZ,85750
 863,"Verrado Elementaty",,"20873 W. Sunrise Ln",,Buckeye,AZ,85396
 751,"Vesey Elementary",,"5005 S Butts Rd",,Tucson,AZ,85757
+166,Vestar,,"3975 e lockwood",,phoenix,AZ,85050
 587,"Village Vista Elementary School",,"4215 E Andora Drive",,Phoenix,AZ,
 605,"Villas de Merced",,"520 N Mesa Dr",,Mesa,AZ,85201
 375,"Villas De Merced",,"520 N. Mesa",,Mesa,AZ,85201
@@ -963,11 +980,12 @@ The Montessori Schoolhouse of Tucson, Inc.",,"1301 E. Ft. Lowell Rd",,Tucson,AZ,
 443,"Vista Verde Middle School",,"2826 E. Grovers",,Phoenix,AZ,85032
 240,"Waggoner School",,"1050 E Carver Dr",,Tempe,AZ,85824
 90,"Wakefield Middle School",,"101 W 44th St.",,Tucson,AZ,85713
+1040,"Walker School Age Program",,"1750 W. Rollercoaster Road",,Tucson,AZ,85704
 118,"Ward Traditional Academy",,"1965 E Hermosa Dr",,Tempe,AZ,85282
 547,"Warren Elementary School+",,"3505 W. Milton Rd",,Tucson,AZ,85746
 192,"Washington Elementary",,"2260 W Isabella",,Mesa,AZ,85202
-451,"Washington Elementary School",,"8033 N. 27th Ave",,Phoenix,AZ,85051
 694,"Washington Elementary School",,"4650 West Sweetwater",,Glendale,AZ,85304
+451,"Washington Elementary School",,"8033 N. 27th Ave",,Phoenix,AZ,85051
 971,"Webster Recreation Center","Centro Recreational Webster","202 N Sycamroe",,Mesa,AZ,85210
 100,"Weinberg Elementary",,"5245 S. Val Vista Dr.",,Gilbert,AZ,85298
 341,"Wesley Community Center",,"1300 s 10th Street",,phoenix,AZ,85034
@@ -1002,6 +1020,6 @@ The Montessori Schoolhouse of Tucson, Inc.",,"1301 E. Ft. Lowell Rd",,Tucson,AZ,
 956,"YMCA at Academy of Tucson",,"9209 E Wrightstown ",,Tucson,AZ,85715
 957,"YMCA at Dietz",,"7575 E Palma ",,"Tucson ",AZ,85710
 365,"Youth and  Young Adult Programs, Town of Guadalupe",,"9050 S Avenida del Yaqui",,Guadalupe,AZ,85283
-819,"Yuma Family YMCA",,"1917 W 32nd St",,Yuma,AZ,85364
+819,"Yuma Family YMCA",,"2550 South 4th Ave",,Yuma,AZ,85364
 57,"Zaharis Elementary",,"9410 E McKellips Rd",,Mesa,AZ,85207
 565,"Zuni Hills Elementary",,"10851 W. Williams",,Peoria,AZ,85383

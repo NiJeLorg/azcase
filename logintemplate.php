@@ -25,8 +25,7 @@
    </form>
    <div id="clear"></div>
    <br />
-   <h1>Video Tutorial on How to Use the Provider Area</h1>
-   <iframe src="http://player.vimeo.com/video/46100491?byline=0&amp;portrait=0" width="623" height="350" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+   <iframe style="display: block; margin: 0 auto;" src="https://player.vimeo.com/video/122776422?color=ffffff&byline=0&portrait=0" width="800" height="465" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <?
 require('footer.php');
 ?>

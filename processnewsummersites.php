@@ -9,7 +9,7 @@ require("connect.php");
 require('login.php');
 
 // processing login script
-//displayLogin();
+displayLogin();
 
 // requests a user to log in if they haven't already
 global $logged_in;
@@ -439,7 +439,7 @@ if (!$_REQUEST['button2']) {
 		die ();
 	}else{}
 	
-	header("Location: http://maps.nijel.org/azcase/newsummersites.php?lastsiteid=$siteid");
+	header("Location: http://maps.nijel.org/azcase_dev/newsummersites.php?lastsiteid=$siteid");
 
 }elseif (!$_REQUEST['button1']) {
 	// update all summer sites with these data
@@ -458,7 +458,7 @@ if (!$_REQUEST['button2']) {
 		die ();
 	}else{}
 
-	header("Location: http://maps.nijel.org/azcase/newsummersitesurvey.php");
+	header("Location: http://maps.nijel.org/azcase_dev/newsummersitesurvey.php");
 
 } // close if action
 

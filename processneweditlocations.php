@@ -9,7 +9,7 @@ require("connect.php");
 require('login.php');
 
 // processing login script
-//displayLogin();
+displayLogin();
 
 // requests a user to log in if they haven't already
 global $logged_in;
@@ -419,6 +419,6 @@ if (!$locationname5 || !$address5 || !$city5 || !$state5 || !$zip5) {
 }else{}
 
 
-header("Location: http://maps.nijel.org/azcase/editsite.php?siteid=$siteid");
+header("Location: http://maps.nijel.org/azcase_dev/editsite.php?siteid=$siteid");
 ?>
 

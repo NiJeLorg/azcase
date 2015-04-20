@@ -9,7 +9,7 @@ require("connect.php");
 require('login.php');
 
 // processing login script
-//displayLogin();
+displayLogin();
 
 // requests a user to log in if they haven't already
 global $logged_in;
@@ -18,9 +18,9 @@ if($logged_in){
 $thankyou = $_REQUEST['thankyou'];
 
 if ($thankyou==1 || !$thankyou) {
-	header("Location: http://maps.nijel.org/azcase/providerhome.php");
+	header("Location: http://maps.nijel.org/azcase_dev/providerhome.php");
 }elseif ($thankyou==2) {
-	header("Location: http://maps.nijel.org/azcase/newsites.php");
+	header("Location: http://maps.nijel.org/azcase_dev/newsites.php");
 }else{}
 
 

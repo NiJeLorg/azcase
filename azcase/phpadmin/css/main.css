@@ -1,0 +1,164 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.azcase-text-color {
+  color: #b92b29;
+}
+
+.marginRightBottom4 {
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
+/* CSS for admin area PHP scripts */
+
+span.required
+{ color:#b92b29;
+  font-style:italic}
+
+span.name
+{ font-family:Roboto, Arial, Helvetica, sans-serif;
+                font-size:20px;
+                font-weight:bold;
+                color:#b92b29;
+}
+
+span.verified
+{ font-family:Roboto, Arial, Helvetica, sans-serif;
+                font-size:14px;
+                font-weight:bold;
+                color:#00cc00;
+}
+
+select {
+ font-family:Roboto, Arial, Helvetica, sans-serif;
+                font-size:14px;
+                color:#403e40;
+}
+
+.homeTable {
+    margin-bottom: 15px;
+    width: 250px;
+}
+
+.homeTableMenuItem, .homeTableMenuSelectedItem {
+    border-bottom: 1px solid #B3B3B4;
+    color: #9A999A;
+    font-weight: bold;
+    padding: 6px 0;
+    width: 274px;
+}
+
+.hoursTable {
+  width:auto;
+  border-collapse:collapse; 
+}
+
+.hoursTable th, .hoursTable td {
+  border:2px solid #CCCCCC;
+  padding:3px 7px 2px 7px;
+}
+
+.hoursTable th {
+  font-size:12px;
+  text-align:center;
+  padding-top:5px;
+  padding-bottom:4px;
+  background-color:#CCCCCC;
+}
+
+.hoursTable tr.alt {
+  background-color:#EEEEEE;
+}
+
+.hoursTable tr.notverified {
+  background-color:#EEEEEE;
+}
+
+.hoursTable td.firstcol {
+  background-color:#EEEEEE;
+}
+
+.hoursTable th.lastcol, td.lastcol {
+  background-color:#F7F5F6;
+  border:0px;
+}
+
+.boxes{
+  padding: 10px;
+  width: 800px;
+}
+
+.heading{
+  border: 1px solid #EEEEEE;
+  background: #504E51;
+  padding-left: 5px;
+  color: #FFFFFF;
+}
+
+.panel{
+  border: 1px solid #EEEEEE;
+  padding: 10px;
+}
+
+div.m {
+  float:left; 
+  padding:15px 0 4px;
+}
+div.m div.mlabel {
+  color:#667777; 
+  display:block; 
+  font-size:11px; 
+  font-weight:normal; 
+  overflow:hidden; 
+  padding:0 10px; 
+  white-space:nowrap;
+}
+div.m div.mnumber {
+  color:#b92b29; 
+  display:block; 
+  font-size:20px; 
+  height:22px; 
+  overflow:hidden; 
+  padding:0 0 0 20px;
+}
+
+
+
