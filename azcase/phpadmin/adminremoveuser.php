@@ -11,20 +11,8 @@ require("connect.php");
 // create header
 require('header.php');
 
-// requests a user to log in if they haven't already
-global $logged_in;
-if($logged_in){
-
-global $connection;
-
-if ($admin=='t') {
-
 // grab data and clean up for database query
 $userid = $_REQUEST['userid'];
-$searchusername = $_REQUEST['searchusername'];
-$searchuseremail = $_REQUEST['searchuseremail'];
-$searchorgname = $_REQUEST['searchorgname'];
-
 
 // pull user/org info
 $basicinfoquery = "SELECT 
@@ -60,7 +48,6 @@ for ($lt = 0; $lt < pg_numrows($basicinforesult); $lt++) {
 // format updated date
 $updated = date("M j, Y", strtotime($updated));
 
-
 // format address
 $printaddress = $address;
 if (!$address2) { 
@@ -75,17 +62,13 @@ $printaddress .= $zip . ' ';
 
 ?>
 <body>
-<h3>Remove User</h3>
+<h3 class='azcase-text-color'>Remove User</h3>
 <p>If you would like to remove this user, please click the "Remove User" button below. <strong>Please note that this operation cannot be undone!</strong></p>
 
 <form name="removeprovider" action="processadminremoveuser.php" method="POST">
 <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
-<input type="hidden" name="searchusername" value="<?php echo $searchusername; ?>" />
-<input type="hidden" name="searchuseremail" value="<?php echo $searchuseremail; ?>" />
-<input type="hidden" name="searchorgname" value="<?php echo $searchorgname; ?>" />
-<table class="hoursTable">
+<table class="table">
 	<tr>
-		<th>Remove</th>
 		<th>Name</th>
 		<th>Organization Name</th>
 		<th>Email</th>
@@ -95,7 +78,6 @@ $printaddress .= $zip . ' ';
 		<th>Last Updated</th>
 	</tr>
 	<tr>
-		<td><input type="submit" name="remove" value="Remove User &#62;&#62;" /></td>
 		<td><?php echo $username; ?></td>
 		<td><?php echo $orgname; ?></td>
 		<td><?php echo $useremail; ?></td>
@@ -105,6 +87,8 @@ $printaddress .= $zip . ' ';
 		<td><?php echo $updated; ?></td>
 	</tr>
 </table>
+<br />
+<input class="btn btn-default" type="submit" name="remove" value="Remove User &#62;&#62;" />
 </form>
 <br />
 <br />
@@ -152,9 +136,9 @@ if (pg_numrows($sitesresult)==0) {
 }else{
 
 // create table to add sites to with form to batch edit or delete
-$sitestable = "<h3>Associated Sites</h3>
+$sitestable = "<h4 class='azcase-text-color'>Associated Sites</h4>
 <p>The following sites are associated with the above user. <strong>By removing the above user, you will also remove their association with the sites below. You will not remove these sites from the system.</strong></p> 
-<table class=\"hoursTable\"><tr>
+<table class=\"table\"><tr>
 <th>Verified?</th>
 <th>Site Name</th>
 <th>Address</th>
@@ -270,13 +254,6 @@ $sitestable .= "
 
 echo $sitestable;
 
-
-
-// close admin = TRUE
-}else{}
-
-// close logged_in
-}else{}
 
 // create footer
 require('footer.php');

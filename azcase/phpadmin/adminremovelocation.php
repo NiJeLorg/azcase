@@ -11,22 +11,8 @@ require("connect.php");
 // create header
 require('header.php');
 
-// requests a user to log in if they haven't already
-global $logged_in;
-if($logged_in){
-
-global $connection;
-
-if ($admin=='t') {
-
 // grab data and clean up for database query
 $locationid = $_REQUEST['locationid'];
-$zoom = $_REQUEST['zoom'];
-$searchstreet = $_REQUEST['searchstreet'];
-$searchcity = $_REQUEST['searchcity'];
-$searchstate = $_REQUEST['searchstate'];
-$searchzip = $_REQUEST['searchzip'];
-
 
 // pull data for siteid 
 $locationquery = "SELECT name, namesp, address, address2, city, state, zip FROM azcase_locations WHERE locationid = $locationid;";
@@ -44,22 +30,15 @@ for ($lt = 0; $lt < pg_numrows($record); $lt++) {
 // format updated date
 $updated = date("M j, Y", strtotime($updated));
 
-
 ?>
 <body>
-<h3>Remove Location</h3>
+<h3 class='azcase-text-color'>Remove Location</h3>
 <p>If you would like to remove this location, please click the "Remove Location" button below. <strong>Please note that this operation cannot be undone!</strong></p>
 
 <form name="removelocation" action="processadminremovelocation.php" method="POST">
 <input type="hidden" name="locationid" value="<?php echo $locationid; ?>" />
-<input type="hidden" name="zoom" value="<?php echo $zoom; ?>" />
-<input type="hidden" name="searchstreet" value="<?php echo $searchstreet; ?>" />
-<input type="hidden" name="searchcity" value="<?php echo $searchcity; ?>" />
-<input type="hidden" name="searchstate" value="<?php echo $searchstate; ?>" />
-<input type="hidden" name="searchzip" value="<?php echo $searchzip; ?>" />
-<table class="hoursTable">
+<table class="table">
 	<tr>
-		<th>Remove</th>
 		<th>Location Name</th>
 		<th>Location Name (Espanol)</th>
 		<th>Address</th>
@@ -69,7 +48,6 @@ $updated = date("M j, Y", strtotime($updated));
 		<th>Zip</th>
 	</tr>
 	<tr>
-		<td><input type="submit" name="remove" value="Remove Location &#62;&#62;" /></td>
 		<td><?php echo $name; ?></td>
 		<td><?php echo $namesp; ?></td>
 		<td><?php echo $address; ?></td>
@@ -79,6 +57,8 @@ $updated = date("M j, Y", strtotime($updated));
 		<td><?php echo $zip; ?></td>
 	</tr>
 </table>
+<br />
+<input class="btn btn-default" type="submit" name="remove" value="Remove Location &#62;&#62;" />
 </form>
 <br />
 <br />
@@ -126,9 +106,9 @@ if (pg_numrows($sitesresult)==0) {
 }else{
 
 // create table to add sites to with form to batch edit or delete
-$sitestable = "<h3>Associated Sites</h3>
+$sitestable = "<h3 class='azcase-text-color'>Associated Sites</h3>
 <p>The following sites are associated with the above location. <strong>By removing the above location, you will also remove their association with the sites below. You will not remove these sites from the system.</strong></p> 
-<table class=\"hoursTable\"><tr>
+<table class=\"table\"><tr>
 <th>Verified?</th>
 <th>Site Name</th>
 <th>Address</th>
@@ -244,13 +224,6 @@ $sitestable .= "
 
 echo $sitestable;
 
-
-
-// close admin = TRUE
-}else{}
-
-// close logged_in
-}else{}
 
 // create footer
 require('footer.php');

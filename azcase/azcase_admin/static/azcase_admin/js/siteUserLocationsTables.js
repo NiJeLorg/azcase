@@ -55,6 +55,36 @@ $().ready(new function(){
 				window.location = "/editLocations?locationid=" + locationid;	
 			}
 		});
+
+		// check if more than one checkbox is checked for editing
+		$("#removePrograms").click(function () {
+			if ($("#programsTable input:checkbox:checked").length > 1) {
+				alert("You can only remove one program at a time. Please select only one program to remove. Thanks!");
+			} else {
+				var siteid = $("#programsTable input:checkbox:checked").val();
+				window.location = "/removePrograms?siteid=" + siteid;
+			}
+		});
+
+		$("#removeUsers").click(function (event) {
+			if ($("#usersTable input:checkbox:checked").length > 1) {
+				event.preventDefault();
+				alert("You can only remove one user at a time. Please select only one user to remove. Thanks!");
+			} else {
+				var userid = $("#usersTable input:checkbox:checked").val();
+				window.location = "/removeUsers?userid=" + userid;				
+			}
+		});
+
+		$("#removeLocations").click(function (event) {
+			if ($("#locationsTable input:checkbox:checked").length > 1) {
+				event.preventDefault();
+				alert("You can only remove one location at a time. Please select only one location to remove. Thanks!");
+			} else {
+				var locationid = $("#locationsTable input:checkbox:checked").val();
+				window.location = "/removeLocations?locationid=" + locationid;	
+			}
+		});
 		
 	}
 

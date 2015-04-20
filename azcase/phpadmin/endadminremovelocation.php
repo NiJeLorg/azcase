@@ -11,34 +11,14 @@ require("connect.php");
 // create header
 require('header.php');
 
-// requests a user to log in if they haven't already
-global $logged_in;
-if($logged_in){
+?>
 
-global $connection;
-
-if ($admin=='t') {
-
-// bring search data across
-$zoom = $_REQUEST['zoom'];
-$searchstreet = $_REQUEST['searchstreet'];
-$searchcity = $_REQUEST['searchcity'];
-$searchstate = $_REQUEST['searchstate'];
-$searchzip = $_REQUEST['searchzip'];
-
-
-$pagecontent = "
 <body>
-<h3>Location Removed</h3>
-";
+<h3 class='azcase-text-color'>Site Removed</h3>
+<p><a href="http://127.0.0.1:8000/" target="_top">Back to Admin Dashboard</a></p>
 
-echo $pagecontent;
+<?php
 
-// close admin = TRUE
-}else{}
-
-// close logged_in
-}else{}
 
 // create footer
 require('footer.php');

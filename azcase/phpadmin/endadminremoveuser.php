@@ -11,32 +11,13 @@ require("connect.php");
 // create header
 require('header.php');
 
-// requests a user to log in if they haven't already
-global $logged_in;
-if($logged_in){
+?>
 
-global $connection;
-
-if ($admin=='t') {
-
-// bring search data across
-$searchusername = $_REQUEST['searchusername'];
-$searchuseremail = $_REQUEST['searchuseremail'];
-$searchorgname = $_REQUEST['searchorgname'];
-
-
-$pagecontent = "
 <body>
-<h3>User Removed</h3>
-";
+<h3 class='azcase-text-color'>User Removed</h3>
+<p><a href="http://127.0.0.1:8000/" target="_top">Back to Admin Dashboard</a></p>
 
-echo $pagecontent;
-
-// close admin = TRUE
-}else{}
-
-// close logged_in
-}else{}
+<?php
 
 // create footer
 require('footer.php');

@@ -17,4 +17,7 @@ urlpatterns = patterns('',
     url(r'^editUsers/$', views.editUsers, name='editUsers'),
     url(r'^editLocations/$', views.editLocations, name='editLocations'),
     url(r'^verifyPrograms/$', views.verifyPrograms, name='verifyPrograms'),
+    url(r'^removePrograms/$', views.removePrograms, name='removePrograms'),
+    url(r'^removeUsers/$', views.removeUsers, name='removeUsers'),
+    url(r'^removeLocations/$', views.removeLocations, name='removeLocations'),
 )

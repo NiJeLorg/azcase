@@ -660,6 +660,18 @@ def editLocations(request):
 def verifyPrograms(request):
 	return render(request, 'azcase_admin/verifyPrograms.html', {})
 
+def removePrograms(request):
+	siteid = request.GET.get("siteid","")
+	return render(request, 'azcase_admin/removePrograms.html', {'siteid':siteid})
+
+def removeUsers(request):
+	userid = request.GET.get("userid","")
+	return render(request, 'azcase_admin/removeUsers.html', {'userid':userid})
+
+def removeLocations(request):
+	locationid = request.GET.get("locationid","")
+	return render(request, 'azcase_admin/removeLocations.html', {'locationid':locationid})
+
 def formatAge(age5, age6, age7, age8, age9, age10, age11, age12, age13, age14, age15, age16, age17, age18):
 	# formats ages served
 	agesserved5 = ''

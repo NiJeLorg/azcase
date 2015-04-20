@@ -11,22 +11,8 @@ require("connect.php");
 // create header
 require('header.php');
 
-// requests a user to log in if they haven't already
-global $logged_in;
-if($logged_in){
-
-global $connection;
-
-if ($admin=='t') {
-
 // accept site id
 $siteid = $_REQUEST['siteid'];
-
-// grab search terms if coming from search page
-$searchname = $_REQUEST['searchname'];
-$searchemail = $_REQUEST['searchemail'];
-$searchphone = $_REQUEST['searchphone'];
-
 
 // select users data that matches the keywords
 $sitesquery = "SELECT 
@@ -147,17 +133,13 @@ if ($summer=='t') {
 
 ?>
 <body>
-<h3>Remove Site</h3>
+<h3 class='azcase-text-color'>Remove Site</h3>
 <p>If you would like to remove this site, please click the "Remove Site" button below. <strong>Please note that this operation cannot be undone!</strong></p>
 
 <form name="removesite" action="processadminremovesite.php" method="POST">
 <input type="hidden" name="siteid" value="<?php echo $siteid; ?>" />
-<input type="hidden" name="searchname" value="<?php echo $searchname; ?>" />
-<input type="hidden" name="searchemail" value="<?php echo $searchemail; ?>" />
-<input type="hidden" name="searchphone" value="<?php echo $searchphone; ?>" />
-<table class="hoursTable">
+<table class="table">
 	<tr>
-		<th>Remove</th>
 		<th>Site Name</th>
 		<th>Address</th>
 		<th>Phone</th>
@@ -167,8 +149,7 @@ if ($summer=='t') {
 		<th>Last Updated</th>
 	</tr>
 	<tr>
-		<td><input type="submit" name="remove" value="Remove Site &#62;&#62;" /></td>
-		<td><a href="site.php?siteid=<?php echo $siteid; ?>&locationid=<?php echo $locationid; ?>"><?php echo $sitename; ?></a></td>
+		<td><?php echo $sitename; ?></td>
 		<td><?php echo $printsiteaddress; ?></td>
 		<td><?php echo $phone; ?></td>
 		<td><?php echo $email; ?></td>
@@ -177,17 +158,11 @@ if ($summer=='t') {
 		<td><?php echo $siteupdated; ?></td>
 	</tr>
 </table>
+<br />
+<input class="btn btn-default" type="submit" name="remove" value="Remove Site &#62;&#62;" />
 </form>
-<br />
-<br />
 
 <?php
-// close admin = TRUE
-}else{}
-
-// close logged_in
-}else{}
-
 // create footer
 require('footer.php');
 
