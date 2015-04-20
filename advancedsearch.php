@@ -636,12 +636,12 @@ if ($countschoolyear>0) {
 		}
 
 		if ($wp_pledge_id) {
-			$pledgeIcon = '<img src=\"http://maps.nijel.org/azcase/Pledge_Icon.png\" style=\"width: 24px; height: 24px; padding-left: 5px; margin-bottom: -7px;\" />';
+			$pledgeIcon = '<img src=\"http://maps.nijel.org/azcase_dev/Pledge_Icon.png\" style=\"width: 24px; height: 24px; padding-left: 5px; margin-bottom: -7px;\" />';
 		} else {
 			$pledgeIcon = '';
 		}
 
-		$schoolyearsites .= '<li><a href=\"http://maps.nijel.org/azcase/advancedsite.php?siteid=';
+		$schoolyearsites .= '<li><a href=\"http://maps.nijel.org/azcase_dev/advancedsite.php?siteid=';
 		$schoolyearsites .= $siteid;
 		$schoolyearsites .= '&locationid=';
 		$schoolyearsites .= $locationid;
@@ -767,12 +767,12 @@ if ($countsummer>0) {
 		}
 
 		if ($wp_pledge_id) {
-			$pledgeIcon = '<img src=\"http://maps.nijel.org/azcase/Pledge_Icon.png\" style=\"width: 24px; height: 24px; padding-left: 5px; margin-bottom: -7px;\" />';
+			$pledgeIcon = '<img src=\"http://maps.nijel.org/azcase_dev/Pledge_Icon.png\" style=\"width: 24px; height: 24px; padding-left: 5px; margin-bottom: -7px;\" />';
 		} else {
 			$pledgeIcon = '';
 		}
 
-		$summersites .= '<li><a href=\"http://maps.nijel.org/azcase/advancedsite.php?siteid=';
+		$summersites .= '<li><a href=\"http://maps.nijel.org/azcase_dev/advancedsite.php?siteid=';
 		$summersites .= $siteid;
 		$summersites .= '&locationid=';
 		$summersites .= $locationid;

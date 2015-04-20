@@ -609,7 +609,6 @@ if ($pledgeData) {
 	$pledgeURL = "http://azafterschool.org/promoting-quality/make-it-count-pledge/";
 } else {}
 
-
 ?>
 <body onload="initialize()">
 	<table width="100%">

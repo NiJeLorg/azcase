@@ -1,0 +1,180 @@
+<div class="row">
+    {% if siteName or siteEmail or sitePhone %}
+      <h4>Program Search Terms:</h4>
+      <ul>
+      {% if siteName %}
+        <li>Program Name: <span id="siteNameAjax"><strong>{{ siteName }}</strong></span></li>  
+      {% endif %}
+      {% if siteEmail %}
+        <li>Program Email: <span id="siteEmailAjax"><strong>{{ siteEmail }}</strong></span></li>  
+      {% endif %}
+      {% if sitePhone %}
+        <li>Program Phone: <span id="sitePhoneAjax"><strong>{{ sitePhone }}</strong></span></li>
+      {% endif %}
+      </ul>
+    {% endif %}
+    {% if userName or userEmail or userOrgName %}
+      <h4>User Search Terms:</h4>
+      <ul>
+      {% if userName %}
+        <li>User Name: <span id="userNameAjax"><strong>{{ userName }}</strong></span></li>  
+      {% endif %}
+      {% if userEmail %}
+        <li>User Email: <span id="userEmailAjax"><strong>{{ userEmail }}</strong></span></li> 
+      {% endif %}
+      {% if userOrgName %}
+        <li>Organization Name: <span id="userOrgNameAjax"><strong>{{ userOrgName }}</strong></span></li>
+      {% endif %}
+      </ul>
+    {% endif %}
+    {% if locationName or locationAddress or locationCity or locationZip %}
+      <h4>Location Search Terms:</h4>
+      <ul>
+      {% if locationName %}
+        <li>Location Name: <span id="locationNameAjax"><strong>{{ locationName }}</strong></span></li>  
+      {% endif %}
+      {% if locationAddress %}
+        <li>Address: <span id="locationAddressAjax"><strong>{{ locationAddress }}</strong></span></li> 
+      {% endif %}
+      {% if locationCity %}
+        <li>City: <span id="locationCityAjax"><strong>{{ locationCity }}</strong></span></li>
+      {% endif %}
+      {% if locationZip %}
+        <li>Zip Code: <span id="locationZipAjax"><strong>{{ locationZip }}</strong></span></li>
+      {% endif %}
+      </ul>
+    {% endif %}
+
+  </p>
+</div>
+<br />
+<div class="row">
+    <button type="button" class="btn btn-default btn-sm" id="selectAllPrograms">Select All</button>
+    <button type="button" class="btn btn-default btn-sm" id="selectNonePrograms">Select None</button>
+    <button type="button" class="btn btn-default btn-sm" id="editPrograms">Edit</button>
+    <a class="btn btn-default btn-sm" href="#" role="button">Remove</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">Compare</a>
+</div>
+<div id="programsTable" class="row">
+  <table class="table table-striped table-condensed sortable">
+    <thead>
+      <th>Select</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Activities</th>
+      <th>Ages Served</th>
+      <th>Last Updated</th>
+      <th>Possible Duplicates</th>    
+    </thead>
+    <tbody>
+      {% for site in sites %}
+        <tr>
+          <td><input type="checkbox" value="{{ site.siteid }}"></td>
+          <td>{{ site.name }}</td>
+          {% if site.getLocationObject.address %}
+            <td>{{ site.getLocationObject.address }}; {{ site.getLocationObject.city }}, {{ site.getLocationObject.state }} {{ site.getLocationObject.zip }}</td>
+          {% else %}
+            <td></td>
+          {% endif %}
+          <td>{{ site.phone }}</td>
+          <td>{{ site.email }}</td>
+          <td>
+            <ul>
+            {% if site.arts %}
+              <li>Arts and Culture</li> 
+            {% endif %}
+            {% if site.character %}
+              <li>Character Education</li>
+            {% endif %}
+            {% if site.leadership %}
+              <li>Leadership</li>
+            {% endif %}
+            {% if site.mentoring %}
+              <li>Mentoring</li>
+            {% endif %}
+            {% if site.nutrition %}
+              <li>Nutrition</li>
+            {% endif %}
+            {% if site.prevention %}
+              <li>Prevention</li>
+            {% endif %}
+            {% if site.sports %}
+              <li>Sports and Recreation</li> 
+            {% endif %}
+            {% if site.supportservices %}
+              <li>Support Services (medical, dental, mental health, etc.)</li>
+            {% endif %}
+            {% if site.academic %}
+              <li>Tutoring/Academic Enrichment</li> 
+            {% endif %}
+            {% if site.community %}
+              <li>Volunteering/Community Service</li> 
+            {% endif %}
+            {% if site.stem %}
+              <li>Science, Technology, Engineering, and Mathematics</li>
+            {% endif %}
+            {% if site.college %}
+              <li>College and Career Readiness</li>
+            {% endif %}
+          </td>
+          <td>
+            {{ site.agesserved }}
+          </td>
+          <td data-dateformat="MMM D, YYYY">
+            {{ site.updated|date:"M j, Y" }}
+          </td>
+          <td>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+  <nav>
+    <ul class="pagination">
+      {% if sites.has_previous %}
+      <li>
+        <a href="?programPage={{ sites.previous_page_number }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li><a href="?programPage=1&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}">1</a></li>
+      <li class="disabled"><a href="#">...</a></li>
+      <li><a href="?programPage={{ sites.previous_page_number }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}">{{ sites.previous_page_number }}</a></li>
+      <li class="active"><a href="?programPage={{ sites.number }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}">{{ sites.number }}</a></li>    
+      {% else %}
+      <li class="disabled">
+        <a href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="active"><a href="?programPage={{ sites.number }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}">{{ sites.number }}</a></li>
+      {% endif %}
+      {% if sites.has_next %}
+      <li><a href="?programPage={{ sites.next_page_number }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}">{{ sites.next_page_number }}</a></li>
+      <li class="disabled"><a href="#">...</a></li>
+      <li><a href="?programPage={{ site_number_of_pages }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}">{{ site_number_of_pages }}</a></li>
+      <li>
+        <a href="?programPage={{ sites.next_page_number }}&siteName={{ siteName }}&siteEmail={{ siteEmail }}&sitePhone={{ sitePhone }}&userName={{ userName }}&userEmail={{ userEmail }}&userOrgName={{ userOrgName }}&locationName={{ locationName }}&locationAddress={{ locationAddress }}&locationCity={{ locationCity }}&locationZip={{ locationZip }}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      {% else %}
+      <li class="disabled">
+        <a href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>    
+      {% endif %}
+    </ul>
+  </nav>
+
+</div>
+
+
+	
+	
+
