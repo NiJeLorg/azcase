@@ -122,6 +122,16 @@ class azcase_sites(models.Model):
 		locationObject = azcase_locations.objects.get(azcase_sites_locations_junction__siteid=self.siteid)
 		return locationObject
 
+	def getUserObject(self):
+		#gets location ID for the siteid
+		userObjects = azcase_users.objects.filter(azcase_user_sites_junction__siteid=self.siteid)
+		return userObjects
+
+	def getSurveyObject(self):
+		#gets location ID for the siteid
+		surveyObject = azcase_site_survey.objects.get(siteid__exact=self.siteid)
+		return surveyObject
+
 class azcase_sites_form(ModelForm):
 	class Meta:
 		model = azcase_sites

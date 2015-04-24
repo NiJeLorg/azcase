@@ -189,6 +189,6 @@ require('updateadmineditsitesurvey.php');
 
 
 
-header("Location: http://maps.nijel.org/azcase_dev/azcase/phpadmin/thankyouadmineditsite.php");
+header("Location: http://104.131.19.183/php/thankyouadmineditsite.php");
 ?>
 

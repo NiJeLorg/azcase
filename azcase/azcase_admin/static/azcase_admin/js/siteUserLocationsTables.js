@@ -27,8 +27,9 @@ $().ready(new function(){
 
 
 		// check if more than one checkbox is checked for editing
-		$("#editPrograms").click(function () {
+		$("#editPrograms").click(function (event) {
 			if ($("#programsTable input:checkbox:checked").length > 1) {
+				event.preventDefault();
 				alert("You can only edit one program at a time. Please select only one program to edit. Thanks!");
 			} else {
 				var siteid = $("#programsTable input:checkbox:checked").val();
@@ -57,8 +58,9 @@ $().ready(new function(){
 		});
 
 		// check if more than one checkbox is checked for editing
-		$("#removePrograms").click(function () {
+		$("#removePrograms").click(function (event) {
 			if ($("#programsTable input:checkbox:checked").length > 1) {
+				event.preventDefault();
 				alert("You can only remove one program at a time. Please select only one program to remove. Thanks!");
 			} else {
 				var siteid = $("#programsTable input:checkbox:checked").val();
@@ -85,7 +87,51 @@ $().ready(new function(){
 				window.location = "/removeLocations?locationid=" + locationid;	
 			}
 		});
-		
+
+		$("#comparePrograms").click(function (event) {
+			event.preventDefault();
+			var IDs = $("#programsTable input:checkbox:checked").map(function(){
+    			return $(this).val();
+    		}).get();
+			var numIDs = [];
+    		$.each(IDs, function(key, value) {
+    			value = parseInt(value);
+    			numIDs.push(value);
+    		});
+    		var json = JSON.stringify(numIDs);
+    		window.location = "/comparePrograms?siteids=" + json;
+
+		});
+
+		$("#compareUsers").click(function (event) {
+			event.preventDefault();
+			var IDs = $("#usersTable input:checkbox:checked").map(function(){
+    			return $(this).val();
+    		}).get();
+			var numIDs = [];
+    		$.each(IDs, function(key, value) {
+    			value = parseInt(value);
+    			numIDs.push(value);
+    		});
+    		var json = JSON.stringify(numIDs);
+    		window.location = "/compareUsers?userids=" + json;
+
+		});
+
+		$("#compareLocations").click(function (event) {
+			event.preventDefault();
+			var IDs = $("#locationsTable input:checkbox:checked").map(function(){
+    			return $(this).val();
+    		}).get();
+			var numIDs = [];
+    		$.each(IDs, function(key, value) {
+    			value = parseInt(value);
+    			numIDs.push(value);
+    		});
+    		var json = JSON.stringify(numIDs);
+    		window.location = "/compareLocations?locationids=" + json;
+
+		});
 	}
 
 	// establish listeners on page load

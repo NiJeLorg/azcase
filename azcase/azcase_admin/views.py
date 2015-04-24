@@ -14,6 +14,8 @@ from django.db.models import Q
 # for chaining querysets together
 from itertools import chain
 
+import json
+
 
 # Create your views here.
 def index(request):
@@ -671,6 +673,59 @@ def removeUsers(request):
 def removeLocations(request):
 	locationid = request.GET.get("locationid","")
 	return render(request, 'azcase_admin/removeLocations.html', {'locationid':locationid})
+
+def comparePrograms(request):
+	siteids = request.GET.get("siteids","")
+	siteids = json.loads(siteids);
+	sites = azcase_sites.objects.filter(siteid__in=siteids).order_by('name')
+
+	for site in sites:
+		site.agesserved = formatAge(site.age5, site.age6, site.age7, site.age8, site.age9, site.age10, site.age11, site.age12, site.age13, site.age14, site.age15, site.age16, site.age17, site.age18)
+
+	return render(request, 'azcase_admin/comparePrograms.html', {'sites':sites})
+
+def compareUsers(request):
+	userids = request.GET.get("userids","")
+	userids = json.loads(userids);
+	users = azcase_users.objects.filter(userid__in=userids).order_by('username')
+
+	# get the number of sites attached to each user
+	for user in users:
+		siteCount = azcase_user_sites_junction.objects.filter(userid__exact=user.userid).count()
+		if siteCount == 0:
+			user.siteCount = 'No Programs'
+		elif siteCount == 1:
+			siteIds = azcase_user_sites_junction.objects.filter(userid__exact=user.userid).values('siteid')
+			user.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
+			user.siteCount = str(siteCount) + ' Program'
+		else:
+			siteIds = azcase_user_sites_junction.objects.filter(userid__exact=user.userid).values('siteid')
+			user.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
+			user.siteCount = str(siteCount) + ' Programs'
+
+	return render(request, 'azcase_admin/compareUsers.html', {'users':users})
+
+def compareLocations(request):
+	locationids = request.GET.get("locationids","")
+	locationids = json.loads(locationids);
+	locations = azcase_locations.objects.filter(locationid__in=locationids).order_by('name')
+
+	# get the number of sites attached to each location
+	for location in locations:
+		siteCount = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid).count()
+		if siteCount == 0:
+			location.siteCount = 'No Programs'
+		elif siteCount == 1:
+			siteIds = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid).values('siteid')
+			location.sitesLocation = azcase_sites.objects.filter(siteid__in=siteIds)
+			location.siteCount = str(siteCount) + ' Program'
+		else:
+			siteIds = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid).values('siteid')
+			location.sitesLocation = azcase_sites.objects.filter(siteid__in=siteIds)
+			location.siteCount = str(siteCount) + ' Programs'
+
+	return render(request, 'azcase_admin/compareLocations.html', {'locations':locations})
+
 
 def formatAge(age5, age6, age7, age8, age9, age10, age11, age12, age13, age14, age15, age16, age17, age18):
 	# formats ages served

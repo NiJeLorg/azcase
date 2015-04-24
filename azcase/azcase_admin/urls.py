@@ -20,4 +20,7 @@ urlpatterns = patterns('',
     url(r'^removePrograms/$', views.removePrograms, name='removePrograms'),
     url(r'^removeUsers/$', views.removeUsers, name='removeUsers'),
     url(r'^removeLocations/$', views.removeLocations, name='removeLocations'),
+    url(r'^comparePrograms/$', views.comparePrograms, name='comparePrograms'),
+    url(r'^compareUsers/$', views.compareUsers, name='compareUsers'),
+    url(r'^compareLocations/$', views.compareLocations, name='compareLocations'),
 )

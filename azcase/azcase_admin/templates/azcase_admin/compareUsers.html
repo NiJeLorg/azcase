@@ -1,0 +1,65 @@
+{% extends "azcase_admin/base.html" %}
+{% load staticfiles %}
+{% load bootstrap_tags %}
+
+{% block content %}
+    <div class="container">
+    	<div class="row">
+	    	<div class="col-md-12">
+	    		<h3 class='azcase-text-color'>Compare Users</h3>
+	    	</div>
+    	</div>
+    	<div class="row">
+    	{% for user in users %}
+			<div class="col-md-6">
+				<div class='highlight'>
+					<p class='azcase-text-color'>
+						<strong>{{ user.username }}</strong>
+					</p>
+					<p>
+					{% if user.orgname %}
+						<strong>Organization: </strong>{{ user.orgname }}<br />
+					{% endif %}
+					{% if user.address %}
+						<strong>Address: </strong>{{ user.address }}<br />
+					{% endif %}
+					{% if user.address2 %}
+						<strong>Address Line 2: </strong>{{ user.address2 }}<br />
+					{% endif %}
+					{% if user.city %}
+						<strong>City: </strong>{{ user.city }}<br />
+					{% endif %}
+					{% if user.state %}
+						<strong>State: </strong>{{ user.state }}<br />
+					{% endif %}
+					{% if user.zip %}
+						<strong>Zip: </strong>{{ user.zip }}<br />
+					{% endif %}
+					{% if user.phone %}
+						<strong>Phone: </strong>{{ user.phone }}<br />
+					{% endif %}
+					{% if user.fax %}
+						<strong>Fax: </strong>{{ user.fax }}<br />
+					{% endif %}
+					{% if user.sitesUsers %}
+						<strong>Programs: </strong>
+						<ul>
+				        {% for site in user.sitesUsers %}
+				          <li>{{ site.name }}</li>
+				        {% endfor %}
+				        </ul>
+		            {% endif %}
+					</p>
+					<br />
+					<a href="/editUsers?userid={{ user.userid }}" class="btn btn-default btn-sm">Edit</a>
+					<a href="/removeUsers?userid={{ user.userid }}" class="btn btn-default btn-sm">Remove</a>
+				</div>
+			</div>
+		{% if forloop.counter|divisibleby:2 %}
+		</div>
+		<div class='row'>			
+		{% endif %}
+		{% endfor %}
+		</div>
+    </div> <!-- /container -->
+{% endblock %}

@@ -27,7 +27,7 @@ if ($validator->check_email_address($useremail)) {
 	if ($countemail>0) {
 		/* Notify that no email exists and kill script */
 		require('header.php');
-		echo "<h3>Email Address Already in Use</h3><p>The email address you entered is already in use in the system. If you need to request a new password using that email address <a href=\"http://maps.nijel.org/azcase_dev/azcase/phpadmin/forgotpassword.php\">go here</a>. If you'd like to sign up will a different email account, please go back and try again with another email address.</p><p>Email address entered: <strong>$useremail</strong></p>";
+		echo "<h3>Email Address Already in Use</h3><p>The email address you entered is already in use in the system. If you need to request a new password using that email address <a href=\"http://104.131.19.183/php/forgotpassword.php\">go here</a>. If you'd like to sign up will a different email account, please go back and try again with another email address.</p><p>Email address entered: <strong>$useremail</strong></p>";
 		require('footer.php');
 		die();
 	}else{}
@@ -98,7 +98,7 @@ if ($pgerror1!=FALSE) {
 }else{}
 
 
-$url = "http://maps.nijel.org/azcase_dev/azcase/phpadmin/resetpassword.php?42=$randomtemppass";
+$url = "http://104.131.19.183/php/resetpassword.php?42=$randomtemppass";
 $to = "$useremail";
 $subject = "AZ Afterschool Program Directory | New Account and Administrative Access";
 $message = "
@@ -123,6 +123,6 @@ mail($to,$subject,$message,$headers);
 	echo "<h3>Invalid Email Address</h3><p>The email address you entered was invalid. Please go back and try again.</p><p>Email address entered: <strong>$useremail</strong></p>";
 }
 
-header("Location: http://maps.nijel.org/azcase_dev/azcase/phpadmin/endassignadminusers.php?useremail=$useremail");
+header("Location: http://104.131.19.183/php/endassignadminusers.php?useremail=$useremail");
 ?>
 

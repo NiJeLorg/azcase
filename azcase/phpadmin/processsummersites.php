@@ -213,6 +213,6 @@ for ($lt1 = 0; $lt1 < pg_numrows($siteidresult); $lt1++) {
 } // close siteid loop
 
 
-header("Location: http://maps.nijel.org/azcase_dev/azcase/phpadmin/newsummersites.php");
+header("Location: http://104.131.19.183/php/newsummersites.php");
 ?>
 

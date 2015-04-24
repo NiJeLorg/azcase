@@ -54,6 +54,6 @@ if ($pgerror1!=FALSE) {
 require('geocode.php');
 
 
-header("Location: http://maps.nijel.org/azcase_dev/azcase/phpadmin/endadmineditlocation.php");
+header("Location: http://104.131.19.183/php/endadmineditlocation.php");
 ?>
 

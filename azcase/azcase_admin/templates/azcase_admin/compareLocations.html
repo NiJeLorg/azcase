@@ -1,0 +1,56 @@
+{% extends "azcase_admin/base.html" %}
+{% load staticfiles %}
+{% load bootstrap_tags %}
+
+{% block content %}
+    <div class="container">
+    	<div class="row">
+	    	<div class="col-md-12">
+	    		<h3 class='azcase-text-color'>Compare Locations</h3>
+	    	</div>
+    	</div>
+    	<div class="row">
+    	{% for location in locations %}
+			<div class="col-md-6">
+				<div class='highlight'>
+					<p class='azcase-text-color'>
+						<strong>{{ location.name }}</strong>
+					</p>
+					<p>
+					{% if location.address %}
+						<strong>Address: </strong>{{ location.address }}<br />
+					{% endif %}
+					{% if location.address2 %}
+						<strong>Address Line 2: </strong>{{ location.address2 }}<br />
+					{% endif %}
+					{% if location.city %}
+						<strong>City: </strong>{{ location.city }}<br />
+					{% endif %}
+					{% if location.state %}
+						<strong>State: </strong>{{ location.state }}<br />
+					{% endif %}
+					{% if location.zip %}
+						<strong>Zip: </strong>{{ location.zip }}<br />
+					{% endif %}
+					{% if location.sitesLocation %}
+						<strong>Programs: </strong>
+						<ul>
+				        {% for site in location.sitesLocation %}
+				          <li>{{ site.name }}</li>
+				        {% endfor %}
+				        </ul>
+		            {% endif %}
+					</p>
+					<br />
+					<a href="/editLocations?locationid={{ location.locationid }}" class="btn btn-default btn-sm">Edit</a>
+					<a href="/removeLocations?locationid={{ location.locationid }}" class="btn btn-default btn-sm">Remove</a>
+				</div>
+			</div>
+		{% if forloop.counter|divisibleby:2 %}
+		</div>
+		<div class='row'>			
+		{% endif %}
+		{% endfor %}
+		</div>
+    </div> <!-- /container -->
+{% endblock %}

@@ -1,0 +1,263 @@
+{% extends "azcase_admin/base.html" %}
+{% load staticfiles %}
+{% load bootstrap_tags %}
+
+{% block content %}
+    <div class="container">
+    	<div class="row">
+	    	<div class="col-md-12">
+	    		<h3 class='azcase-text-color'>Compare Programs</h3>
+	    	</div>
+    	</div>
+    	<div class="row">
+    	{% for site in sites %}
+			<div class="col-md-6">
+				<div class='highlight'>
+					<p class='azcase-text-color'>
+					{% if site.summer %}
+		              	<strong class="text-uppercase">Summer Program: </strong>
+		            {% endif %}					
+						<strong>{{ site.name }}</strong>
+					</p>
+					<p>
+					<strong>Managed by:</strong>
+						{% for user in site.getUserObject %}
+							{{ user.username }} ({{ user.useremail }}), 
+						{% endfor %}
+					<br />
+					{% if site.getLocationObject.address %}
+			            <strong>Location:</strong> 
+						{{ site.getLocationObject.address }}; {{ site.getLocationObject.city }}, {{ site.getLocationObject.state }} {{ site.getLocationObject.zip }}
+						<br />
+			        {% else %}
+			        {% endif %}
+			        <strong>Website:</strong> {{ site.url }}<br />
+			        <strong>Phone:</strong> {{ site.phone }}<br />
+			        <strong>Email:</strong> {{ site.email }}<br />
+					<strong>Activities:</strong><br />
+					<ul>
+					{% if site.arts %}
+					  <li>Arts and Culture</li> 
+					{% endif %}
+					{% if site.character %}
+					  <li>Character Education</li>
+					{% endif %}
+					{% if site.leadership %}
+					  <li>Leadership</li>
+					{% endif %}
+					{% if site.mentoring %}
+					  <li>Mentoring</li>
+					{% endif %}
+					{% if site.nutrition %}
+					  <li>Nutrition</li>
+					{% endif %}
+					{% if site.prevention %}
+					  <li>Prevention</li>
+					{% endif %}
+					{% if site.sports %}
+					  <li>Sports and Recreation</li> 
+					{% endif %}
+					{% if site.supportservices %}
+					  <li>Support Services (medical, dental, mental health, etc.)</li>
+					{% endif %}
+					{% if site.academic %}
+					  <li>Tutoring/Academic Enrichment</li> 
+					{% endif %}
+					{% if site.community %}
+					  <li>Volunteering/Community Service</li> 
+					{% endif %}
+					{% if site.stem %}
+					  <li>Science, Technology, Engineering, and Mathematics</li>
+					{% endif %}
+					{% if site.college %}
+					  <li>College and Career Readiness</li>
+					{% endif %}
+					</ul>
+					<strong>Ages Served:</strong> {{ site.agesserved }}<br /><br />
+					{% if site.summer %}
+					<table class="table table-striped table-condensed">
+						<thead>
+							<th align="left"><strong>Hours of Operation</strong></th>
+							<th align="right" ><strong>Start Time</strong></th>
+							<th align="right" ><strong>End Time</strong></th>
+						</thead>
+						<tbody>
+						<tr>
+							<td class="firstcol" align="left"><strong>Monday:</strong></td>
+							<td align="center">{{ site.monsummerstart|date:"g:i A" }}</td>
+							<td align="center">{{ site.monsummerend|date:"g:i A" }}</td>
+						</tr>
+						<tr class="alt">
+							<td class="firstcol" align="left"><strong>Tuesday:</strong></td>
+							<td align="center">{{ site.tuesummerstart|date:"g:i A" }}</td>
+							<td align="center">{{ site.tuesummerend|date:"g:i A" }}</td>
+						</tr>
+						<tr>
+							<td class="firstcol" align="left"><strong>Wednesday:</strong></td>
+							<td align="center">{{ site.wedsummerstart|date:"g:i A" }}</td>
+							<td align="center">{{ site.wedsummerend|date:"g:i A" }}</td>
+						</tr>
+						<tr class="alt">
+							<td class="firstcol" align="left"><strong>Thursday:</strong></td>
+							<td align="center">{{ site.thusummerstart|date:"g:i A" }}</td>
+							<td align="center">{{ site.thusummerend|date:"g:i A" }}</td>
+						</tr>
+						<tr>
+							<td class="firstcol" align="left"><strong>Friday:</strong></td>
+							<td align="center">{{ site.frisummerstart|date:"g:i A" }}</td>
+							<td align="center">{{ site.frisummerend|date:"g:i A" }}</td>
+						</tr>
+						</tbody>
+					</table>
+					{% else %}
+					<table class="table table-striped table-condensed">
+						<thead>
+							<th align="left"><strong>Hours of Operation</strong></th>
+							<th align="right" ><strong>Morning Start Time</strong></th>
+							<th align="right" ><strong>Morning End Time</strong></th>
+							<th align="right" ><strong>Afternoon Start Time</strong></th>
+							<th align="right" ><strong>Afternoon End Time</strong></th>
+						</thead>
+						<tbody>
+						<tr>
+							<td class="firstcol" align="left"><strong>Monday:</strong></td>
+							<td align="center">{{ site.monstartmorning|date:"g:i A" }}</td>
+							<td align="center">{{ site.monendmorning|date:"g:i A" }}</td>
+							<td align="center">{{ site.monstartafter|date:"g:i A" }}</td>
+							<td align="center">{{ site.monendafter|date:"g:i A" }}</td>
+						</tr>
+						<tr class="alt">
+							<td class="firstcol" align="left"><strong>Tuesday:</strong></td>
+							<td align="center">{{ site.tuestartmorning|date:"g:i A" }}</td>
+							<td align="center">{{ site.tueendmorning|date:"g:i A" }}</td>
+							<td align="center">{{ site.tuestartafter|date:"g:i A" }}</td>
+							<td align="center">{{ site.tueendafter|date:"g:i A" }}</td>
+						</tr>
+						<tr>
+							<td class="firstcol" align="left"><strong>Wednesday:</strong></td>
+							<td align="center">{{ site.wedstartmorning|date:"g:i A" }}</td>
+							<td align="center">{{ site.wedendmorning|date:"g:i A" }}</td>
+							<td align="center">{{ site.wedstartafter|date:"g:i A" }}</td>
+							<td align="center">{{ site.wedendafter|date:"g:i A" }}</td>
+						</tr>
+						<tr class="alt">
+							<td class="firstcol" align="left"><strong>Thursday:</strong></td>
+							<td align="center">{{ site.thustartmorning|date:"g:i A" }}</td>
+							<td align="center">{{ site.thuendmorning|date:"g:i A" }}</td>
+							<td align="center">{{ site.thustartafter|date:"g:i A" }}</td>
+							<td align="center">{{ site.thuendafter|date:"g:i A" }}</td>
+						</tr>
+						<tr>
+							<td class="firstcol" align="left"><strong>Friday:</strong></td>
+							<td align="center">{{ site.fristartmorning|date:"g:i A" }}</td>
+							<td align="center">{{ site.friendmorning|date:"g:i A" }}</td>
+							<td align="center">{{ site.fristartafter|date:"g:i A" }}</td>
+							<td align="center">{{ site.friendafter|date:"g:i A" }}</td>
+						</tr>
+						<tr>
+							<th align="left" ><strong>Weekend Hours</strong></th>
+							<th align="center" colspan="2"><strong>Start Time</strong></th>
+							<th align="center" colspan="2"><strong>End Time</strong></th>
+						</tr>
+						<tr>
+							<td class="firstcol" align="left"><strong>Saturday:</strong></td>
+							<td align="center" colspan="2">{{ site.satstartweekend|date:"g:i A" }}</td>
+							<td align="center" colspan="2">{{ site.satendweekend|date:"g:i A" }}</td>
+						</tr>
+						<tr class="alt">
+							<td class="firstcol" align="left"><strong>Sunday:</strong></td>
+							<td align="center" colspan="2">{{ site.sunstartweekend|date:"g:i A" }}</td>
+							<td align="center" colspan="2">{{ site.sunendweekend|date:"g:i A" }}</td>
+							</td>
+						</tr>
+						</tbody>
+					</table>											        
+					{% endif %}
+					<br />
+					<strong>Other Program Information</strong><br /> 
+					{% if site.charge or site.feeassistance or site.desassistance or site.scholarship or site.getSurveyObject.slidescale or site.mcdiscount or site.otherassistance %}
+					<em>Financial</em>
+					<ul>
+						{% if site.charge %}
+							<li>This program charges a fee</li>
+						{% endif %}
+						{% if site.feeassistance %}
+							<li>Financial assistance available</li>
+						{% endif %}
+						{% if site.desassistance %}
+							<li>DES assistance accepted</li>
+						{% endif %}
+						{% if site.scholarship %}
+							<li>Scholarship assistance available</li>
+						{% endif %}
+						{% if site.mcdiscount %}
+							<li>Multiple child discount available</li>
+						{% endif %}
+						{% if site.otherassistance %}
+							<li>Other financial assistance available</li>
+						{% endif %}
+						{% if site.getSurveyObject.slidescale %}
+							<li>Fees assessed on a sliding scale</li>
+						{% endif %}
+					</ul>
+					{% endif %}
+					{% if site.transportation or site.breakfast or site.lunch or site.dinner or site.snacks %}
+					<em>Transportation/Food</em>
+					<ul>
+						{% if site.transportation %}
+							<li>Transportation assistance available</li>
+						{% endif %}
+						{% if site.breakfast %}
+							<li>Breakfast provided</li>
+						{% endif %}
+						{% if site.lunch %}
+							<li>Lunch provided</li>
+						{% endif %}
+						{% if site.dinner %}
+							<li>Dinner provided</li>
+						{% endif %}
+						{% if site.snacks %}
+							<li>Snacks provided</li>
+						{% endif %}
+					</ul>
+					{% endif %}
+					{% if site.spanish or site.otherlanguage or site.getSurveyObject.parentreferrals or site.getSurveyObject.parenteducation or site.getSurveyObject.parentinfo or site.getSurveyObject.parentotherdescription %}
+					<em>Other</em>
+					<ul>
+						{% if site.spanish %}
+							<li>Spanish spoken</li>
+						{% endif %}
+						{% if site.otherlanguage %}
+							<li>Other languages spoken</li>
+						{% endif %}
+						{% if site.getSurveyObject.parentreferrals %}
+							<li>Referrals for needed services provided</li>
+						{% endif %}
+						{% if site.getSurveyObject.parenteducation %}
+							<li>Parent education provided</li>
+						{% endif %}
+						{% if site.getSurveyObject.parenteducation %}
+							<li>Parent education provided</li>
+						{% endif %}
+						{% if site.getSurveyObject.parentinfo %}
+							<li>Information and handouts provided to parents</li>
+						{% endif %}
+						{% if site.getSurveyObject.parentotherdescription %}
+							<li>Other items provided to parents</li>
+						{% endif %}
+					</ul>
+					{% endif %}
+					</p>
+					<br />
+					<a href="/editPrograms?siteid={{ site.siteid }}" class="btn btn-default btn-sm">Edit</a>
+					<a href="/removePrograms?siteid={{ site.siteid }}" class="btn btn-default btn-sm">Remove</a>
+				</div>
+			</div>
+		{% if forloop.counter|divisibleby:2 %}
+		</div>
+		<div class='row'>			
+		{% endif %}
+		{% endfor %}
+		</div>
+    </div> <!-- /container -->
+{% endblock %}
