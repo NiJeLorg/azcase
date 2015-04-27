@@ -23,4 +23,5 @@ urlpatterns = patterns('',
     url(r'^comparePrograms/$', views.comparePrograms, name='comparePrograms'),
     url(r'^compareUsers/$', views.compareUsers, name='compareUsers'),
     url(r'^compareLocations/$', views.compareLocations, name='compareLocations'),
+    url(r'^emailUsers/$', views.emailUsers, name='emailUsers'),
 )

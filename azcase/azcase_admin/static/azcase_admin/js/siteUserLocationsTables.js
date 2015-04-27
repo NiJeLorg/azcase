@@ -28,7 +28,10 @@ $().ready(new function(){
 
 		// check if more than one checkbox is checked for editing
 		$("#editPrograms").click(function (event) {
-			if ($("#programsTable input:checkbox:checked").length > 1) {
+			if ($("#programsTable input:checkbox:checked").length == 0) {
+				event.preventDefault();
+				alert("Please select a program to edit. Thanks!");
+			} else if ($("#programsTable input:checkbox:checked").length > 1) {
 				event.preventDefault();
 				alert("You can only edit one program at a time. Please select only one program to edit. Thanks!");
 			} else {
@@ -38,7 +41,10 @@ $().ready(new function(){
 		});
 
 		$("#editUsers").click(function (event) {
-			if ($("#usersTable input:checkbox:checked").length > 1) {
+			if ($("#usersTable input:checkbox:checked").length == 0) {
+				event.preventDefault();
+				alert("Please select a user to edit. Thanks!");
+			} else if ($("#usersTable input:checkbox:checked").length > 1) {
 				event.preventDefault();
 				alert("You can only edit one user at a time. Please select only one user to edit. Thanks!");
 			} else {
@@ -48,7 +54,10 @@ $().ready(new function(){
 		});
 
 		$("#editLocations").click(function (event) {
-			if ($("#locationsTable input:checkbox:checked").length > 1) {
+			if ($("#locationsTable input:checkbox:checked").length == 0) {
+				event.preventDefault();
+				alert("Please select a location to edit. Thanks!");
+			} else if ($("#locationsTable input:checkbox:checked").length > 1) {
 				event.preventDefault();
 				alert("You can only edit one location at a time. Please select only one location to edit. Thanks!");
 			} else {
@@ -59,7 +68,10 @@ $().ready(new function(){
 
 		// check if more than one checkbox is checked for editing
 		$("#removePrograms").click(function (event) {
-			if ($("#programsTable input:checkbox:checked").length > 1) {
+			if ($("#programsTable input:checkbox:checked").length == 0) {
+				event.preventDefault();
+				alert("Please select a program to remove. Thanks!");
+			} else if ($("#programsTable input:checkbox:checked").length > 1) {
 				event.preventDefault();
 				alert("You can only remove one program at a time. Please select only one program to remove. Thanks!");
 			} else {
@@ -69,7 +81,10 @@ $().ready(new function(){
 		});
 
 		$("#removeUsers").click(function (event) {
-			if ($("#usersTable input:checkbox:checked").length > 1) {
+			if ($("#usersTable input:checkbox:checked").length == 0) {
+				event.preventDefault();
+				alert("Please select a user to remove. Thanks!");
+			} else if ($("#usersTable input:checkbox:checked").length > 1) {
 				event.preventDefault();
 				alert("You can only remove one user at a time. Please select only one user to remove. Thanks!");
 			} else {
@@ -81,6 +96,9 @@ $().ready(new function(){
 		$("#removeLocations").click(function (event) {
 			if ($("#locationsTable input:checkbox:checked").length > 1) {
 				event.preventDefault();
+				alert("Please select a location to remove. Thanks!");
+			} else if ($("#locationsTable input:checkbox:checked").length > 1) {
+				event.preventDefault();
 				alert("You can only remove one location at a time. Please select only one location to remove. Thanks!");
 			} else {
 				var locationid = $("#locationsTable input:checkbox:checked").val();
@@ -89,49 +107,84 @@ $().ready(new function(){
 		});
 
 		$("#comparePrograms").click(function (event) {
-			event.preventDefault();
-			var IDs = $("#programsTable input:checkbox:checked").map(function(){
-    			return $(this).val();
-    		}).get();
-			var numIDs = [];
-    		$.each(IDs, function(key, value) {
-    			value = parseInt(value);
-    			numIDs.push(value);
-    		});
-    		var json = JSON.stringify(numIDs);
-    		window.location = "/comparePrograms?siteids=" + json;
+			if ($("#programsTable input:checkbox:checked").length == 0) {
+				event.preventDefault();
+				alert("Please select a few programs to compare. Thanks!");
+			} else {
+				event.preventDefault();
+				var IDs = $("#programsTable input:checkbox:checked").map(function(){
+	    			return $(this).val();
+	    		}).get();
+				var numIDs = [];
+	    		$.each(IDs, function(key, value) {
+	    			value = parseInt(value);
+	    			numIDs.push(value);
+	    		});
+	    		var json = JSON.stringify(numIDs);
+	    		window.location = "/comparePrograms?siteids=" + json;				
+			}
 
 		});
 
 		$("#compareUsers").click(function (event) {
-			event.preventDefault();
-			var IDs = $("#usersTable input:checkbox:checked").map(function(){
-    			return $(this).val();
-    		}).get();
-			var numIDs = [];
-    		$.each(IDs, function(key, value) {
-    			value = parseInt(value);
-    			numIDs.push(value);
-    		});
-    		var json = JSON.stringify(numIDs);
-    		window.location = "/compareUsers?userids=" + json;
+			if ($("#usersTable input:checkbox:checked").length == 0) {
+				event.preventDefault();
+				alert("Please select a few users to compare. Thanks!");
+			} else {
+				event.preventDefault();
+				var IDs = $("#usersTable input:checkbox:checked").map(function(){
+	    			return $(this).val();
+	    		}).get();
+				var numIDs = [];
+	    		$.each(IDs, function(key, value) {
+	    			value = parseInt(value);
+	    			numIDs.push(value);
+	    		});
+	    		var json = JSON.stringify(numIDs);
+	    		window.location = "/compareUsers?userids=" + json;				
+			}
+
 
 		});
 
 		$("#compareLocations").click(function (event) {
-			event.preventDefault();
-			var IDs = $("#locationsTable input:checkbox:checked").map(function(){
-    			return $(this).val();
-    		}).get();
-			var numIDs = [];
-    		$.each(IDs, function(key, value) {
-    			value = parseInt(value);
-    			numIDs.push(value);
-    		});
-    		var json = JSON.stringify(numIDs);
-    		window.location = "/compareLocations?locationids=" + json;
+			if ($("#locationsTable input:checkbox:checked").length == 0) {
+				event.preventDefault();
+				alert("Please select a few locations to compare. Thanks!");
+			} else {
+				event.preventDefault();
+				var IDs = $("#locationsTable input:checkbox:checked").map(function(){
+	    			return $(this).val();
+	    		}).get();
+				var numIDs = [];
+	    		$.each(IDs, function(key, value) {
+	    			value = parseInt(value);
+	    			numIDs.push(value);
+	    		});
+	    		var json = JSON.stringify(numIDs);
+	    		window.location = "/compareLocations?locationids=" + json;
+	    	}	
 
 		});
+
+
+		$("#emailUsers").click(function (event) {
+			if ($("#usersTable input:checkbox:checked").length == 0) {
+				event.preventDefault();
+				alert("Please select a few users to email. Thanks!");
+			} else {
+				event.preventDefault();
+	    		var num = $("#usersTable input:checkbox:checked").length;
+	    		if (num == 1) {
+	    			var numRec = num + ' Recipient';
+	    		} else {
+					var numRec = num + ' Recipients';
+	    		}
+	    		$('#numRecipients').html('<p><strong>To:</strong> ' + numRec + '</p>');
+				$('#emailUsersModal').modal('show');
+			}
+		});
+
 	}
 
 	// establish listeners on page load
@@ -155,6 +208,47 @@ $().ready(new function(){
 			
 	    });
 
+	}
+
+
+	$("#sendEmail").click(function (event) {
+		console.log('hello');
+		// check for a message
+		if ($("#userMessage").val().length == 0) {
+			event.preventDefault();
+			alert("Please enter a message to email. Thanks!");
+		} else {
+			event.preventDefault();
+			var IDs = $("#usersTable input:checkbox:checked").map(function(){
+    			return $(this).val();
+    		}).get();
+			var numIDs = [];
+    		$.each(IDs, function(key, value) {
+    			value = parseInt(value);
+    			numIDs.push(value);
+    		});
+    		var json = JSON.stringify(numIDs);
+    		var subject = $("#userSubject").val();
+    		var message = $("#userMessage").val();
+    		// send all to Ajax
+    		sendEmailToUsers(json, subject, message);
+    		//hide modal
+			$('#emailUsersModal').modal('hide');					
+		}
+	});
+
+	// send email to users
+	function sendEmailToUsers(json, subject, message) {
+		$.ajax({
+			type: 'GET',
+			url: '/emailUsers?userids=' + json + '&subject=' + subject + '&message=' + message,
+			success: function(data){
+				alert("Message Sent!");		
+			},
+			error: function(data){
+				alert("There was a problem with your message and it was not sent. Please try again.");		
+			}
+		});
 	}
 
 

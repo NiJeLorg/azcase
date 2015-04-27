@@ -14,7 +14,11 @@ from django.db.models import Q
 # for chaining querysets together
 from itertools import chain
 
+#for using arrays of ids
 import json
+
+#for emailing from the system
+from django.core.mail import send_mail, BadHeaderError
 
 
 # Create your views here.
@@ -725,6 +729,31 @@ def compareLocations(request):
 			location.siteCount = str(siteCount) + ' Programs'
 
 	return render(request, 'azcase_admin/compareLocations.html', {'locations':locations})
+
+
+def emailUsers(request):
+
+	if request.method == 'GET':
+		userids = request.GET.get("userids","")
+		subject = request.GET.get("subject","A Message from the AZ Afterschool Directory")
+		message = request.GET.get("message","")
+		userids = json.loads(userids);
+		useremails = azcase_users.objects.filter(userid__in=userids).values_list('useremail')
+
+		if useremails and message:
+			for useremail in useremails:
+				try: 
+					send_mail(subject, message, 'jd@nijel.org', useremail)
+				except BadHeaderError:
+					return HttpResponseBadRequest('Invalid header found.')
+				
+			return HttpResponse('')
+		else: 
+			return HttpResponseBadRequest('')
+
+	else:
+		return HttpResponseBadRequest('')
+
 
 
 def formatAge(age5, age6, age7, age8, age9, age10, age11, age12, age13, age14, age15, age16, age17, age18):

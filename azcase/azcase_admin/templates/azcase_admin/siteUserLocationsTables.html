@@ -212,6 +212,32 @@
   </div>
 </div>
 
+<!-- Modal for emailing selected users-->
+<div class="modal fade" id="emailUsersModal" tabindex="-1" role="dialog" aria-labelledby="emailUsersTitle" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="emailUsersTitle">Send email to users</h4>
+      </div>
+        <div class="modal-body">
+          <div id="numRecipients"></div>
+          <div class="form-group">
+            <label for="userSubject">Subject</label>
+            <input type="text" class="form-control"name="userSubject" id="userSubject" />
+          </div>
+          <div class="form-group">
+            <label for="userMessage">Message</label>
+            <textarea class="form-control" rows="5" name="userMessage" id="userMessage"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input id="sendEmail" class="btn btn-primary" type="submit" value="Send">
+        </div>      
+    </div>
+  </div>
+</div>
+
 {% endblock %}
 
 {% block js_block %}
