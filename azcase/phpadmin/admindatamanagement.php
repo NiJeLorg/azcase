@@ -198,8 +198,9 @@ $adminassign = "
 		<label>Email: </label>
 		<input class=\"form-control\" type=\"email\" name=\"email\" value=\"\"/>
 	</div>
+	<input class=\"btn btn-default\" type=\"submit\" name=\"action\" value=\"Search\" />
 </div>
-<input class=\"btn btn-default\" type=\"submit\" name=\"action\" value=\"Search\" />
+
 <br />
 </p>
 </form>
