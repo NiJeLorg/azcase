@@ -266,12 +266,6 @@ echo $adminassign;
 echo $otheruserstable;
 
 
-// close admin = TRUE
-}else{}
-
-// close logged_in
-}else{}
-
 // create footer
 require('footer.php');
 
