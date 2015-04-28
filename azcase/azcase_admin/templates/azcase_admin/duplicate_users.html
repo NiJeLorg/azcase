@@ -1,0 +1,229 @@
+{% for user in duplicateUsers %}
+<div class="row">
+    <button type="button" class="btn btn-default btn-sm" id="selectAllUsers{{ user.pk }}">Select All</button>
+    <button type="button" class="btn btn-default btn-sm" id="selectNoneUsers{{ user.pk }}">Select None</button>
+    <button type="button" class="btn btn-default btn-sm" id="editUsers{{ user.pk }}">Edit</button>
+    <button type="button" class="btn btn-default btn-sm" id="removeUsers{{ user.pk }}">Remove</button>
+    <button type="button" class="btn btn-default btn-sm" id="compareUsers{{ user.pk }}">Compare</button>
+    <button type="button" class="btn btn-default btn-sm" id="duplicateRemoveUsers{{ user.pk }}">Mark Pair As Not Duplicates</button>
+</div>
+<div id="usersTable{{ user.pk }}" class="row">
+  <table class="table table-striped table-condensed">
+    <thead>
+      <th>Select</th>
+      <th>Number of Programs</th>
+      <th>Name</th>
+      <th>Organization Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Last Updated</th>
+    </thead>
+    <tbody>     
+        <tr>
+          <td><input type="checkbox" value="{{ user.userid1.userid }}"></td>
+          <td>
+            {% if user.userid1.sitesUsers %}
+              <a href="#" data-toggle="modal" data-target="#userid_{{ user.userid1.userid }}">{{ user.userid1.siteCount }}</a>
+            {% else %}
+              {{ user.userid1.siteCount }}
+            {% endif %}
+          </td>
+          <td>{{ user.userid1.username }}</td>
+          <td>{{ user.userid1.orgname }}</td>
+          <td>{{ user.userid1.useremail }}</td>
+          {% if user.userid1.address %}
+            <td>{{ user.userid1.address }}; {{ user.userid1.city }}, {{ user.userid1.state }} {{ user.userid1.zip }}</td>
+          {% else %}
+            <td></td>
+          {% endif %}
+          <td>{{ user.userid1.phone }}</td>
+          <td>
+            {{ user.userid1.updated|date:"M j, Y" }}
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" value="{{ user.userid2.userid }}"></td>
+          <td>
+            {% if user.userid2.sitesUsers %}
+              <a href="#" data-toggle="modal" data-target="#userid_{{ user.userid2.userid }}">{{ user.userid2.siteCount }}</a>
+            {% else %}
+              {{ user.userid2.siteCount }}
+            {% endif %}
+          </td>
+          <td>{{ user.userid2.username }}</td>
+          <td>{{ user.userid2.orgname }}</td>
+          <td>{{ user.userid2.useremail }}</td>
+          {% if user.userid2.address %}
+            <td>{{ user.userid2.address }}; {{ user.userid2.city }}, {{ user.userid2.state }} {{ user.userid2.zip }}</td>
+          {% else %}
+            <td></td>
+          {% endif %}
+          <td>{{ user.userid2.phone }}</td>
+          <td>
+            {{ user.userid2.updated|date:"M j, Y" }}
+          </td>
+          <td>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+<hr />
+{% endfor %}
+
+
+<script type="text/javascript">
+  $().ready(new function(){
+
+    {% for user in duplicateUsers %}
+
+      $("#selectAllUsers" + {{ user.pk }}).click(function () {
+        $("#usersTable{{ user.pk }} input:checkbox").prop( "checked", true );
+      });
+
+      $("#selectNoneUsers" + {{ user.pk }}).click(function () {
+        $("#usersTable{{ user.pk }} input:checkbox").prop( "checked", false );
+      });
+
+      $("#editUsers" + {{ user.pk }}).click(function (event) {
+        if ($("#usersTable{{ user.pk }} input:checkbox:checked").length == 0) {
+          event.preventDefault();
+          alert("Please select a program to edit. Thanks!");
+        } else if ($("#usersTable{{ user.pk }} input:checkbox:checked").length > 1) {
+          event.preventDefault();
+          alert("You can only edit one program at a time. Please select only one program to edit. Thanks!");
+        } else {
+          var userid = $("#usersTable{{ user.pk }} input:checkbox:checked").val();
+          window.location = "/editUsers?userid=" + userid;
+        }
+      });
+
+      $("#removeUsers" + {{ user.pk }}).click(function (event) {
+        if ($("#usersTable{{ user.pk }} input:checkbox:checked").length == 0) {
+          event.preventDefault();
+          alert("Please select a program to remove. Thanks!");
+        } else if ($("#usersTable{{ user.pk }} input:checkbox:checked").length > 1) {
+          event.preventDefault();
+          alert("You can only remove one program at a time. Please select only one program to remove. Thanks!");
+        } else {
+          var userid = $("#usersTable{{ user.pk }} input:checkbox:checked").val();
+          window.location = "/removeUsers?userid=" + userid;
+        }
+      });
+
+      $("#compareUsers" + {{ user.pk }}).click(function (event) {
+        if ($("#usersTable{{ user.pk }} input:checkbox:checked").length == 0) {
+          event.preventDefault();
+          alert("Please select a few users to compare. Thanks!");
+        } else {
+          event.preventDefault();
+          var IDs = $("#usersTable{{ user.pk }} input:checkbox:checked").map(function(){
+              return $(this).val();
+            }).get();
+          var numIDs = [];
+            $.each(IDs, function(key, value) {
+              value = parseInt(value);
+              numIDs.push(value);
+            });
+            var json = JSON.stringify(numIDs);
+            window.location = "/compareUsers?userids=" + json;       
+        }
+
+      });
+
+      $("#duplicateRemoveUsers" + {{ user.pk }}).click(function (event) {
+        if ($("#usersTable{{ user.pk }} input:checkbox:checked").length == 0) {
+          event.preventDefault();
+          alert("Please select a few duplicate users to mark as not a duplicate. Thanks!");
+        } else {
+          event.preventDefault();
+          var IDs = $("#usersTable{{ user.pk }} input:checkbox").map(function(){
+              return $(this).val();
+            }).get();
+          var numIDs = [];
+            $.each(IDs, function(key, value) {
+              value = parseInt(value);
+              numIDs.push(value);
+            });
+            var json = JSON.stringify(numIDs);
+            window.location = "/markNotDuplicateUser/?userids=" + json;       
+        }
+
+      });
+
+
+    {% endfor %}
+
+  });
+
+
+</script>
+
+
+<!-- Modals for seeing which programs are associated with which locations-->
+{% for user in duplicateUsers %}
+<div class="modal fade" id="userid_{{ user.userid1.userid }}" tabindex="-1" role="dialog" aria-labelledby="sitesLocations" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="sitesLocations">Programs for {{ user.userid1.username }}</h4>
+      </div>
+      <div class="modal-body">
+        {% for site in user.userid1.sitesUsers %}
+          <p>
+            <strong>{{ site.name }}</strong><br />
+            {% if site.phone %}
+              {{ site.phone }}<br />
+            {% endif %}
+            {% if site.email %}
+              {{ site.email }}<br />
+            {% endif %}
+            <a class="btn btn-default btn-sm" href="/editPrograms?siteid={{ site.siteid }}">Edit</a>
+            <a class="btn btn-default btn-sm" href="/removePrograms?siteid={{ site.siteid }}">Remove</a>
+          </p>
+          <br />
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="userid_{{ user.userid2.userid }}" tabindex="-1" role="dialog" aria-labelledby="sitesLocations" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="sitesLocations">Programs for {{ user.userid2.username }}</h4>
+      </div>
+      <div class="modal-body">
+        {% for site in user.userid2.sitesUsers %}
+          <p>
+            <strong>{{ site.name }}</strong><br />
+            {% if site.phone %}
+              {{ site.phone }}<br />
+            {% endif %}
+            {% if site.email %}
+              {{ site.email }}<br />
+            {% endif %}
+            <a class="btn btn-default btn-sm" href="/editPrograms?siteid={{ site.siteid }}">Edit</a>
+            <a class="btn btn-default btn-sm" href="/removePrograms?siteid={{ site.siteid }}">Remove</a>
+          </p>
+          <br />
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+
+
+
+
+	
+	
+

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 # import all azcase_admin models
 from azcase_admin.models import *
@@ -18,14 +18,23 @@ from itertools import chain
 import json
 
 #for emailing from the system
-from django.core.mail import send_mail, BadHeaderError
+from django.core import mail
 
 
 # Create your views here.
 def index(request):
+	# get count of location duplicates not yet handled
+	locationDupsCount = azcase_locations_duplicates.objects.filter(notDuplicate__exact=False).count()
+
+	# get count of user duplicates not yet handled
+	userDupsCount = azcase_users_duplicates.objects.filter(notDuplicate__exact=False).count()
+
+	# get count of site duplicates not yet handled
+	siteDupsCount = azcase_sites_duplicates.objects.filter(notDuplicate__exact=False).count()
+
 	verifiedCount = azcase_sites.objects.filter(verified__exact=2).count()
 	
-	context_dict = {'verifiedCount': verifiedCount}
+	context_dict = {'verifiedCount': verifiedCount, 'locationDupsCount':locationDupsCount, 'userDupsCount':userDupsCount, 'siteDupsCount':siteDupsCount}
 	return render(request, 'azcase_admin/index.html', context_dict)
 
 def sitesUsersLocations(request):
@@ -185,10 +194,20 @@ def sitesUsersLocations(request):
 	except EmptyPage:
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		sites = sitePaginator.page(sitePaginator.num_pages)
-
-	# format ages served
+	
 	for site in sites:
+		# format ages served
 		site.agesserved = formatAge(site.age5, site.age6, site.age7, site.age8, site.age9, site.age10, site.age11, site.age12, site.age13, site.age14, site.age15, site.age16, site.age17, site.age18)
+		# find out if possible duplicates
+		siteDupLookup1 = Q(siteid1__exact=site.siteid)
+		siteDupLookup2 = Q(siteid2__exact=site.siteid)
+
+		siteDupsCount = azcase_sites_duplicates.objects.filter(siteDupLookup1 | siteDupLookup2).count()
+
+		if siteDupsCount > 0:
+			site.duplicate = True
+		else: 
+			site.duplicate = False
 
 	#get users
 	user_list = azcase_users.objects.filter(userQuery).order_by('username')
@@ -218,6 +237,16 @@ def sitesUsersLocations(request):
 			userObject.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
 			userObject.siteCount = str(siteCount) + ' Programs'
 
+		# find out if possible duplicates
+		userDupLookup1 = Q(userid1__exact=userObject.userid)
+		userDupLookup2 = Q(userid2__exact=userObject.userid)
+
+		userDupsCount = azcase_users_duplicates.objects.filter(userDupLookup1 | userDupLookup2).count()
+
+		if userDupsCount > 0:
+			userObject.duplicate = True
+		else: 
+			userObject.duplicate = False
 
 	#get locations
 	locations_list = azcase_locations.objects.filter(locationQuery).order_by('name')
@@ -246,6 +275,17 @@ def sitesUsersLocations(request):
 			siteIds = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid).values('siteid')
 			location.sitesLocation = azcase_sites.objects.filter(siteid__in=siteIds)
 			location.siteCount = str(siteCount) + ' Programs'
+
+		# find out if possible duplicates
+		locationDupLookup1 = Q(locationid1__exact=location.locationid)
+		locationDupLookup2 = Q(locationid2__exact=location.locationid)
+
+		locationDupsCount = azcase_locations_duplicates.objects.filter(locationDupLookup1 | locationDupLookup2).count()
+
+		if locationDupsCount > 0:
+			location.duplicate = True
+		else: 
+			location.duplicate = False
 
 
 	context_dict = {'sites':sites, 'userObjects': userObjects, 'locations': locations, 'siteName': siteName, 'siteEmail': siteEmail, 'sitePhone': sitePhone, 'userName': userName, 'userEmail': userEmail, 'userOrgName':userOrgName, 'locationName': locationName, 'locationAddress': locationAddress, 'locationCity': locationCity, 'locationZip': locationZip, 'site_number_of_pages':site_number_of_pages, 'user_number_of_pages':user_number_of_pages, 'location_number_of_pages': location_number_of_pages, 'programPage': programPage, 'userPage': userPage, 'locationPage': locationPage}
@@ -366,6 +406,16 @@ def filterSites(request):
 
 	for site in sites:
 		site.agesserved = formatAge(site.age5, site.age6, site.age7, site.age8, site.age9, site.age10, site.age11, site.age12, site.age13, site.age14, site.age15, site.age16, site.age17, site.age18)
+		# find out if possible duplicates
+		siteDupLookup1 = Q(siteid1__exact=site.siteid)
+		siteDupLookup2 = Q(siteid2__exact=site.siteid)
+
+		siteDupsCount = azcase_sites_duplicates.objects.filter(siteDupLookup1 | siteDupLookup2).count()
+
+		if siteDupsCount > 0:
+			site.duplicate = True
+		else: 
+			site.duplicate = False
 
 
 	context_dict = {'sites':sites, 'siteName': siteName, 'siteEmail': siteEmail, 'sitePhone': sitePhone, 'userName': userName, 'userEmail': userEmail, 'userOrgName':userOrgName, 'locationName': locationName, 'locationAddress': locationAddress, 'locationCity': locationCity, 'locationZip': locationZip, 'site_number_of_pages':site_number_of_pages}
@@ -500,6 +550,17 @@ def filterUsers(request):
 			userObject.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
 			userObject.siteCount = str(siteCount) + ' Programs'
 
+		# find out if possible duplicates
+		userDupLookup1 = Q(userid1__exact=userObject.userid)
+		userDupLookup2 = Q(userid2__exact=userObject.userid)
+
+		userDupsCount = azcase_users_duplicates.objects.filter(userDupLookup1 | userDupLookup2).count()
+
+		if userDupsCount > 0:
+			userObject.duplicate = True
+		else: 
+			userObject.duplicate = False
+
 
 	context_dict = {'userObjects':userObjects, 'siteName': siteName, 'siteEmail': siteEmail, 'sitePhone': sitePhone, 'userName': userName, 'userEmail': userEmail, 'userOrgName':userOrgName, 'locationName': locationName, 'locationAddress': locationAddress, 'locationCity': locationCity, 'locationZip': locationZip, 'user_number_of_pages':user_number_of_pages}
 
@@ -633,6 +694,17 @@ def filterLocations(request):
 			location.sitesLocation = azcase_sites.objects.filter(siteid__in=siteIds)
 			location.siteCount = str(siteCount) + ' Programs'
 
+		# find out if possible duplicates
+		locationDupLookup1 = Q(locationid1__exact=location.locationid)
+		locationDupLookup2 = Q(locationid2__exact=location.locationid)
+
+		locationDupsCount = azcase_locations_duplicates.objects.filter(locationDupLookup1 | locationDupLookup2).count()
+
+		if locationDupsCount > 0:
+			location.duplicate = True
+		else: 
+			location.duplicate = False
+
 
 	context_dict = {'locations':locations, 'siteName': siteName, 'siteEmail': siteEmail, 'sitePhone': sitePhone, 'userName': userName, 'userEmail': userEmail, 'userOrgName':userOrgName, 'locationName': locationName, 'locationAddress': locationAddress, 'locationCity': locationCity, 'locationZip': locationZip, 'location_number_of_pages':location_number_of_pages}
 
@@ -741,18 +813,346 @@ def emailUsers(request):
 		useremails = azcase_users.objects.filter(userid__in=userids).values_list('useremail')
 
 		if useremails and message:
+			#open an email connection
+			connection = mail.get_connection()
+			connection.open()
 			for useremail in useremails:
-				try: 
-					send_mail(subject, message, 'jd@nijel.org', useremail)
-				except BadHeaderError:
-					return HttpResponseBadRequest('Invalid header found.')
+				if useremail:
+					try:
+						mail.send_mail(subject=subject, message=message, from_email='AzCASE Directory <azcase.directory@gmail.com>', recipient_list=useremail, connection=connection)
+					except mail.BadHeaderError:
+						return HttpResponse('Invalid header found.')
 				
+			connection.close()
 			return HttpResponse('')
 		else: 
 			return HttpResponseBadRequest('')
 
 	else:
 		return HttpResponseBadRequest('')
+
+
+def emailAllUsers(request):
+	if request.method == 'GET':
+		subject = request.GET.get("subject","A Message from the AZ Afterschool Directory")
+		message = request.GET.get("message","")
+		useremails = azcase_users.objects.all().values_list('useremail')
+
+		if useremails and message:
+			#open an email connection
+			connection = mail.get_connection()
+			connection.open()
+			for useremail in useremails:
+				if useremail:
+					try:
+						mail.send_mail(subject=subject, message=message, from_email='AzCASE Directory <azcase.directory@gmail.com>', recipient_list=useremail, connection=connection)
+					except mail.BadHeaderError:
+						return HttpResponse('Invalid header found.')
+				
+			connection.close()
+			return HttpResponse('')
+		else: 
+			return HttpResponseBadRequest('')
+
+	else:
+		return HttpResponseBadRequest('')
+
+
+def updateDuplicateRecords(request):
+	# pull all locations records
+	locations = azcase_locations.objects.all()
+
+	for location in locations:
+		# search for any other potental duplicates
+		locationNameQuery = Q(name__icontains=location.name)
+		locationAddressQuery = Q(address__icontains=location.address)
+		locationIDQuery = Q(locationid__exact=location.locationid)
+
+		locationDups = azcase_locations.objects.filter(locationNameQuery & locationAddressQuery).exclude(locationIDQuery)
+
+		# check to make sure duplicates aren't in duplicate record databasse yet, 
+		for locationDup in locationDups:
+			locationDupLookup1 = Q(locationid1__in=[location, locationDup])
+			locationDupLookup2 = Q(locationid2__in=[location, locationDup])
+
+			locationDupsCount = azcase_locations_duplicates.objects.filter(locationDupLookup1 & locationDupLookup2).count()
+
+			if locationDupsCount == 0:
+				azcase_locations_duplicates.objects.create(locationid1=location, locationid2=locationDup)
+
+	# pull all user records
+	users = azcase_users.objects.all()
+
+	for user in users:
+		if user.username:
+			# search for any other potental duplicates
+			userNameQuery = Q(username__icontains=user.username)
+		else:
+			userNameQuery = Q()
+
+		if user.orgname:
+			userOrgNameQuery = Q(orgname__icontains=user.orgname)
+		else:
+			userOrgNameQuery = Q()
+
+		userIDQuery = Q(userid__exact=user.userid)
+
+		userDups = azcase_users.objects.filter(userNameQuery & userOrgNameQuery).exclude(userIDQuery)
+
+		# check to make sure duplicates aren't in duplicate record databasse yet, 
+		for userDup in userDups:
+			userDupLookup1 = Q(userid1__in=[user, userDup])
+			userDupLookup2 = Q(userid2__in=[user, userDup])
+
+			userDupsCount = azcase_users_duplicates.objects.filter(userDupLookup1 & userDupLookup2).count()
+
+			if userDupsCount == 0:
+				azcase_users_duplicates.objects.create(userid1=user, userid2=userDup)
+
+	# pull all site records
+	sites = azcase_sites.objects.all()
+
+	for site in sites:
+		if site.name:
+			# search for any other potental duplicates
+			siteNameQuery = Q(name__icontains=site.name)
+		else:
+			siteNameQuery = Q()
+
+		if site.summer is not None:
+			siteSummerQuery = Q(summer__exact=site.summer)
+		else:
+			siteSummerQuery = Q()
+
+		siteIDQuery = Q(siteid__exact=site.siteid)
+
+		# select location name/address and see if they're similar -- if so add group of siteids to this query
+		locationids_list = azcase_sites_locations_junction.objects.filter(siteid__exact=site.siteid).values('locationid')
+		locations = azcase_locations.objects.filter(locationid__in=locationids_list)
+
+		for location in locations:
+			address = location.address
+			# select all locations with that address
+			locationsWAddress = azcase_locations.objects.filter(address__icontains=address).values('locationid')
+			#get matching siteids
+			siteids_list = azcase_sites_locations_junction.objects.filter(locationid__in=locationsWAddress).values('siteid')
+			if siteids_list:
+				potentialSiteIDs = Q(siteid__in=siteids_list)
+			else:
+				potentialSiteIDs = Q()
+
+		siteDups = azcase_sites.objects.filter(siteNameQuery & siteSummerQuery & potentialSiteIDs).exclude(siteIDQuery)
+
+		# check to make sure duplicates aren't in duplicate record databasse yet, 
+		for siteDup in siteDups:
+			siteDupLookup1 = Q(siteid1__in=[site, siteDup])
+			siteDupLookup2 = Q(siteid2__in=[site, siteDup])
+
+			siteDupsCount = azcase_sites_duplicates.objects.filter(siteDupLookup1 & siteDupLookup2).count()
+
+			if siteDupsCount == 0:
+				azcase_sites_duplicates.objects.create(siteid1=site, siteid2=siteDup)
+
+	return HttpResponse('')
+
+def duplicatePrograms(request):
+	duplicatePrograms = azcase_sites_duplicates.objects.filter(notDuplicate__exact=False)
+
+	return render(request, 'azcase_admin/duplicatePrograms.html', {'duplicatePrograms':duplicatePrograms})
+
+def duplicateProgram(request):
+	siteid = request.GET.get("siteid","")
+	site = azcase_sites.objects.get(siteid__exact=siteid)
+	siteDupLookup1 = Q(siteid1__exact=site)
+	siteDupLookup2 = Q(siteid2__exact=site)
+
+	duplicatePrograms = azcase_sites_duplicates.objects.filter((siteDupLookup1 | siteDupLookup2) & Q(notDuplicate__exact=False))
+
+	return render(request, 'azcase_admin/duplicatePrograms.html', {'duplicatePrograms':duplicatePrograms})
+
+
+def markNotDuplicateProgram(request):
+	siteids = request.GET.get("siteids","")
+	siteids = json.loads(siteids);
+	kwargs = {}
+	kwargs['siteid1__in'] = siteids
+	kwargs['siteid2__in'] = siteids
+	duplicatePrograms = azcase_sites_duplicates.objects.filter(**kwargs)
+	for dup in duplicatePrograms:
+		dup.notDuplicate = True
+		dup.save()
+
+	return HttpResponseRedirect('/duplicatePrograms/')
+
+def duplicateUsers(request):
+	duplicateUsers = azcase_users_duplicates.objects.filter(notDuplicate__exact=False)
+
+	# get the number of sites attached to each user
+	for userObject in duplicateUsers:
+		siteCount = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid1.userid).count()
+		if siteCount == 0:
+			userObject.userid1.siteCount = 'No Programs'
+		elif siteCount == 1:
+			siteIds = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid1.userid).values('siteid')
+			userObject.userid1.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
+			userObject.userid1.siteCount = str(siteCount) + ' Program'
+		else:
+			siteIds = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid1.userid).values('siteid')
+			userObject.userid1.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
+			userObject.userid1.siteCount = str(siteCount) + ' Programs'
+
+		siteCount = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid2.userid).count()
+		if siteCount == 0:
+			userObject.userid2.siteCount = 'No Programs'
+		elif siteCount == 1:
+			siteIds = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid2.userid).values('siteid')
+			userObject.userid2.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
+			userObject.userid2.siteCount = str(siteCount) + ' Program'
+		else:
+			siteIds = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid2.userid).values('siteid')
+			userObject.userid2.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
+			userObject.userid2.siteCount = str(siteCount) + ' Programs'
+
+	return render(request, 'azcase_admin/duplicateUsers.html', {'duplicateUsers':duplicateUsers})
+
+def duplicateUser(request):
+	userid = request.GET.get("userid","")
+	user = azcase_users.objects.get(userid__exact=userid)
+	userDupLookup1 = Q(userid1__exact=user)
+	userDupLookup2 = Q(userid2__exact=user)
+
+	duplicateUsers = azcase_users_duplicates.objects.filter((userDupLookup1 | userDupLookup2) & Q(notDuplicate__exact=False))
+
+	# get the number of sites attached to each user
+	for userObject in duplicateUsers:
+		siteCount = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid1.userid).count()
+		if siteCount == 0:
+			userObject.userid1.siteCount = 'No Programs'
+		elif siteCount == 1:
+			siteIds = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid1.userid).values('siteid')
+			userObject.userid1.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
+			userObject.userid1.siteCount = str(siteCount) + ' Program'
+		else:
+			siteIds = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid1.userid).values('siteid')
+			userObject.userid1.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
+			userObject.userid1.siteCount = str(siteCount) + ' Programs'
+
+		siteCount = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid2.userid).count()
+		if siteCount == 0:
+			userObject.userid2.siteCount = 'No Programs'
+		elif siteCount == 1:
+			siteIds = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid2.userid).values('siteid')
+			userObject.userid2.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
+			userObject.userid2.siteCount = str(siteCount) + ' Program'
+		else:
+			siteIds = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid2.userid).values('siteid')
+			userObject.userid2.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
+			userObject.userid2.siteCount = str(siteCount) + ' Programs'
+
+	return render(request, 'azcase_admin/duplicateUsers.html', {'duplicateUsers':duplicateUsers})
+
+def markNotDuplicateUser(request):
+	userids = request.GET.get("userids","")
+	userids = json.loads(userids);
+	kwargs = {}
+	kwargs['userid1__in'] = userids
+	kwargs['userid2__in'] = userids
+	duplicateUsers = azcase_users_duplicates.objects.filter(**kwargs)
+	for dup in duplicateUsers:
+		dup.notDuplicate = True
+		dup.save()
+
+	return HttpResponseRedirect('/duplicateUsers/')
+
+
+def duplicateLocations(request):
+	duplicateLocations = azcase_locations_duplicates.objects.filter(notDuplicate__exact=False)
+
+	# get the number of sites attached to each user
+	for location in duplicateLocations:
+		siteCount = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid1.locationid).count()
+		if siteCount == 0:
+			location.locationid1.siteCount = 'No Programs'
+		elif siteCount == 1:
+			siteIds = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid1.locationid).values('siteid')
+			location.locationid1.sitesLocations = azcase_sites.objects.filter(siteid__in=siteIds)
+			location.locationid1.siteCount = str(siteCount) + ' Program'
+		else:
+			siteIds = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid1.locationid).values('siteid')
+			location.locationid1.sitesLocations = azcase_sites.objects.filter(siteid__in=siteIds)
+			location.locationid1.siteCount = str(siteCount) + ' Programs'
+
+		siteCount = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid2.locationid).count()
+		if siteCount == 0:
+			location.locationid2.siteCount = 'No Programs'
+		elif siteCount == 1:
+			siteIds = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid2.locationid).values('siteid')
+			location.locationid2.sitesLocations = azcase_sites.objects.filter(siteid__in=siteIds)
+			location.locationid2.siteCount = str(siteCount) + ' Program'
+		else:
+			siteIds = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid2.locationid).values('siteid')
+			location.locationid2.sitesLocations = azcase_sites.objects.filter(siteid__in=siteIds)
+			location.locationid2.siteCount = str(siteCount) + ' Programs'
+
+	return render(request, 'azcase_admin/duplicateLocations.html', {'duplicateLocations':duplicateLocations})
+
+def duplicateLocation(request):
+	locationid = request.GET.get("locationid","")
+	location = azcase_locations.objects.get(locationid__exact=locationid)
+	locationDupLookup1 = Q(locationid1__exact=location)
+	locationDupLookup2 = Q(locationid2__exact=location)
+
+	duplicateLocations = azcase_locations_duplicates.objects.filter((locationDupLookup1 | locationDupLookup2) & Q(notDuplicate__exact=False))
+
+	# get the number of sites attached to each user
+	for location in duplicateLocations:
+		siteCount = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid1.locationid).count()
+		if siteCount == 0:
+			location.locationid1.siteCount = 'No Programs'
+		elif siteCount == 1:
+			siteIds = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid1.locationid).values('siteid')
+			location.locationid1.sitesLocations = azcase_sites.objects.filter(siteid__in=siteIds)
+			location.locationid1.siteCount = str(siteCount) + ' Program'
+		else:
+			siteIds = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid1.locationid).values('siteid')
+			location.locationid1.sitesLocations = azcase_sites.objects.filter(siteid__in=siteIds)
+			location.locationid1.siteCount = str(siteCount) + ' Programs'
+
+		siteCount = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid2.locationid).count()
+		if siteCount == 0:
+			location.locationid2.siteCount = 'No Programs'
+		elif siteCount == 1:
+			siteIds = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid2.locationid).values('siteid')
+			location.locationid2.sitesLocations = azcase_sites.objects.filter(siteid__in=siteIds)
+			location.locationid2.siteCount = str(siteCount) + ' Program'
+		else:
+			siteIds = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid2.locationid).values('siteid')
+			location.locationid2.sitesLocations = azcase_sites.objects.filter(siteid__in=siteIds)
+			location.locationid2.siteCount = str(siteCount) + ' Programs'
+
+	return render(request, 'azcase_admin/duplicateLocations.html', {'duplicateLocations':duplicateLocations})
+
+
+def markNotDuplicateLocation(request):
+	locationids = request.GET.get("locationids","")
+	locationids = json.loads(locationids);
+	kwargs = {}
+	kwargs['locationid1__in'] = locationids
+	kwargs['locationid2__in'] = locationids
+	duplicateLocations = azcase_locations_duplicates.objects.filter(**kwargs)
+	for dup in duplicateLocations:
+		dup.notDuplicate = True
+		dup.save()
+
+	return HttpResponseRedirect('/duplicateLocations/')
+
+def manageUsersData(request):
+	userid = request.GET.get("userid","")
+	return render(request, 'azcase_admin/manageUsersData.html', {'userid':userid})
+
+def customReports(request):
+	return render(request, 'azcase_admin/customReports.html', {})
+
 
 
 

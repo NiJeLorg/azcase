@@ -1,0 +1,31 @@
+{% extends 'azcase_admin/base.html' %}
+{% load staticfiles %}
+
+{% block css_block %}
+{% endblock %}
+
+{% block head_js_block %}
+{% endblock %}
+  
+
+{% block content %}
+
+    <div class="container">
+      <div class="row">
+       <h3 class="azcase-text-color">Potential Duplicate Users</h3>
+       <p>The following users have been flagged as potential duplicates because they appear to have similar information. Please edit or remove any duplicate users, or select to remove any users from the duplicate list. Thanks! 
+       </p>
+      </div>
+      <div class="duplicateSitesWrapper">
+        {% include 'azcase_admin/duplicate_users.html' %}
+      </div>
+    </div> <!-- /container -->
+
+
+{% endblock %}
+
+{% block modal_block %}
+{% endblock %}
+
+{% block js_block %}
+{% endblock %}

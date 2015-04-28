@@ -76,15 +76,24 @@
       <hr>
       <div class="row">
         <div class="col-md-12">
-         <h4 class="azcase-text-color">Handling Duplicate Records (UNDER CONSTRUCTION)</h4>
+         <h4 class="azcase-text-color">Handling Duplicate Records</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <p>
            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-           2 Duplicates Detected
-           <a class="btn btn-default" href="#" role="button">Address Duplicate Records</a>
+           {{ siteDupsCount }} Potential Program Duplicates
+           <a class="btn btn-default" href="{% url 'duplicatePrograms' %}" role="button">Program Duplicates</a>
+           <br /><br />
+           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+           {{ userDupsCount }} Potential User Duplicates
+           <a class="btn btn-default" href="{% url 'duplicateUsers' %}" role="button">User Duplicates</a>
+           <br /><br />
+           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+           {{ locationDupsCount }} Potential Location Duplicates
+           <a class="btn btn-default" href="{% url 'duplicateLocations' %}" role="button">Location Duplicates</a>
+           <br />
           </p>
         </div>
       </div>
@@ -104,30 +113,29 @@
       <hr>
       <div class="row">
         <div class="col-md-12">
-         <h4 class="azcase-text-color">Communications (UNDER CONSTRUCTION)</h4>
+         <h4 class="azcase-text-color">Communications</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <p>
-           <a class="btn btn-default" href="#" role="button">Send Email to ALL Users</a>
-           <a class="btn btn-default" href="#" role="button">Set Admin Email "From" Address</a>
-           <a class="btn btn-default" href="#" role="button">Edit Auto-Emails</a>
+           <button type="button" class="btn btn-default" data-toggle="modal" data-target="#emailUsersModal">Send Email to ALL Users</button>
+           <a class="btn btn-default" href="#" role="button">Set Admin Email "From" Address (UNDER CONSTRUCTION)</a>
+           <a class="btn btn-default" href="#" role="button">Edit Auto-Emails (UNDER CONSTRUCTION)</a>
           </p>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-12">
-         <h4 class="azcase-text-color">User Management (UNDER CONSTRUCTION)</h4>
+         <h4 class="azcase-text-color">User Management </h4>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <p>
-           <a class="btn btn-default" href="#" role="button">Reassign Programs to New Users</a>
-           <a class="btn btn-default" href="#" role="button">Edit Administrator Accounts</a>
-           <a class="btn btn-default" href="#" role="button">Set Public Advanced Search Settings</a>
+           <a class="btn btn-default" href="#" role="button">Reassign Programs to New Users (UNDER CONSTRUCTION)</a>
+           <a class="btn btn-default" href="{% url 'registration_register' %}" role="button">Register New Administrators</a>
           </p>
         </div>
       </div>
@@ -140,7 +148,7 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-           <a class="btn btn-default" href="#" role="button">Generate Custom Reports</a>
+           <a class="btn btn-default" href="{% url 'customReports' %}" role="button">Generate Custom Reports</a>
            <a class="btn btn-default" href="#" role="button">Set Public Custom Report Generator Settings</a>
           </p>
         </div>
@@ -256,9 +264,77 @@
   </div>
 </div>
 
+<!-- Modal for emailing all users-->
+<div class="modal fade" id="emailUsersModal" tabindex="-1" role="dialog" aria-labelledby="emailUsersTitle" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="emailUsersTitle">Send email to ALL users</h4>
+      </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="userSubject">Subject</label>
+            <input type="text" class="form-control"name="userSubject" id="userSubject" />
+          </div>
+          <div class="form-group">
+            <label for="userMessage">Message</label>
+            <textarea class="form-control" rows="5" name="userMessage" id="userMessage"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input id="sendEmail" class="btn btn-primary" type="submit" value="Send">
+        </div>      
+    </div>
+  </div>
+</div>
+
 {% endblock %}
 
 {% block js_block %}
+<script type="text/javascript">
+  $().ready(new function(){
+    $.ajax({
+      type: 'GET',
+      url:  '/updateDuplicateRecords/', 
+      success: function(data){
+        console.log('updated duplicate records.');          
+      }
+    });
+
+    $("#sendEmail").click(function (event) {
+      // check for a message
+      if ($("#userMessage").val().length == 0) {
+        event.preventDefault();
+        alert("Please enter a message to email. Thanks!");
+      } else {
+        event.preventDefault();
+          var subject = $("#userSubject").val();
+          var message = $("#userMessage").val();
+          // send all to Ajax
+          sendEmailToUsers(subject, message);
+          //hide modal
+        $('#emailUsersModal').modal('hide');          
+      }
+    });
+
+    // send email to users
+    function sendEmailToUsers(subject, message) {
+      $.ajax({
+        type: 'GET',
+        url: '/emailAllUsers?subject=' + subject + '&message=' + message,
+        success: function(data){
+          alert("Message Sent!");   
+        },
+        error: function(data){
+          alert("There was a problem with your message and it was not sent. Please try again.");    
+        }
+      });
+    }
+
+
+  });
+</script>
 {% endblock %}
 
 

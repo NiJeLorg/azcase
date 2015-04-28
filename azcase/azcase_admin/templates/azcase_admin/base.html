@@ -47,8 +47,7 @@
           <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
             <li><a href="#">Hello, {{ user }}!</a></li>
-            <li><a href="#">Admin Settings</a></li>
-            <li><a href="#">Report an Issue</a></li>
+            <li><a href="{% url 'auth_password_change' %}">Admin Settings</a></li>
             <li><a href="{% url 'auth_logout' %}">Logout</a></li>
           {% else %}
           {% endif %}               

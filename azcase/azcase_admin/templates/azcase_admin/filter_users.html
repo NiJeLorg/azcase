@@ -54,6 +54,7 @@
     <button type="button" class="btn btn-default btn-sm" id="editUsers">Edit</button>
     <button type="button" class="btn btn-default btn-sm" id="removeUsers">Remove</button>
     <button type="button" class="btn btn-default btn-sm" id="compareUsers">Compare</button>
+    <button type="button" class="btn btn-default btn-sm" id="manageUsersData">Manage Programs</button>
     <button type="button" class="btn btn-default btn-sm" id="emailUsers">Send Email To</button>
 </div>
 <div id="usersTable" class="row">
@@ -93,6 +94,9 @@
             {{ userObject.updated|date:"M j, Y" }}
           </td>
           <td>
+            {% if userObject.duplicate %}
+              <a href="/duplicateUser?userid={{ userObject.userid }}">Yes</a>
+            {% endif %}
           </td>
         </tr>
       {% endfor %}

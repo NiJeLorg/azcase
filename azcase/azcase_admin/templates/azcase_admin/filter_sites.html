@@ -132,6 +132,9 @@
             {{ site.updated|date:"M j, Y" }}
           </td>
           <td>
+            {% if site.duplicate %}
+              <a href="/duplicateProgram?siteid={{ site.siteid }}">Yes</a>
+            {% endif %}
           </td>
         </tr>
       {% endfor %}

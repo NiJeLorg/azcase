@@ -1,0 +1,247 @@
+{% for site in duplicatePrograms %}
+<div class="row">
+    <button type="button" class="btn btn-default btn-sm" id="selectAllPrograms{{ site.pk }}">Select All</button>
+    <button type="button" class="btn btn-default btn-sm" id="selectNonePrograms{{ site.pk }}">Select None</button>
+    <button type="button" class="btn btn-default btn-sm" id="editPrograms{{ site.pk }}">Edit</button>
+    <button type="button" class="btn btn-default btn-sm" id="removePrograms{{ site.pk }}">Remove</button>
+    <button type="button" class="btn btn-default btn-sm" id="comparePrograms{{ site.pk }}">Compare</button>
+    <button type="button" class="btn btn-default btn-sm" id="duplicateRemovePrograms{{ site.pk }}">Mark Pair As Not Duplicates</button>
+</div>
+<div id="programsTable{{ site.pk }}" class="row">
+  <table class="table table-striped table-condensed">
+    <thead>
+      <th>Select</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Activities</th>
+      <th>Ages Served</th>
+      <th>Last Updated</th>
+    </thead>
+    <tbody>     
+        <tr>
+          <td><input type="checkbox" value="{{ site.siteid1.siteid }}"></td>
+          <td>
+            {{ site.siteid1.name }} 
+            {% if site.siteid1.summer %}
+              <strong>(Summer Program)</strong>
+            {% endif %}
+          </td>
+          {% if site.siteid1.getLocationObject.address %}
+            <td>{{ site.siteid1.getLocationObject.address }}; {{ site.siteid1.getLocationObject.city }}, {{ site.siteid1.getLocationObject.state }} {{ site.siteid1.getLocationObject.zip }}</td>
+          {% else %}
+            <td></td>
+          {% endif %}
+          <td>{{ site.siteid1.phone }}</td>
+          <td>{{ site.siteid1.email }}</td>
+          <td>
+            <ul>
+            {% if site.siteid1.arts %}
+              <li>Arts and Culture</li> 
+            {% endif %}
+            {% if site.siteid1.character %}
+              <li>Character Education</li>
+            {% endif %}
+            {% if site.siteid1.leadership %}
+              <li>Leadership</li>
+            {% endif %}
+            {% if site.siteid1.mentoring %}
+              <li>Mentoring</li>
+            {% endif %}
+            {% if site.siteid1.nutrition %}
+              <li>Nutrition</li>
+            {% endif %}
+            {% if site.siteid1.prevention %}
+              <li>Prevention</li>
+            {% endif %}
+            {% if site.siteid1.sports %}
+              <li>Sports and Recreation</li> 
+            {% endif %}
+            {% if site.siteid1.supportservices %}
+              <li>Support Services (medical, dental, mental health, etc.)</li>
+            {% endif %}
+            {% if site.siteid1.academic %}
+              <li>Tutoring/Academic Enrichment</li> 
+            {% endif %}
+            {% if site.siteid1.community %}
+              <li>Volunteering/Community Service</li> 
+            {% endif %}
+            {% if site.siteid1.stem %}
+              <li>Science, Technology, Engineering, and Mathematics</li>
+            {% endif %}
+            {% if site.siteid1.college %}
+              <li>College and Career Readiness</li>
+            {% endif %}
+            </ul>
+          </td>
+          <td>
+            {{ site.siteid1.agesserved }}
+          </td>
+          <td data-dateformat="MMM D, YYYY">
+            {{ site.siteid1.updated|date:"M j, Y" }}
+          </td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" value="{{ site.siteid2.siteid }}"></td>
+          <td>
+            {{ site.siteid2.name }} 
+            {% if site.siteid2.summer %}
+              <strong>(Summer Program)</strong>
+            {% endif %}
+          </td>
+          {% if site.siteid2.getLocationObject.address %}
+            <td>{{ site.siteid2.getLocationObject.address }}; {{ site.siteid2.getLocationObject.city }}, {{ site.siteid2.getLocationObject.state }} {{ site.siteid2.getLocationObject.zip }}</td>
+          {% else %}
+            <td></td>
+          {% endif %}
+          <td>{{ site.siteid2.phone }}</td>
+          <td>{{ site.siteid2.email }}</td>
+          <td>
+            <ul>
+            {% if site.siteid2.arts %}
+              <li>Arts and Culture</li> 
+            {% endif %}
+            {% if site.siteid2.character %}
+              <li>Character Education</li>
+            {% endif %}
+            {% if site.siteid2.leadership %}
+              <li>Leadership</li>
+            {% endif %}
+            {% if site.siteid2.mentoring %}
+              <li>Mentoring</li>
+            {% endif %}
+            {% if site.siteid2.nutrition %}
+              <li>Nutrition</li>
+            {% endif %}
+            {% if site.siteid2.prevention %}
+              <li>Prevention</li>
+            {% endif %}
+            {% if site.siteid2.sports %}
+              <li>Sports and Recreation</li> 
+            {% endif %}
+            {% if site.siteid2.supportservices %}
+              <li>Support Services (medical, dental, mental health, etc.)</li>
+            {% endif %}
+            {% if site.siteid2.academic %}
+              <li>Tutoring/Academic Enrichment</li> 
+            {% endif %}
+            {% if site.siteid2.community %}
+              <li>Volunteering/Community Service</li> 
+            {% endif %}
+            {% if site.siteid2.stem %}
+              <li>Science, Technology, Engineering, and Mathematics</li>
+            {% endif %}
+            {% if site.siteid2.college %}
+              <li>College and Career Readiness</li>
+            {% endif %}
+            </ul>
+          </td>
+          <td>
+            {{ site.siteid2.agesserved }}
+          </td>
+          <td data-dateformat="MMM D, YYYY">
+            {{ site.siteid2.updated|date:"M j, Y" }}
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+<hr />
+{% endfor %}
+
+
+<script type="text/javascript">
+  $().ready(new function(){
+
+    {% for site in duplicatePrograms %}
+
+      $("#selectAllPrograms" + {{ site.pk }}).click(function () {
+        $("#programsTable{{ site.pk }} input:checkbox").prop( "checked", true );
+      });
+
+      $("#selectNonePrograms" + {{ site.pk }}).click(function () {
+        $("#programsTable{{ site.pk }} input:checkbox").prop( "checked", false );
+      });
+
+      $("#editPrograms" + {{ site.pk }}).click(function (event) {
+        if ($("#programsTable{{ site.pk }} input:checkbox:checked").length == 0) {
+          event.preventDefault();
+          alert("Please select a program to edit. Thanks!");
+        } else if ($("#programsTable{{ site.pk }} input:checkbox:checked").length > 1) {
+          event.preventDefault();
+          alert("You can only edit one program at a time. Please select only one program to edit. Thanks!");
+        } else {
+          var siteid = $("#programsTable{{ site.pk }} input:checkbox:checked").val();
+          window.location = "/editPrograms?siteid=" + siteid;
+        }
+      });
+
+      $("#removePrograms" + {{ site.pk }}).click(function (event) {
+        if ($("#programsTable{{ site.pk }} input:checkbox:checked").length == 0) {
+          event.preventDefault();
+          alert("Please select a program to remove. Thanks!");
+        } else if ($("#programsTable{{ site.pk }} input:checkbox:checked").length > 1) {
+          event.preventDefault();
+          alert("You can only remove one program at a time. Please select only one program to remove. Thanks!");
+        } else {
+          var siteid = $("#programsTable{{ site.pk }} input:checkbox:checked").val();
+          window.location = "/removePrograms?siteid=" + siteid;
+        }
+      });
+
+      $("#comparePrograms" + {{ site.pk }}).click(function (event) {
+        if ($("#programsTable{{ site.pk }} input:checkbox:checked").length == 0) {
+          event.preventDefault();
+          alert("Please select a few programs to compare. Thanks!");
+        } else {
+          event.preventDefault();
+          var IDs = $("#programsTable{{ site.pk }} input:checkbox:checked").map(function(){
+              return $(this).val();
+            }).get();
+          var numIDs = [];
+            $.each(IDs, function(key, value) {
+              value = parseInt(value);
+              numIDs.push(value);
+            });
+            var json = JSON.stringify(numIDs);
+            window.location = "/comparePrograms?siteids=" + json;       
+        }
+
+      });
+
+      $("#duplicateRemovePrograms" + {{ site.pk }}).click(function (event) {
+        if ($("#programsTable{{ site.pk }} input:checkbox:checked").length == 0) {
+          event.preventDefault();
+          alert("Please select a few duplicate programs to mark as not a duplicate. Thanks!");
+        } else {
+          event.preventDefault();
+          var IDs = $("#programsTable{{ site.pk }} input:checkbox").map(function(){
+              return $(this).val();
+            }).get();
+          var numIDs = [];
+            $.each(IDs, function(key, value) {
+              value = parseInt(value);
+              numIDs.push(value);
+            });
+            var json = JSON.stringify(numIDs);
+            window.location = "/markNotDuplicateProgram/?siteids=" + json;       
+        }
+
+      });
+
+
+    {% endfor %}
+
+  });
+
+
+</script>
+
+
+
+
+
+	
+	
+

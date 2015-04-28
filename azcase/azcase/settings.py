@@ -53,6 +53,15 @@ MIDDLEWARE_CLASSES = (
     'privateviews.middleware.LoginRequiredMiddleware',
 )
 
+PUBLIC_VIEWS = [
+    'django.contrib.auth.views.password_reset_done',
+    'django.contrib.auth.views.password_reset',
+    'django.contrib.auth.views.password_reset_confirm',
+    'django.contrib.auth.views.password_reset_complete',
+    'registration.views.RegistrationView',
+    'registration.views.ActivationView',
+]
+
 ROOT_URLCONF = 'azcase.urls'
 
 WSGI_APPLICATION = 'azcase.wsgi.application'
@@ -103,7 +112,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'azcase.directory@gmail.com'
 EMAIL_HOST_PASSWORD = 'c^6$:_bE[!e_"Op'
 EMAIL_PORT = 587
-DEFAULT_FROM_EMAIL = 'azcase.directory@gmail.com'
+DEFAULT_FROM_EMAIL = 'AzCASE Directory <azcase.directory@gmail.com>'
 
 
 

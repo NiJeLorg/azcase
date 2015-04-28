@@ -20,6 +20,9 @@ class azcase_locations(models.Model):
 	class Meta:
 		db_table = 'azcase_locations'
 
+	def __unicode__(self):
+		return self.name
+
 
 class azcase_sites(models.Model):
 	siteid = models.IntegerField(null=False, primary_key=True)
@@ -132,6 +135,10 @@ class azcase_sites(models.Model):
 		surveyObject = azcase_site_survey.objects.get(siteid__exact=self.siteid)
 		return surveyObject
 
+	def __unicode__(self):
+		return self.name
+
+
 class azcase_sites_form(ModelForm):
 	class Meta:
 		model = azcase_sites
@@ -230,6 +237,9 @@ class azcase_users(models.Model):
 	class Meta:
 		db_table = 'azcase_users'
 
+	def __unicode__(self):
+		return self.useremail
+
 
 
 class azcase_sites_locations_junction(models.Model):
@@ -256,6 +266,21 @@ class azcase_user_sites_junction(models.Model):
 
 	class Meta:
 		db_table = 'azcase_user_sites_junction'
+
+class azcase_sites_duplicates(models.Model):
+	siteid1 = models.ForeignKey(azcase_sites, related_name="siteid1")
+	siteid2 = models.ForeignKey(azcase_sites, related_name="siteid2")
+	notDuplicate = models.BooleanField(default=False)
+
+class azcase_users_duplicates(models.Model):
+	userid1 = models.ForeignKey(azcase_users, related_name="userid1")
+	userid2 = models.ForeignKey(azcase_users, related_name="userid2")
+	notDuplicate = models.BooleanField(default=False)
+
+class azcase_locations_duplicates(models.Model):
+	locationid1 = models.ForeignKey(azcase_locations, related_name="locationid1")
+	locationid2 = models.ForeignKey(azcase_locations, related_name="locationid2")
+	notDuplicate = models.BooleanField(default=False)
 
 
 class azcase_publicadvancedsearch(models.Model):

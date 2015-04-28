@@ -86,6 +86,9 @@
             {{ location.updated|date:"M j, Y" }}
           </td>
           <td>
+            {% if location.duplicate %}
+              <a href="/duplicateLocation?locationid={{ location.locationid }}">Yes</a>
+            {% endif %}
           </td>
         </tr>
       {% endfor %}

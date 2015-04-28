@@ -1,0 +1,210 @@
+{% for location in duplicateLocations %}
+<div class="row">
+    <button type="button" class="btn btn-default btn-sm" id="selectAllLocations{{ location.pk }}">Select All</button>
+    <button type="button" class="btn btn-default btn-sm" id="selectNoneLocations{{ location.pk }}">Select None</button>
+    <button type="button" class="btn btn-default btn-sm" id="editLocations{{ location.pk }}">Edit</button>
+    <button type="button" class="btn btn-default btn-sm" id="removeLocations{{ location.pk }}">Remove</button>
+    <button type="button" class="btn btn-default btn-sm" id="compareLocations{{ location.pk }}">Compare</button>
+    <button type="button" class="btn btn-default btn-sm" id="duplicateRemoveLocations{{ location.pk }}">Mark Pair As Not Duplicates</button>
+</div>
+<div id="locationsTable{{ location.pk }}" class="row">
+  <table class="table table-striped table-condensed">
+    <thead>
+      <th>Select</th>
+      <th>Number of Programs</th>
+      <th>Location Name</th>
+      <th>Address</th>
+      <th>Last Updated</th>
+    </thead>
+    <tbody>     
+        <tr>
+          <td><input type="checkbox" value="{{ location.locationid1.locationid }}"></td>
+          <td>
+            {% if location.locationid1.sitesLocations %}
+              <a href="#" data-toggle="modal" data-target="#locationid_{{ location.locationid1.locationid }}">{{ location.locationid1.siteCount }}</a>
+            {% else %}
+              {{ location.locationid1.siteCount }}
+            {% endif %}
+          </td>
+          <td>{{ location.locationid1.name }}</td>
+          {% if location.locationid1.address %}
+            <td>{{ location.locationid1.address }}; {{ location.locationid1.city }}, {{ location.locationid1.state }} {{ location.locationid1.zip }}</td>
+          {% else %}
+            <td></td>
+          {% endif %}
+          <td>
+            {{ location.locationid1.updated|date:"M j, Y" }}
+          </td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" value="{{ location.locationid2.locationid }}"></td>
+          <td>
+            {% if location.locationid2.sitesLocations %}
+              <a href="#" data-toggle="modal" data-target="#locationid_{{ location.locationid2.locationid }}">{{ location.locationid2.siteCount }}</a>
+            {% else %}
+              {{ location.locationid2.siteCount }}
+            {% endif %}
+          </td>
+          <td>{{ location.locationid2.name }}</td>
+          {% if location.locationid2.address %}
+            <td>{{ location.locationid2.address }}; {{ location.locationid2.city }}, {{ location.locationid2.state }} {{ location.locationid2.zip }}</td>
+          {% else %}
+            <td></td>
+          {% endif %}
+          <td>
+            {{ location.locationid2.updated|date:"M j, Y" }}
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+<hr />
+{% endfor %}
+
+
+<script type="text/javascript">
+  $().ready(new function(){
+
+    {% for location in duplicateLocations %}
+
+      $("#selectAllLocations" + {{ location.pk }}).click(function () {
+        $("#locationsTable{{ location.pk }} input:checkbox").prop( "checked", true );
+      });
+
+      $("#selectNoneLocations" + {{ location.pk }}).click(function () {
+        $("#locationsTable{{ location.pk }} input:checkbox").prop( "checked", false );
+      });
+
+      $("#editLocations" + {{ location.pk }}).click(function (event) {
+        if ($("#locationsTable{{ location.pk }} input:checkbox:checked").length == 0) {
+          event.preventDefault();
+          alert("Please select a program to edit. Thanks!");
+        } else if ($("#locationsTable{{ location.pk }} input:checkbox:checked").length > 1) {
+          event.preventDefault();
+          alert("You can only edit one program at a time. Please select only one program to edit. Thanks!");
+        } else {
+          var locationid = $("#locationsTable{{ location.pk }} input:checkbox:checked").val();
+          window.location = "/editLocations?locationid=" + locationid;
+        }
+      });
+
+      $("#removeLocations" + {{ location.pk }}).click(function (event) {
+        if ($("#locationsTable{{ location.pk }} input:checkbox:checked").length == 0) {
+          event.preventDefault();
+          alert("Please select a program to remove. Thanks!");
+        } else if ($("#locationsTable{{ location.pk }} input:checkbox:checked").length > 1) {
+          event.preventDefault();
+          alert("You can only remove one program at a time. Please select only one program to remove. Thanks!");
+        } else {
+          var locationid = $("#locationsTable{{ location.pk }} input:checkbox:checked").val();
+          window.location = "/removeLocations?locationid=" + locationid;
+        }
+      });
+
+      $("#compareLocations" + {{ location.pk }}).click(function (event) {
+        if ($("#locationsTable{{ location.pk }} input:checkbox:checked").length == 0) {
+          event.preventDefault();
+          alert("Please select a few locations to compare. Thanks!");
+        } else {
+          event.preventDefault();
+          var IDs = $("#locationsTable{{ location.pk }} input:checkbox:checked").map(function(){
+              return $(this).val();
+            }).get();
+          var numIDs = [];
+            $.each(IDs, function(key, value) {
+              value = parseInt(value);
+              numIDs.push(value);
+            });
+            var json = JSON.stringify(numIDs);
+            window.location = "/compareLocations?locationids=" + json;       
+        }
+
+      });
+
+      $("#duplicateRemoveLocations" + {{ location.pk }}).click(function (event) {
+        if ($("#locationsTable{{ location.pk }} input:checkbox:checked").length == 0) {
+          event.preventDefault();
+          alert("Please select a few duplicate locations to mark as not a duplicate. Thanks!");
+        } else {
+          event.preventDefault();
+          var IDs = $("#locationsTable{{ location.pk }} input:checkbox").map(function(){
+              return $(this).val();
+            }).get();
+          var numIDs = [];
+            $.each(IDs, function(key, value) {
+              value = parseInt(value);
+              numIDs.push(value);
+            });
+            var json = JSON.stringify(numIDs);
+            window.location = "/markNotDuplicateLocation/?locationids=" + json;       
+        }
+
+      });
+
+
+    {% endfor %}
+
+  });
+
+
+</script>
+
+
+<!-- Modals for seeing which programs are associated with which locations-->
+{% for location in duplicateLocations %}
+<div class="modal fade" id="locationid_{{ location.locationid1.locationid }}" tabindex="-1" role="dialog" aria-labelledby="sitesLocations" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="sitesLocations">Programs for {{ location.locationid1.name }}</h4>
+      </div>
+      <div class="modal-body">
+        {% for site in location.locationid1.sitesLocations %}
+          <p>
+            <strong>{{ site.name }}</strong><br />
+            {% if site.phone %}
+              {{ site.phone }}<br />
+            {% endif %}
+            {% if site.email %}
+              {{ site.email }}<br />
+            {% endif %}
+            <a class="btn btn-default btn-sm" href="/editPrograms?siteid={{ site.siteid }}">Edit</a>
+            <a class="btn btn-default btn-sm" href="/removePrograms?siteid={{ site.siteid }}">Remove</a>
+          </p>
+          <br />
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="locationid_{{ location.locationid2.locationid }}" tabindex="-1" role="dialog" aria-labelledby="sitesLocations" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="sitesLocations">Programs for {{ location.locationid2.name }}</h4>
+      </div>
+      <div class="modal-body">
+        {% for site in location.locationid2.sitesLocations %}
+          <p>
+            <strong>{{ site.name }}</strong><br />
+            {% if site.phone %}
+              {{ site.phone }}<br />
+            {% endif %}
+            {% if site.email %}
+              {{ site.email }}<br />
+            {% endif %}
+            <a class="btn btn-default btn-sm" href="/editPrograms?siteid={{ site.siteid }}">Edit</a>
+            <a class="btn btn-default btn-sm" href="/removePrograms?siteid={{ site.siteid }}">Remove</a>
+          </p>
+          <br />
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+

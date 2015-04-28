@@ -11,20 +11,8 @@ require("connect.php");
 // create header
 require('header.php');
 
-
-// requests a user to log in if they haven't already
-global $logged_in;
-if($logged_in){
-
-global $connection;
-
-if ($admin=='t') {
-
 // grab data and clean up for database query and for return to last page
 $userid = $_REQUEST['userid'];
-$searchusername = $_REQUEST['searchusername'];
-$searchuseremail = $_REQUEST['searchuseremail'];
-$searchorgname = $_REQUEST['searchorgname'];
 
 // get data for user id passed
 $basicinfoquery = "SELECT 
@@ -86,98 +74,8 @@ if ($countusers==0) {
 	}
 	
 	// create form for new user
-	echo "<body><h3>Add New User to Assist in Managing Data</h3><p><strong>$email</strong> does not currently have an account in our system. If you would like to assign $email to assist in managing data, please sign $email up for an account below.</p>";
-	echo "<span class=\"required\">* Required</span>
-<form name=\"editprovider\" action=\"processadminassignusers.php\" method=\"POST\" onSubmit=\"return validateForm();\">
-<input type=\"hidden\" name=\"userid\" value=\"$userid\">
-<input type=\"hidden\" name=\"searchusername\" value=\"$searchusername\">
-<input type=\"hidden\" name=\"searchuseremail\" value=\"$searchuseremail\">
-<input type=\"hidden\" name=\"searchorgname\" value=\"$searchorgname\">
-<table cellpadding=\"2\">
-	<tr>
-		<td align=\"right\" width=\"125\"><strong>Their Name: </strong></td>
-		<td align=\"left\"><input type=\"text\" name=\"username\" value=\"\" /><span class=\"required\">*</span></td>
-	</tr>
-	<tr>
-		<td align=\"right\" width=\"125\"><strong>Their Email: </strong></td>
-		<td align=\"left\"><input type=\"email\" name=\"useremail\" value=\"$email\" /><span class=\"required\">* This will be their login id.</span></td>
-	</tr>
-	<tr>
-		<td align=\"right\" width=\"125\"><strong>Password: </strong></td>
-		<td align=\"left\">User will set their new password later.</a></td>
-	</tr>	
-	<tr>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td align=\"right\" width=\"125\"><strong>Organization Name: </strong></td>
-		<td align=\"left\"><input type=\"text\" name=\"orgname\" value=\"$orgname\" /></td>
-	</tr>
-	<tr>
-		<td align=\"right\" width=\"125\"><strong>Address: </strong></td>
-		<td align=\"left\"><input type=\"text\" name=\"address\" value=\"$address\" /></td>
-	</tr>
-	<tr>
-		<td align=\"right\" width=\"125\"><strong>Address Line 2: </strong></td>
-		<td align=\"left\"><input type=\"text\" name=\"address2\" value=\"$address2\" /></td>
-	</tr>
-	<tr>
-		<td align=\"right\" width=\"125\"><strong>City: </strong></td>
-		<td align=\"left\"><input type=\"text\" name=\"city\" value=\"$city\" /></td>
-	</tr>
-	<tr>
-		<td align=\"right\" width=\"125\"><strong>State: </strong></td>
-		<td align=\"left\"><input type=\"text\" name=\"state\" size = \"2\" value=\"$state\" /></td>
-	</tr>
-	<tr>
-		<td align=\"right\" width=\"125\"><strong>Zip: </strong></td>
-		<td align=\"left\"><input type=\"text\" name=\"zip\" size = \"10\" value=\"$zip\" /></td>
-	</tr>
-	<tr>
-		<td align=\"right\" width=\"125\"><strong>Phone: </strong></td>
-		<td align=\"left\"><input type=\"text\" name=\"phone\" size = \"10\" value=\"$phone\" /></td>
-	</tr>
-	<tr>
-		<td align=\"right\" width=\"125\"><strong>Fax: </strong></td>
-		<td align=\"left\"><input type=\"text\" name=\"fax\" size = \"10\" value=\"$fax\" /></td>
-	</tr>
-	<tr>
-		<td colspan=\"2\" align=\"right\"><input type=\"image\" src=\"save.jpg\" alt=\"Save\" name=\"action\" value=\"Save\" /></td>
-	</tr>
-	</table>
-<br />
-</p>
-</form>
-";
-
-$assignjs = "
-<!-- validate that the fields are identical -->
-<script type=\"text/javascript\" language=\"JavaScript\">
-
-function validateForm() {
-var username = document.editprovider.username.value;
-var useremail = document.editprovider.useremail.value;
-
-if (username.length < 1) {
-        alert(\"Please enter your name.\");
-	document.editprovider.username.focus();
-        return false;
-    }
-
-if (useremail.length < 1) {
-        alert(\"Please enter an email address.\");
-	document.editprovider.useremail.focus();
-        return false;
-    }
-
-return true;
-
-}
-
-</script>
-";
-
+	echo "<body><h3 class=\"azcase-text-color\">Add New User to Assist in Managing Data</h3><p><strong>$email</strong> does not currently have an account in our system. If you would like to assign $email to assist in managing data, please sign $email up for an account below.</p>";
+	echo "<a class=\"btn btn-default\" href=\"/addUsers/\" role=\"button\">Add A User</a>"
 
 }else{
 // if a user is in the system already, loop through the current users linkages to sites and assign these sites to the new user
@@ -195,7 +93,7 @@ return true;
 
 	if ($countjunc>0) {
 		require('header.php');
-		echo "<h3>User Already Assigned to Manage Data for $username ($useremail)</h3><p>You attempted to assign a user that was already assigned to manage data for $username ($useremail). Please go back and select another email address. Thanks!</p>";
+		echo "<h3 class=\"azcase-text-color\">User Already Assigned to Manage Data for $username ($useremail)</h3><p>You attempted to assign a user that was already assigned to manage data for $username ($useremail). Please go back and select another email address. Thanks!</p>";
 		require('footer.php');
 		die ();
 	}else{
@@ -224,7 +122,7 @@ return true;
 		} // close siteid/userid insert loop
 	} // close if ($countjunc>0) {
 
-	echo "<body><h3>User Assigned to Manage Data for $username ($useremail)</h3><p>The user $email has been assigned to managing data with $username ($useremail), and an email has been sent to them to let them know. Please have them log in to the system to review these data. Thanks!</p>";
+	echo "<body><h3 class=\"azcase-text-color\">User Assigned to Manage Data for $username ($useremail)</h3><p>The user $email has been assigned to managing data with $username ($useremail), and an email has been sent to them to let them know. Please have them log in to the system to review these data. Thanks!</p>";
 
 	$basicinfoquery = "SELECT 
 	orgname
@@ -259,19 +157,12 @@ Arizona Center for Afterschool Excellence
 
 
 }else{
-	echo "<h3>Invalid Email Address</h3><p>The email address you entered was invalid. Please go back and try again.</p><p>Email address entered: <strong>$email</strong></p>";
+	echo "<h3 class=\"azcase-text-color\">Invalid Email Address</h3><p>The email address you entered was invalid. Please go back and try again.</p><p>Email address entered: <strong>$email</strong></p>";
 }
 
-
-// close admin = TRUE
-}else{}
-
-// close logged_in
-}else{}
 
 // create footer
 require('footer.php');
 
-echo $assignjs;
 ?>
 

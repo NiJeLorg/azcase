@@ -1,5 +1,4 @@
 <?php
-
 session_start(); 
 
 // privacy policy for cookies
@@ -11,19 +10,10 @@ require("connect.php");
 // create header
 require('header.php');
 
-// requests a user to log in if they haven't already
-global $logged_in;
-if($logged_in){
-
 global $connection;
-
-if ($admin=='t') {
 
 // grab data and clean up for database query and for retunr to last page
 $userid = $_REQUEST['userid'];
-$searchusername = $_REQUEST['searchusername'];
-$searchuseremail = $_REQUEST['searchuseremail'];
-$searchorgname = $_REQUEST['searchorgname'];
 
 // pull user/org info
 $basicinfoquery = "SELECT 
@@ -84,15 +74,12 @@ $sitesresult = pg_query($connection, $sitesquery);
 
 // if any no users are found, then print no users found, if not skip
 if (pg_numrows($sitesresult)==0) {
-	$sitestable = "<h3>No Sites Associated With $username ($useremail)</h3>";
+	$sitestable = "<h1>No Sites Associated With $username ($useremail)</h1><p><a href=\"adminsearchusers.php?searchusername=$searchusername&searchuseremail=$searchuseremail&searchorgname=$searchorgname\">Go back</a> to your user search results.</p>";
 }else{
 
 // create table to add users with edit and remove links
-$sitestable = "<h3>Sites Associated with $username ($useremail)</h3>
-<p>Please note that sites that are NOT verified are highlighted in a darker shade of grey.</p>
-<table class=\"hoursTable\"><tr>
-<th>Remove</th>
-<th>Edit</th>
+$sitestable = "<h3 class=\"azcase-text-color\">Sites Associated with $username ($useremail)</h3>
+<table class=\"table\"><tr>
 <th>Site Name</th>
 <th>Address</th>
 <th>Phone</th>
@@ -177,13 +164,11 @@ if ($verified==2) {
 
 // Add (SUMMER SITE) to the end of the site name 
 if ($summer=='t') {
-	$sitename = $sitename . ' <strong>(SUMMER SITE)</strong>';
+	$sitename = $sitename . ' <b>(SUMMER SITE)</b>';
 }else{}
 
 // add a new row to the sites table
 $sitestable .= $trclass;
-
-$sitestable .= "<td><a href=\"adminremovesite.php?siteid=$siteid&searchname=$searchname&searchemail=$searchemail&searchphone=$searchphone&searchusername=$searchusername&searchuseremail=$searchuseremail&searchorgname=$searchorgname\">Remove</a></td><td><a href=\"admineditsite.php?siteid=$siteid&searchname=$searchname&searchemail=$searchemail&searchphone=$searchphone&searchusername=$searchusername&searchuseremail=$searchuseremail&searchorgname=$searchorgname\">Edit</a></td>";
 
 $sitestable .= "<td>$sitename</td>
 <td>$printsiteaddress</td>
@@ -204,20 +189,15 @@ $sitestable .= "
 
 // create ability for admins to add new users
 $adminassign = "
-<h3>Assign Other Users to Manage Data for $username ($useremail)</h3>
+<h3 class=\"azcase-text-color\">Assign Other Users to Manage Data for $username ($useremail)</h3>
 <p>If you would like to add other users to assist in managing data for $username ($useremail), please enter their email address below.</p>
 <form name=\"search\" action=\"adminassignusers.php\" method=\"POST\">
 <input type=\"hidden\" name=\"userid\" value=\"$userid\">
-<input type=\"hidden\" name=\"searchusername\" value=\"$searchusername\">
-<input type=\"hidden\" name=\"searchuseremail\" value=\"$searchuseremail\">
-<input type=\"hidden\" name=\"searchorgname\" value=\"$searchorgname\">
-<table cellpadding=\"2\">
-	<tr>
-		<td align=\"right\" width=\"75\"><strong>Email: </strong></td>
+	<div class=\"form-group\">
+		<td align=\"right\" width=\"75\"><b>Email: </b></td>
 		<td align=\"left\"><input type=\"email\" name=\"email\" value=\"\"/></td>
 		<td align=\"left\"><input type=\"image\" src=\"search.jpg\" alt=\"Search\" name=\"action\" value=\"Search\" /></td>
-	</tr>
-	</table>
+	</div>
 <br />
 </p>
 </form>
@@ -231,7 +211,7 @@ $otherusersresult = pg_query($connection, $otherusersquery);
 if (pg_numrows($otherusersresult)==0) {
 }else{
 
-$otheruserstable = "<h3>Other Users Assigned to Manage Data for $username ($useremail)</h3>
+$otheruserstable = "<h1>Other Users Assigned to Manage Data for $username ($useremail)</h1>
 <p>If you would like to remove any users from data management, please select them below.</p>
 <form name=\"editremove\" action=\"processadminremoveassignusers.php\" method=\"POST\">
 <input type=\"hidden\" name=\"userid\" value=\"$userid\">

@@ -290,7 +290,7 @@ while ($i <= 100) {
 <br />
 <div class="col-md-6">
 	<div class="form-group">
-		<label>Program Name: </label><span class="required">*</span><span class="required">*</span>
+		<label>Program Name: </label><span class="required">*</span>
 		<input class="form-control" type="text" name="sitename2" value="" />
 	</div>
 	<div class="form-group">

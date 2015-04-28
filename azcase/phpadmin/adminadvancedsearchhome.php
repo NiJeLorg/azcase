@@ -1,5 +1,4 @@
 <?php
-ini_set('session.cache_limiter', 'private');
 session_start(); 
 
 // privacy policy for cookies
@@ -11,13 +10,6 @@ require("connect.php");
 // create header
 require('header.php');
 
-// requests a user to log in if they haven't already
-global $logged_in;
-if($logged_in){
-
-global $connection;
-
-if ($admin=='t') {
 
 // select congressional districts and create table to put in filter area
 $azcongress = "<table cellpadding=\"0\"><tr><td align=\"right\"><input type=\"checkbox\" name=\"azcongressfilter\" value=\"t\" onClick=\"azcongressfilterGroup.check(this)\"></td><td align=\"left\" width=\"200\">Check/Uncheck All</td>";
@@ -193,8 +185,8 @@ $cities .= "</table>";
 
 ?>
 <body>
-<h3>Admin: Advanced Search</h3>
-<h4>Choose Site/Location Filters (Optional)</h4>
+<h3 class="azcase-text-color">Admin: Advanced Search</h3>
+<h4 class="azcase-text-color">Choose Site/Location Filters (Optional)</h4>
 <form name="searchusers" action="adminadvancedsearch.php" method="POST">
 <div class="boxes">
 	<h4 class="heading">Select Data by Congressional District</h4>
@@ -289,7 +281,7 @@ $cities .= "</table>";
 </div>
 <br />
 <div class="clear"></div>
-<h4>Choose Tables to be Displayed</h4>
+<h4 class="azcase-text-color">Choose Tables to be Displayed</h4>
 <table class="hoursTable">
 	<tr>
 		<th>Tables/Group By</th>
@@ -469,7 +461,7 @@ $cities .= "</table>";
 	</tr>
 </table>
 <br />
-<table><tr><td><input type="image" value="Search" name="action" alt="Search" src="search.jpg" onclick="return loadSubmit()"></td><td><p style="visibility:hidden;" id="progress"/><img id="progress_image" style="padding-left:5px;padding-top:5px;" src="loading.gif" alt=""> Please Wait…</p></td></tr></table>
+<table><tr><td><input class="btn btn-default" type="submit" value="Search" name="action"></td><td><p style="visibility:hidden;" id="progress"/><img id="progress_image" style="padding-left:5px;padding-top:5px;" src="loading.gif" alt=""> Please Wait…</p></td></tr></table>
 </form>
 <br />
 <br />

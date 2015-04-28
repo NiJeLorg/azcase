@@ -185,6 +185,19 @@ $().ready(new function(){
 			}
 		});
 
+		$("#manageUsersData").click(function (event) {
+			if ($("#usersTable input:checkbox:checked").length == 0) {
+				event.preventDefault();
+				alert("Please select a user to manage their programs. Thanks!");
+			} else if ($("#usersTable input:checkbox:checked").length > 1) {
+				event.preventDefault();
+				alert("You can only manage program data for one user at a time. Please select only one user. Thanks!");
+			} else {
+				var userid = $("#usersTable input:checkbox:checked").val();
+				window.location = "/manageUsersData?userid=" + userid;				
+			}
+		});
+
 	}
 
 	// establish listeners on page load
@@ -212,7 +225,6 @@ $().ready(new function(){
 
 
 	$("#sendEmail").click(function (event) {
-		console.log('hello');
 		// check for a message
 		if ($("#userMessage").val().length == 0) {
 			event.preventDefault();
