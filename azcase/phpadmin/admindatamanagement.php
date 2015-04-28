@@ -74,7 +74,7 @@ $sitesresult = pg_query($connection, $sitesquery);
 
 // if any no users are found, then print no users found, if not skip
 if (pg_numrows($sitesresult)==0) {
-	$sitestable = "<h1>No Sites Associated With $username ($useremail)</h1>";
+	$sitestable = "<h3 class=\"azcase-text-color\">No Sites Associated With $username ($useremail)</h3>";
 }else{
 
 // create table to add users with edit and remove links
@@ -193,11 +193,13 @@ $adminassign = "
 <p>If you would like to add other users to assist in managing data for $username ($useremail), please enter their email address below.</p>
 <form name=\"search\" action=\"adminassignusers.php\" method=\"POST\">
 <input type=\"hidden\" name=\"userid\" value=\"$userid\">
+<div class=\"col-md-6\">
 	<div class=\"form-group\">
-		<td align=\"right\" width=\"75\"><b>Email: </b></td>
-		<td align=\"left\"><input type=\"email\" name=\"email\" value=\"\"/></td>
-		<td align=\"left\"><input type=\"image\" src=\"search.jpg\" alt=\"Search\" name=\"action\" value=\"Search\" /></td>
+		<label>Email: </label>
+		<input class=\"form-control\" type=\"email\" name=\"email\" value=\"\"/>
 	</div>
+</div>
+<input class=\"btn btn-default\" type=\"submit\" name=\"action\" value=\"Search\" />
 <br />
 </p>
 </form>
@@ -211,14 +213,11 @@ $otherusersresult = pg_query($connection, $otherusersquery);
 if (pg_numrows($otherusersresult)==0) {
 }else{
 
-$otheruserstable = "<h1>Other Users Assigned to Manage Data for $username ($useremail)</h1>
+$otheruserstable = "<h4 class=\"azcase-text-color\">Other Users Assigned to Manage Data for $username ($useremail)</h4>
 <p>If you would like to remove any users from data management, please select them below.</p>
 <form name=\"editremove\" action=\"processadminremoveassignusers.php\" method=\"POST\">
 <input type=\"hidden\" name=\"userid\" value=\"$userid\">
-<input type=\"hidden\" name=\"searchusername\" value=\"$searchusername\">
-<input type=\"hidden\" name=\"searchuseremail\" value=\"$searchuseremail\">
-<input type=\"hidden\" name=\"searchorgname\" value=\"$searchorgname\">
-<table class=\"hoursTable\"><tr>
+<table class=\"table\"><tr>
 <th>Select</th>
 <th>Name</th>
 <th>Email</th>
@@ -249,7 +248,7 @@ $otheruserstable .= "<td align=\"center\"><input type=\"checkbox\" name=\"$assig
 $otheruserstable .= "
 </table>
 <br />
-<input type=\"submit\" name=\"remove\" value=\"Remove Selected Users From Management\" />
+<input class=\"btn btn-default\" type=\"submit\" name=\"remove\" value=\"Remove Selected Users From Management\" />
 </form>
 ";
 
@@ -266,6 +265,12 @@ echo $sitestable;
 echo $adminassign;
 echo $otheruserstable;
 
+
+// close admin = TRUE
+}else{}
+
+// close logged_in
+}else{}
 
 // create footer
 require('footer.php');
