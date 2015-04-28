@@ -74,7 +74,7 @@ $sitesresult = pg_query($connection, $sitesquery);
 
 // if any no users are found, then print no users found, if not skip
 if (pg_numrows($sitesresult)==0) {
-	$sitestable = "<h1>No Sites Associated With $username ($useremail)</h1><p><a href=\"adminsearchusers.php?searchusername=$searchusername&searchuseremail=$searchuseremail&searchorgname=$searchorgname\">Go back</a> to your user search results.</p>";
+	$sitestable = "<h1>No Sites Associated With $username ($useremail)</h1>";
 }else{
 
 // create table to add users with edit and remove links
@@ -266,12 +266,6 @@ echo $sitestable;
 echo $adminassign;
 echo $otheruserstable;
 
-
-// close admin = TRUE
-}else{}
-
-// close logged_in
-}else{}
 
 // create footer
 require('footer.php');
