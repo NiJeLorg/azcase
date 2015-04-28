@@ -6,7 +6,7 @@ login.php
 logintemplate.php
 .giosave*
 env/
-settings.py
+azcase/azcase/settings.py
 *.csv
 *.kml
 
