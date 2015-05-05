@@ -10,6 +10,7 @@ require("connect.php");
 
 // create header
 require('header.php');
+
 global $connection;
 
 // grab data and clean up for database query and for return to last page
@@ -76,7 +77,7 @@ if ($validator->check_email_address($email)) {
 		
 		// create form for new user
 		echo "<body><h3 class=\"azcase-text-color\">Add New User to Assist in Managing Data</h3><p><strong>$email</strong> does not currently have an account in our system. If you would like to assign $email to assist in managing data, please sign $email up for an account below.</p>";
-		echo "<a class=\"btn btn-default\" href=\"/addUsers/\" role=\"button\">Add A User</a>"
+		echo "<a class=\"btn btn-default\" href=\"/addUsers/\" role=\"button\">Add A User</a>";
 
 	}else{
 	// if a user is in the system already, loop through the current users linkages to sites and assign these sites to the new user
