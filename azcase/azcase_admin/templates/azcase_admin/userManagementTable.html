@@ -1,0 +1,169 @@
+{% extends 'azcase_admin/base.html' %}
+{% load staticfiles %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'azcase_admin/css/bootstrap-sortable.css' %}">
+{% endblock %}
+
+{% block head_js_block %}
+{% endblock %}
+	
+
+{% block content %}
+
+    <div class="container">
+      <div class="row">
+        <div class="row">
+          <h3 class="azcase-text-color">Select a User to Manage Their Sites</h3>
+        </div>
+        <div class="row">
+          <h4 class="azcase-text-color">Search by:</h4>
+        </div>
+        <div class="row">
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#searchSites">Program Info</button>
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#searchUsers">User Info</button>
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#searchLocations">Location Info</button>
+        </div>
+        <div class="row">
+          <h4 class="azcase-text-color">Table filters applied:</h4>
+          <button type="button" class="btn btn-default clearFilters">Clear Filters</button>
+        </div>
+        <div class="filterUsersWrapper">
+          {% include 'azcase_admin/filter_users.html' with manage="True" %}
+        </div>
+      </div>
+    </div> <!-- /container -->
+
+
+{% endblock %}
+
+{% block modal_block %}
+<!-- Modal for ajax searching by site-->
+<div class="modal fade" id="searchSites" tabindex="-1" role="dialog" aria-labelledby="searchSitesLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="searchSites">Search by Program</h4>
+      </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="siteName">Program Name</label>
+            <input type="text" class="form-control" name="siteName" id="siteName">
+          </div>
+          <div class="form-group">
+            <label for="siteEmail">Program Email</label>
+            <input type="email" class="form-control" name="siteEmail" id="siteEmail">
+          </div>
+          <div class="form-group">
+            <label for="sitePhone">Program Phone Number</label>
+            <input type="text" class="form-control" name="sitePhone" id="sitePhone">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="submitSearchSites">Submit</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for ajax searching by user-->
+<div class="modal fade" id="searchUsers" tabindex="-1" role="dialog" aria-labelledby="searchUsersLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="searchUsersLabel">Search by User</h4>
+      </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="userName">User Name</label>
+            <input type="text" class="form-control" name="userName" id="userName">
+          </div>
+          <div class="form-group">
+            <label for="userEmail">User Email</label>
+            <input type="email" class="form-control" name="userEmail" id="userEmail">
+          </div>
+          <div class="form-group">
+            <label for="userOrgName">User Organization Name</label>
+            <input type="text" class="form-control" name="userOrgName" id="userOrgName">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="submitSearchUsers">Submit</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for ajax searching by location-->
+<div class="modal fade" id="searchLocations" tabindex="-1" role="dialog" aria-labelledby="searchLocationsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="searchLocationsLabel">Search by Location</h4>
+      </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="locationName">Location Name</label>
+            <input type="text" class="form-control" name="locationName" id="locationName">
+          </div>
+          <div class="form-group">
+            <label for="locationAddress">Address</label>
+            <input type="text" class="form-control" name="locationAddress" id="locationAddress">
+          </div>
+          <div class="form-group">
+            <label for="locationCity">City</label>
+            <input type="text" class="form-control" name="locationCity" id="locationCity">
+          </div>
+          <div class="form-group">
+            <label for="locationZip">Zip Code</label>
+            <input type="text" class="form-control" name="locationZip" id="locationZip">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="submitSearchLocations">Submit</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for emailing selected users-->
+<div class="modal fade" id="emailUsersModal" tabindex="-1" role="dialog" aria-labelledby="emailUsersTitle" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="emailUsersTitle">Send email to users</h4>
+      </div>
+        <div class="modal-body">
+          <div id="numRecipients"></div>
+          <div class="form-group">
+            <label for="userSubject">Subject</label>
+            <input type="text" class="form-control"name="userSubject" id="userSubject" />
+          </div>
+          <div class="form-group">
+            <label for="userMessage">Message</label>
+            <textarea class="form-control" rows="5" name="userMessage" id="userMessage"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input id="sendEmail" class="btn btn-primary" type="submit" value="Send">
+        </div>      
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block js_block %}
+  <script type="text/javascript" src="{% static 'azcase_admin/js/bootstrap-sortable.js' %}"></script>
+  <script type="text/javascript" src="{% static 'azcase_admin/js/moment.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'azcase_admin/js/siteUserLocationsTables.js' %}"></script>
+{% endblock %}
+
+
+	
+	
+

@@ -292,6 +292,263 @@ def sitesUsersLocations(request):
 
 	return render(request, 'azcase_admin/siteUserLocationsTables.html', context_dict)
 
+def userManagement(request):
+	# what method are we using?
+	if request.method == 'GET':
+		# get search terms for pagination
+		siteName = request.GET.get("siteName","")
+		siteEmail = request.GET.get("siteEmail","")
+		sitePhone = request.GET.get("sitePhone","")
+		userName = request.GET.get("userName","")
+		userEmail = request.GET.get("userEmail","")
+		userOrgName = request.GET.get("userOrgName","")
+		locationName = request.GET.get("locationName","")
+		locationAddress = request.GET.get("locationAddress","")
+		locationCity = request.GET.get("locationCity","")
+		locationZip = request.GET.get("locationZip","")
+		programPage = request.GET.get('programPage',"")
+		userPage = request.GET.get('userPage',"")
+		locationPage = request.GET.get('locationPage',"")
+	elif request.method == 'POST':
+		# get search terms if any entered
+		siteName = request.POST.get("siteName","")
+		siteEmail = request.POST.get("siteEmail","")
+		sitePhone = request.POST.get("sitePhone","")
+		userName = request.POST.get("userName","")
+		userEmail = request.POST.get("userEmail","")
+		userOrgName = request.POST.get("userOrgName","")
+		locationName = request.POST.get("locationName","")
+		locationAddress = request.POST.get("locationAddress","")
+		locationCity = request.POST.get("locationCity","")
+		locationZip = request.POST.get("locationZip","")
+		programPage = request.POST.get('programPage',"")
+		userPage = request.POST.get('userPage',"")
+		locationPage = request.POST.get('locationPage',"")
+
+	# add keyword queries here; using Q for custom AND queries
+	# site queries
+	if siteName != '':
+		siteNameQuery = Q(name__icontains=siteName)
+	else:
+		siteNameQuery = Q()
+
+	if siteEmail != '':
+		siteEmailQuery = Q(email__icontains=siteEmail)
+	else:
+		siteEmailQuery = Q()
+
+	if sitePhone != '':
+		sitePhoneQuery = Q(phone__icontains=sitePhone)
+	else:
+		sitePhoneQuery = Q()
+
+	# user queries
+	if userName != '':
+		userNameQuery = Q(username__icontains=userName)
+	else:
+		userNameQuery = Q()
+
+	if userEmail != '':
+		userEmailQuery = Q(useremail__icontains=userEmail)
+	else:
+		userEmailQuery = Q()
+
+	if userOrgName != '':
+		userOrgNameQuery = Q(orgname__icontains=userOrgName)
+	else:
+		userOrgNameQuery = Q()
+
+	# location queries
+	if locationName != '':
+		locationNameQuery = Q(name__icontains=locationName)
+	else:
+		locationNameQuery = Q()
+
+	if locationAddress != '':
+		locationAddressQuery = Q(address__icontains=locationAddress)
+	else:
+		locationAddressQuery = Q()
+
+	if locationCity != '':
+		locationCityQuery = Q(city__icontains=locationCity)
+	else:
+		locationCityQuery = Q()
+
+	if locationZip != '':
+		locationZipQuery = Q(zip__icontains=locationZip)
+	else:
+		locationZipQuery = Q()
+
+	# if sites searched, then apply that search to users and locations
+	if siteName != '' or siteEmail != '' or sitePhone != '':
+		# site query 
+		siteQuery = siteNameQuery & siteEmailQuery & sitePhoneQuery
+		# get list of siteIDs and select only the users/locations that match
+		siteIds = azcase_sites.objects.filter(siteQuery).values('siteid')
+		userIds_list = azcase_user_sites_junction.objects.filter(siteid__in=siteIds).values_list('userid', flat=True)
+		locationIds_list = azcase_sites_locations_junction.objects.filter(siteid__in=siteIds).values_list('locationid', flat=True)
+		#add these to queries for users and locations
+		userInSiteQuery = Q(userid__in=userIds_list)
+		locationInSiteQuery = Q(locationid__in=locationIds_list)
+
+	else:
+		userInSiteQuery = Q()
+		locationInSiteQuery = Q()
+
+	# if user searched, then apply that search to sites and locations
+	if userName != '' or userEmail != '' or userOrgName != '':
+		# user query 
+		userQuery = userNameQuery & userEmailQuery & userOrgNameQuery
+		# get list of userIDs and select only the sites/locations that match
+		userIds = azcase_users.objects.filter(userQuery).values('userid')
+		siteIds_list = azcase_user_sites_junction.objects.filter(userid__in=userIds).values_list('siteid', flat=True)
+		locationIds_list = azcase_sites_locations_junction.objects.filter(siteid__in=siteIds_list).values_list('locationid', flat=True)
+		#add these to queries for users and locations
+		siteInUserQuery = Q(siteid__in=siteIds_list)
+		locationInUserQuery = Q(locationid__in=locationIds_list)
+
+	else:
+		siteInUserQuery = Q()
+		locationInUserQuery = Q()
+
+	# if location searched, then apply that search to sites and users
+	if locationName != '' or locationAddress != '' or locationCity != '' or locationZip != '':
+		# location query 
+		locationQuery = locationNameQuery & locationAddressQuery & locationCityQuery & locationZipQuery
+		# get list of locationIDs and select only the sites/users that match
+		locationIds = azcase_locations.objects.filter(locationQuery).values('locationid')
+		siteIds_list = azcase_sites_locations_junction.objects.filter(locationid__in=locationIds).values_list('siteid', flat=True)
+		userIds_list = azcase_user_sites_junction.objects.filter(siteid__in=siteIds_list).values_list('userid', flat=True)
+		#add these to queries for users and locations
+		siteInLocationQuery = Q(siteid__in=siteIds_list)
+		userInLocationQuery = Q(userid__in=userIds_list)
+
+	else:
+		siteInLocationQuery = Q()
+		userInLocationQuery = Q()
+
+	# site query 
+	siteQuery = siteNameQuery & siteEmailQuery & sitePhoneQuery & siteInUserQuery & siteInLocationQuery
+
+	# user query 
+	userQuery = userNameQuery & userEmailQuery & userOrgNameQuery & userInSiteQuery & userInLocationQuery
+
+	# location query 
+	locationQuery = locationNameQuery & locationAddressQuery & locationCityQuery & locationZipQuery & locationInSiteQuery & locationInUserQuery
+
+	#get sites
+	site_list = azcase_sites.objects.filter(siteQuery).order_by('name')  
+	sitePaginator = Paginator(site_list, 50) # show a table of 50 
+	site_number_of_pages = sitePaginator.num_pages
+
+	try:
+		sites = sitePaginator.page(programPage)
+	except PageNotAnInteger:
+		# If page is not an integer, deliver first page.
+		sites = sitePaginator.page(1)
+	except EmptyPage:
+		# If page is out of range (e.g. 9999), deliver last page of results.
+		sites = sitePaginator.page(sitePaginator.num_pages)
+	
+	for site in sites:
+		# format ages served
+		site.agesserved = formatAge(site.age5, site.age6, site.age7, site.age8, site.age9, site.age10, site.age11, site.age12, site.age13, site.age14, site.age15, site.age16, site.age17, site.age18)
+		# find out if possible duplicates
+		siteDupLookup1 = Q(siteid1__exact=site.siteid)
+		siteDupLookup2 = Q(siteid2__exact=site.siteid)
+
+		siteDupsCount = azcase_sites_duplicates.objects.filter(siteDupLookup1 | siteDupLookup2).count()
+
+		if siteDupsCount > 0:
+			site.duplicate = True
+		else: 
+			site.duplicate = False
+
+	#get users
+	user_list = azcase_users.objects.filter(userQuery).order_by('username')
+	userPaginator = Paginator(user_list, 50) # show a table of 50 
+	user_number_of_pages = userPaginator.num_pages
+
+	try:
+		userObjects = userPaginator.page(userPage)
+	except PageNotAnInteger:
+		# If page is not an integer, deliver first page.
+		userObjects = userPaginator.page(1)
+	except EmptyPage:
+		# If page is out of range (e.g. 9999), deliver last page of results.
+		userObjects = userPaginator.page(userPaginator.num_pages)
+
+	# get the number of sites attached to each user
+	for userObject in userObjects:
+		siteCount = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid).count()
+		if siteCount == 0:
+			userObject.siteCount = 'No Programs'
+		elif siteCount == 1:
+			siteIds = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid).values('siteid')
+			userObject.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
+			userObject.siteCount = str(siteCount) + ' Program'
+		else:
+			siteIds = azcase_user_sites_junction.objects.filter(userid__exact=userObject.userid).values('siteid')
+			userObject.sitesUsers = azcase_sites.objects.filter(siteid__in=siteIds)
+			userObject.siteCount = str(siteCount) + ' Programs'
+
+		# find out if possible duplicates
+		userDupLookup1 = Q(userid1__exact=userObject.userid)
+		userDupLookup2 = Q(userid2__exact=userObject.userid)
+
+		userDupsCount = azcase_users_duplicates.objects.filter(userDupLookup1 | userDupLookup2).count()
+
+		if userDupsCount > 0:
+			userObject.duplicate = True
+		else: 
+			userObject.duplicate = False
+
+	#get locations
+	locations_list = azcase_locations.objects.filter(locationQuery).order_by('name')
+	locationPaginator = Paginator(locations_list, 50) # show a table of 50 
+	location_number_of_pages = locationPaginator.num_pages
+
+	try:
+		locations = locationPaginator.page(locationPage)
+	except PageNotAnInteger:
+		# If page is not an integer, deliver first page.
+		locations = locationPaginator.page(1)
+	except EmptyPage:
+		# If page is out of range (e.g. 9999), deliver last page of results.
+		locations = locationPaginator.page(locationPaginator.num_pages)
+
+	# get the number of sites attached to each location
+	for location in locations:
+		siteCount = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid).count()
+		if siteCount == 0:
+			location.siteCount = 'No Programs'
+		elif siteCount == 1:
+			siteIds = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid).values('siteid')
+			location.sitesLocation = azcase_sites.objects.filter(siteid__in=siteIds)
+			location.siteCount = str(siteCount) + ' Program'
+		else:
+			siteIds = azcase_sites_locations_junction.objects.filter(locationid__exact=location.locationid).values('siteid')
+			location.sitesLocation = azcase_sites.objects.filter(siteid__in=siteIds)
+			location.siteCount = str(siteCount) + ' Programs'
+
+		# find out if possible duplicates
+		locationDupLookup1 = Q(locationid1__exact=location.locationid)
+		locationDupLookup2 = Q(locationid2__exact=location.locationid)
+
+		locationDupsCount = azcase_locations_duplicates.objects.filter(locationDupLookup1 | locationDupLookup2).count()
+
+		if locationDupsCount > 0:
+			location.duplicate = True
+		else: 
+			location.duplicate = False
+
+
+	context_dict = {'sites':sites, 'userObjects': userObjects, 'locations': locations, 'siteName': siteName, 'siteEmail': siteEmail, 'sitePhone': sitePhone, 'userName': userName, 'userEmail': userEmail, 'userOrgName':userOrgName, 'locationName': locationName, 'locationAddress': locationAddress, 'locationCity': locationCity, 'locationZip': locationZip, 'site_number_of_pages':site_number_of_pages, 'user_number_of_pages':user_number_of_pages, 'location_number_of_pages': location_number_of_pages, 'programPage': programPage, 'userPage': userPage, 'locationPage': locationPage}
+
+	return render(request, 'azcase_admin/userManagementTable.html', context_dict)
+
+
+
 
 def filterSites(request):
 
@@ -439,6 +696,9 @@ def filterUsers(request):
 	locationCity = request.GET.get("locationCity","")
 	locationZip = request.GET.get("locationZip","")
 
+	manage = request.GET.get("manage","")
+
+
 	# add keyword queries here; using Q for OR queries
 	if userName != '':
 		userNameQuery = Q(username__icontains=userName)
@@ -562,7 +822,7 @@ def filterUsers(request):
 			userObject.duplicate = False
 
 
-	context_dict = {'userObjects':userObjects, 'siteName': siteName, 'siteEmail': siteEmail, 'sitePhone': sitePhone, 'userName': userName, 'userEmail': userEmail, 'userOrgName':userOrgName, 'locationName': locationName, 'locationAddress': locationAddress, 'locationCity': locationCity, 'locationZip': locationZip, 'user_number_of_pages':user_number_of_pages}
+	context_dict = {'userObjects':userObjects, 'siteName': siteName, 'siteEmail': siteEmail, 'sitePhone': sitePhone, 'userName': userName, 'userEmail': userEmail, 'userOrgName':userOrgName, 'locationName': locationName, 'locationAddress': locationAddress, 'locationCity': locationCity, 'locationZip': locationZip, 'user_number_of_pages':user_number_of_pages, 'manage': manage}
 
 	return render(request, 'azcase_admin/filter_users.html', context_dict)
 

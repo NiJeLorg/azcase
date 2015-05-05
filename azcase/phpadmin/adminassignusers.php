@@ -10,6 +10,7 @@ require("connect.php");
 
 // create header
 require('header.php');
+global $connection;
 
 // grab data and clean up for database query and for return to last page
 $userid = $_REQUEST['userid'];

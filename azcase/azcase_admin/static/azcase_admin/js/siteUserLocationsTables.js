@@ -223,6 +223,26 @@ $().ready(new function(){
 
 	}
 
+	// manage users ajax call
+	function runManageAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip, manage) {
+    	// run ajax call
+		$.ajax({
+	        type: 'GET',
+	        url:  '/' + whichTab + '/?siteName=' + siteName + '&siteEmail=' + siteEmail + '&sitePhone=' + sitePhone + '&userName=' + userName + '&userEmail=' + userEmail + '&userOrgName=' + userOrgName + '&locationName=' + locationName + '&locationAddress=' + locationAddress + '&locationCity=' + locationCity + '&locationZip=' + locationZip + '&manage=' + manage, 
+	        success: function(data){
+	        	// reload table
+	            $("."+whichTab+"Wrapper").html(data);
+	            // update sorting
+	           	$.bootstrapSortable(true);
+	           	// re-set listeners
+	           	setListeners();
+	            
+	        }
+			
+	    });
+
+	}
+
 
 	$("#sendEmail").click(function (event) {
 		// check for a message
@@ -285,12 +305,19 @@ $().ready(new function(){
 		// close the modal
     	$('#searchSites').modal('hide');
 
-    	// update tables in all tabs
-    	var whichTab = '';
-    	$("#tableTabs li").each(function(){
-    		whichTab = $(this).attr('id');
-    		runAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip)
-    	});
+    	if ($("#tableTabs li").length) {
+	    	// update tables in all tabs
+	    	var whichTab = '';
+	    	$("#tableTabs li").each(function(){
+	    		whichTab = $(this).attr('id');
+	    		runAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip);
+	    	});
+    	} else {
+    		// on user managment page, just return users table
+    		var whichTab = 'filterUsers';
+    		var manage = 'True';
+	    	runManageAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip, manage);
+    	}
 
 
 	});
@@ -325,12 +352,19 @@ $().ready(new function(){
 		// close the modal
     	$('#searchUsers').modal('hide');
 
-    	// update tables in all tabs
-    	var whichTab = '';
-    	$("#tableTabs li").each(function(){
-    		whichTab = $(this).attr('id');
-    		runAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip)
-    	});
+    	if ($("#tableTabs li").length) {
+	    	// update tables in all tabs
+	    	var whichTab = '';
+	    	$("#tableTabs li").each(function(){
+	    		whichTab = $(this).attr('id');
+	    		runAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip);
+	    	});
+    	} else {
+    		// on user managment page, just return users table
+    		var whichTab = 'filterUsers';
+    		var manage = 'True';
+	    	runManageAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip, manage);
+    	}
 
 	});
 
@@ -365,12 +399,19 @@ $().ready(new function(){
 		// close the modal
     	$('#searchLocations').modal('hide');
 
-    	// update tables in all tabs
-    	var whichTab = '';
-    	$("#tableTabs li").each(function(){
-    		whichTab = $(this).attr('id');
-    		runAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip)
-    	});
+    	if ($("#tableTabs li").length) {
+	    	// update tables in all tabs
+	    	var whichTab = '';
+	    	$("#tableTabs li").each(function(){
+	    		whichTab = $(this).attr('id');
+	    		runAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip);
+	    	});
+    	} else {
+    		// on user managment page, just return users table
+    		var whichTab = 'filterUsers';
+    		var manage = 'True';
+	    	runManageAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip, manage);
+    	}
 
 	});
 
@@ -386,12 +427,19 @@ $().ready(new function(){
 	// clear filters button ajax
 	$(".clearFilters").click(function() {
 
-    	// update tables in all tabs
-    	var whichTab = '';
-    	$("#tableTabs li").each(function(){
-    		whichTab = $(this).attr('id');
-    		runAjax(whichTab, '', '', '', '', '', '', '', '', '', '')
-    	});
+    	if ($("#tableTabs li").length) {
+	    	// update tables in all tabs
+	    	var whichTab = '';
+	    	$("#tableTabs li").each(function(){
+	    		whichTab = $(this).attr('id');
+	    		runAjax(whichTab, '', '', '', '', '', '', '', '', '', '');
+	    	});
+    	} else {
+    		// on user managment page, just return users table
+    		var whichTab = 'filterUsers';
+    		var manage = 'True';
+    		runManageAjax(whichTab, '', '', '', '', '', '', '', '', '', '', manage);
+    	}
 
 	});
 

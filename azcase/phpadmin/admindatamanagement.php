@@ -74,13 +74,13 @@ $sitesresult = pg_query($connection, $sitesquery);
 
 // if any no users are found, then print no users found, if not skip
 if (pg_numrows($sitesresult)==0) {
-	$sitestable = "<h3 class=\"azcase-text-color\">No Sites Associated With $username ($useremail)</h3>";
+	$sitestable = "<h3 class=\"azcase-text-color\">No Programs Associated With $username ($useremail)</h3>";
 }else{
 
 // create table to add users with edit and remove links
-$sitestable = "<h3 class=\"azcase-text-color\">Sites Associated with $username ($useremail)</h3>
+$sitestable = "<h3 class=\"azcase-text-color\">Programs Associated with $username ($useremail)</h3>
 <table class=\"table\"><tr>
-<th>Site Name</th>
+<th>Program Name</th>
 <th>Address</th>
 <th>Phone</th>
 <th>Email</th>
@@ -204,6 +204,7 @@ $adminassign = "
 <br />
 </p>
 </form>
+<div class='clearfix'></div>
 ";
 
 // show who has access to manage users for this user

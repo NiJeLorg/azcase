@@ -35,6 +35,7 @@ urlpatterns = patterns('',
     url(r'^duplicateLocations/$', views.duplicateLocations, name='duplicateLocations'),
     url(r'^duplicateLocation/$', views.duplicateLocation, name='duplicateLocation'),
     url(r'^markNotDuplicateLocation/$', views.markNotDuplicateLocation, name='markNotDuplicateLocation'),
+    url(r'^userManagement/$', views.userManagement, name='userManagement'),
     url(r'^manageUsersData/$', views.manageUsersData, name='manageUsersData'),
     url(r'^customReports/$', views.customReports, name='customReports'),
 )
