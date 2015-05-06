@@ -1,3 +1,5 @@
+{% load humanize %}
+
 <div class="row">
     {% if siteName or siteEmail or sitePhone %}
       <h4>Program Search Terms:</h4>
@@ -61,12 +63,15 @@
       <button type="button" class="btn btn-default btn-sm" id="manageUsersData">Manage Programs</button>
       <button type="button" class="btn btn-default btn-sm" id="emailUsers">Send Email To</button>
     {% endif %}
+    {% if usersCount %}
+      <h4 class="azcase-text-color pull-right">{{ usersCount|intcomma }} Users</h4>
+    {% endif %}
 </div>
 <div id="usersTable" class="row">
   <table class="table table-striped table-condensed sortable">
     <thead>
       <th>Select</th>
-      <th>Number of Programs</th>
+      <th>Programs</th>
       <th>Name</th>
       <th>Organization Name</th>
       <th>Email</th>

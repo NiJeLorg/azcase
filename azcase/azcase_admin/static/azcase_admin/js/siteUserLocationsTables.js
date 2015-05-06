@@ -198,10 +198,51 @@ $().ready(new function(){
 			}
 		});
 
+		$("#reassignPrograms").click(function (event) {
+			if ($("#programsTable input:checkbox:checked").length == 0) {
+				event.preventDefault();
+				alert("Please select a few programs to reassign. Thanks!");
+			} else {
+				event.preventDefault();
+				var IDs = $("#programsTable input:checkbox:checked").map(function(){
+	    			return $(this).val();
+	    		}).get();
+				var numIDs = [];
+	    		$.each(IDs, function(key, value) {
+	    			value = parseInt(value);
+	    			numIDs.push(value);
+	    		});
+	    		var json = JSON.stringify(numIDs);
+	    		window.location = "/reassignProgramsList?siteids=" + json;				
+			}
+
+		});
+
 	}
 
 	// establish listeners on page load
 	setListeners();
+
+	function setupAjaxRun(siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip) {
+
+    	if ($("#tableTabs li").length) {
+	    	// update tables in all tabs
+	    	var whichTab = '';
+	    	$("#tableTabs li").each(function(){
+	    		whichTab = $(this).attr('id');
+	    		runAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip);
+	    	});
+    	} else {
+    		// on user managment page, just return users table
+    		var whichTab = 'filterUsers';
+    		var manage = 'True';
+	    	runManageAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip, manage);
+	    	whichTab = 'filterSites';
+	    	runManageAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip, manage); 
+    	}
+
+	}
+
 
 	// generic ajax call
 	function runAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip) {
@@ -262,6 +303,7 @@ $().ready(new function(){
     		var json = JSON.stringify(numIDs);
     		var subject = $("#userSubject").val();
     		var message = $("#userMessage").val();
+    		console.log(message);
     		// send all to Ajax
     		sendEmailToUsers(json, subject, message);
     		//hide modal
@@ -273,7 +315,7 @@ $().ready(new function(){
 	function sendEmailToUsers(json, subject, message) {
 		$.ajax({
 			type: 'GET',
-			url: '/emailUsers?userids=' + json + '&subject=' + subject + '&message=' + message,
+			url: '/emailUsers?userids=' + json + '&subject=' + subject + '&message=' + encodeURIComponent(message),
 			success: function(data){
 				alert("Message Sent!");		
 			},
@@ -305,19 +347,7 @@ $().ready(new function(){
 		// close the modal
     	$('#searchSites').modal('hide');
 
-    	if ($("#tableTabs li").length) {
-	    	// update tables in all tabs
-	    	var whichTab = '';
-	    	$("#tableTabs li").each(function(){
-	    		whichTab = $(this).attr('id');
-	    		runAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip);
-	    	});
-    	} else {
-    		// on user managment page, just return users table
-    		var whichTab = 'filterUsers';
-    		var manage = 'True';
-	    	runManageAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip, manage);
-    	}
+    	setupAjaxRun(siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip);
 
 
 	});
@@ -352,19 +382,8 @@ $().ready(new function(){
 		// close the modal
     	$('#searchUsers').modal('hide');
 
-    	if ($("#tableTabs li").length) {
-	    	// update tables in all tabs
-	    	var whichTab = '';
-	    	$("#tableTabs li").each(function(){
-	    		whichTab = $(this).attr('id');
-	    		runAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip);
-	    	});
-    	} else {
-    		// on user managment page, just return users table
-    		var whichTab = 'filterUsers';
-    		var manage = 'True';
-	    	runManageAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip, manage);
-    	}
+    	setupAjaxRun(siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip);
+
 
 	});
 
@@ -399,19 +418,7 @@ $().ready(new function(){
 		// close the modal
     	$('#searchLocations').modal('hide');
 
-    	if ($("#tableTabs li").length) {
-	    	// update tables in all tabs
-	    	var whichTab = '';
-	    	$("#tableTabs li").each(function(){
-	    		whichTab = $(this).attr('id');
-	    		runAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip);
-	    	});
-    	} else {
-    		// on user managment page, just return users table
-    		var whichTab = 'filterUsers';
-    		var manage = 'True';
-	    	runManageAjax(whichTab, siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip, manage);
-    	}
+    	setupAjaxRun(siteName, siteEmail, sitePhone, userName, userEmail, userOrgName, locationName, locationAddress, locationCity, locationZip);
 
 	});
 
@@ -439,9 +446,18 @@ $().ready(new function(){
     		var whichTab = 'filterUsers';
     		var manage = 'True';
     		runManageAjax(whichTab, '', '', '', '', '', '', '', '', '', '', manage);
+    		whichTab = 'filterSites';
+    		runManageAjax(whichTab, '', '', '', '', '', '', '', '', '', '', manage);
     	}
 
 	});
+
+	// preserves carrige returns from a text area input
+	$.valHooks.textarea = {
+	    get: function(elem) {
+	        return elem.value.replace(/\r?\n/g, "<br>");
+	    }
+	};
 
 		
 });

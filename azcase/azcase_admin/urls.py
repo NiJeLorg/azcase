@@ -38,4 +38,6 @@ urlpatterns = patterns('',
     url(r'^userManagement/$', views.userManagement, name='userManagement'),
     url(r'^manageUsersData/$', views.manageUsersData, name='manageUsersData'),
     url(r'^customReports/$', views.customReports, name='customReports'),
+    url(r'^reassignPrograms/$', views.reassignPrograms, name='reassignPrograms'),
+    url(r'^reassignProgramsList/$', views.reassignProgramsList, name='reassignProgramsList'),
 )

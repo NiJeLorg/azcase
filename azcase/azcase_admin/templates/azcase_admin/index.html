@@ -1,5 +1,6 @@
 {% extends 'azcase_admin/base.html' %}
 {% load staticfiles %}
+{% load humanize %}
 
 {% block css_block %}
 {% endblock %}
@@ -17,12 +18,17 @@
         </div>
       </div>
       <div class="row">
-        <div class="center-block">
-          {% if verifiedCount %}
-            <p class="text-center azcase-text-color"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><strong>{{ verifiedCount }} New Programs Submitted</strong> <a class="btn btn-default" href="{% url 'verifyPrograms' %}" role="button">Verify Programs</a></p>
-          {% endif %}
+        <div class="col-md-12">
+          <h4 class="azcase-text-color pull-right">{{ syVerifiedCount|intcomma }} school year programs | {{ summerVerifiedCount|intcomma }} summer programs</h4>
         </div>
       </div>
+      {% if verifiedCount %}
+        <div class="row">
+          <div class="col-md-6">
+            <p class="azcase-text-color"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><strong>{{ verifiedCount }} New Programs Submitted</strong> <a class="btn btn-default" href="{% url 'verifyPrograms' %}" role="button">Verify Programs</a></p>
+          </div>
+        </div>
+      {% endif %}
       <div class="row">
         <div class="col-md-12">
          <h4 class="azcase-text-color">Searching the Directory</h4>
@@ -134,6 +140,7 @@
       <div class="row">
         <div class="col-md-12">
           <p>
+           <button type="button" class="btn btn-default" data-toggle="modal" data-target="#reassignPrograms">Reassign Programs to Users</button>
            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#searchUsersAssign">Assign Other Users to Manage Data for Current User</button>
            <a class="btn btn-default" href="{% url 'registration_register' %}" role="button">Register New Administrators</a>
           </p>
@@ -194,6 +201,40 @@
   </div>
 </div>
 
+<!-- Modal for searching by site-->
+<div class="modal fade" id="reassignPrograms" tabindex="-1" role="dialog" aria-labelledby="searchSitesLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="searchSites">Search for Programs</h4>
+      </div>
+      <form action="{% url 'reassignPrograms' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="programPage" value="1">
+        <div class="modal-body">
+        <div class="form-group">
+          <label for="siteName">Program Name</label>
+          <input type="text" class="form-control" name="siteName" id="siteName">
+        </div>
+        <div class="form-group">
+          <label for="siteEmail">Program Email</label>
+          <input type="email" class="form-control" name="siteEmail" id="siteEmail">
+        </div>
+        <div class="form-group">
+          <label for="sitePhone">Program Phone Number</label>
+          <input type="text" class="form-control" name="sitePhone" id="sitePhone">
+        </div>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-default" href="{% url 'reassignPrograms' %}" role="button">View all Programs</a>
+          <input class="btn btn-primary" type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <!-- Modal for ajax searching by user-->
 <div class="modal fade" id="searchUsers" tabindex="-1" role="dialog" aria-labelledby="searchUsersLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
@@ -233,7 +274,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="searchUsersLabel">Search by User</h4>
+        <h4 class="modal-title" id="searchUsersLabel">Search for Users</h4>
       </div>
       <form action="{% url 'userManagement' %}" method="post">
         {% csrf_token %}
@@ -253,6 +294,7 @@
           </div>
         </div>
         <div class="modal-footer">
+          <a class="btn btn-default" href="{% url 'userManagement' %}" role="button">View all Users</a>
           <input class="btn btn-primary" type="submit" value="Submit">
         </div>
       </form>

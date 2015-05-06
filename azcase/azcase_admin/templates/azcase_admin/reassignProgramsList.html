@@ -1,0 +1,102 @@
+{% extends "azcase_admin/base.html" %}
+{% load staticfiles %}
+{% load bootstrap_tags %}
+
+{% block content %}
+    <div class="container">
+    	<div class="row">
+	    	<div class="col-md-12">
+	    		<h3 class='azcase-text-color'>Reassing Programs to Users</h3>
+	    		<p>Please select the user you would like to assign to manage these programs. Thanks!</p>
+	    	</div>
+    	</div>
+    	<div class="row">
+    	{% for site in sites %}
+			<div class="col-md-6">
+				<div class='highlight'>
+					<p class='azcase-text-color'>
+					{% if site.summer %}
+		              	<strong class="text-uppercase">Summer Program: </strong>
+		            {% endif %}					
+						<strong>{{ site.name }}</strong>
+					</p>
+					<p>
+					{% if site.getLocationObject.address %}
+			            <strong>Location:</strong> 
+						{{ site.getLocationObject.address }}; {{ site.getLocationObject.city }}, {{ site.getLocationObject.state }} {{ site.getLocationObject.zip }}
+						<br />
+			        {% else %}
+			        {% endif %}
+					<strong>Activities:</strong><br />
+					<ul>
+					{% if site.arts %}
+					  <li>Arts and Culture</li> 
+					{% endif %}
+					{% if site.character %}
+					  <li>Character Education</li>
+					{% endif %}
+					{% if site.leadership %}
+					  <li>Leadership</li>
+					{% endif %}
+					{% if site.mentoring %}
+					  <li>Mentoring</li>
+					{% endif %}
+					{% if site.nutrition %}
+					  <li>Nutrition</li>
+					{% endif %}
+					{% if site.prevention %}
+					  <li>Prevention</li>
+					{% endif %}
+					{% if site.sports %}
+					  <li>Sports and Recreation</li> 
+					{% endif %}
+					{% if site.supportservices %}
+					  <li>Support Services (medical, dental, mental health, etc.)</li>
+					{% endif %}
+					{% if site.academic %}
+					  <li>Tutoring/Academic Enrichment</li> 
+					{% endif %}
+					{% if site.community %}
+					  <li>Volunteering/Community Service</li> 
+					{% endif %}
+					{% if site.stem %}
+					  <li>Science, Technology, Engineering, and Mathematics</li>
+					{% endif %}
+					{% if site.college %}
+					  <li>College and Career Readiness</li>
+					{% endif %}
+					</ul>
+					<strong>Ages Served:</strong> {{ site.agesserved }}
+					</p>
+					<p class="azcase-text-color"><strong>Currently Managed by:</strong></p>
+					<p>
+						{% for user in site.getUserObject %}
+							{{ user.username }} ({{ user.useremail }}), 
+						{% endfor %}
+					</p>
+				</div>
+			</div>
+		{% if forloop.counter|divisibleby:2 %}
+		</div>
+		<div class='row'>			
+		{% endif %}
+		{% endfor %}
+		</div>
+		<h4 class="azcase-text-color">Select a User</h4>
+		<div class="row">
+			<div class="col-md-6">
+				<form action="{% url 'reassignProgramsList' %}" method="post">
+			        {% csrf_token %}
+			        <input type="hidden" name="siteids" value="[{% for site in sites %}{{ site.siteid }}{% if forloop.last %}{% else %},{% endif %}{% endfor %}]">
+					<select class="form-control" name="userSelected">
+						{% for user in users %}
+							<option value="{{ user.userid }}">{{ user.username }} ({{ user.useremail }})</option>
+						{% endfor %}
+					</select>
+					<br />
+			        <input class="btn btn-default" type="submit" value="Submit">
+			    </form>
+			</div>
+		</div>
+    </div> <!-- /container -->
+{% endblock %}

@@ -19,6 +19,10 @@
 		            {% endif %}					
 						<strong>{{ site.name }}</strong>
 					</p>
+					{% if site.verified == 1 %}
+		              <p class="azcase-text-color"><strong>VERIFIED</strong></p>
+		            {% endif %}
+
 					<p>
 					<strong>Managed by:</strong>
 						{% for user in site.getUserObject %}
