@@ -10,6 +10,12 @@ global $connection;
 
 $locationid = $_REQUEST['locationid'];
 
+// remove from duplicate record table
+$removedup = "DELETE FROM azcase_admin_azcase_locations_duplicates WHERE locationid1_id = $locationid OR locationid2_id = $locationid;";
+// remove silently
+pg_send_query($connection, $removedup);
+
+
 // remove user associations with locations
 $removeusersite = "DELETE FROM azcase_user_locations_junction WHERE locationid = $locationid;";
 // remove silently

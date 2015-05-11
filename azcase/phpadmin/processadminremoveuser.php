@@ -10,6 +10,11 @@ global $connection;
 // bring search data across
 $userid = $_REQUEST['userid'];
 
+// remove from duplicate record table
+$removedup = "DELETE FROM azcase_admin_azcase_users_duplicates WHERE userid1_id = $userid OR userid2_id = $userid;";
+// remove silently
+pg_send_query($connection, $removedup);
+
 // remove user associations with locations
 $removeuserloc = "DELETE FROM azcase_user_locations_junction WHERE userid = $userid;";
 // remove silently
