@@ -558,25 +558,6 @@ require('footer.php');
 
 ?>
 
-<script type="text/javascript">
-$(document).ready(function(){
- 
-	$('.panel').hide();
-
-	$('.heading').collapser({
-		target: 'next',
-		effect: 'slide',
-		changeText: 0,
-		expandClass: 'expIco',
-		collapseClass: 'collIco'
-	}, function(){
-		$('.panel').slideUp();
-	});
-
-});
-
-</script>
-
 <!--****Check all boxes****-->
 <script src="js/CheckBoxGroup.js" type="text/javascript"></script>
 <script type="text/javascript">
