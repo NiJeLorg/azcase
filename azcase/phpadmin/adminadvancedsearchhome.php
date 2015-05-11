@@ -307,7 +307,8 @@ $cities .= "</table>";
 			</table>
 		</div>
     </div>
-    <div class="panel panel-default">
+  </div>
+  <div class="panel panel-default">
 	    <div class="panel-heading" role="tab" id="headingSeven">
 	      <h4 class="panel-title">
 	        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
@@ -335,7 +336,7 @@ $cities .= "</table>";
 			</table>
 	      </div>
 	    </div>
-	  </div>
+	</div>
 	<div class="panel panel-default">
 	    <div class="panel-heading" role="tab" id="headingEight">
 	      <h4 class="panel-title">
