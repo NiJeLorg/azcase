@@ -5,26 +5,7 @@ session_start();
 // connect to database
 require("connect.php");
 
-// login to the system
-require('login.php');
-
-// processing login script
-//displayLogin();
-
-// requests a user to log in if they haven't already
-global $logged_in;
-if($logged_in){
-
 global $connection;
-/* Verify that user partner is admin or not */
-$useremailsession = pg_escape_string($_SESSION['useremail']);
-$partnerquery = "SELECT admin FROM azcase_users WHERE useremail = '$useremailsession';";
-$result = pg_query($connection, $partnerquery);
-for ($lt = 0; $lt < pg_numrows($result); $lt++) {
-	$admin = pg_result($result, $lt, 0);
-}
-
-if ($admin=='t') {
 
 // bring search data across
 $azcongress = $_REQUEST['azcongress'];
@@ -421,14 +402,6 @@ if ($pgerror1!=FALSE) {
 	$message = "\nPage: processadminpublicadvancedsearch.php\nFailed Query: $update\nError: $pgerror1";
 	mail($to,$subject,$message);
 	die ();
-}else{}
-
-
-
-// close admin = TRUE
-}else{}
-
-// close logged_in
 }else{}
 
 

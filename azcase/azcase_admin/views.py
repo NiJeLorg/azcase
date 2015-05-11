@@ -1294,6 +1294,9 @@ def filterLocations(request):
 	return render(request, 'azcase_admin/filter_locations.html', context_dict)
 
 
+def publicAdvSearch(request):
+	return render(request, 'azcase_admin/publicAdvSearch.html', {})
+
 def addPrograms(request):
 	return render(request, 'azcase_admin/addPrograms.html', {})
 

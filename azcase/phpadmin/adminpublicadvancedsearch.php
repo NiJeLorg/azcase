@@ -275,7 +275,7 @@ for ($lt = 0; $lt < pg_numrows($sitesresult); $lt++) {
 
 ?>
 <body>
-<h3>Admin: Public Advanced Search Settings</h3>
+<h3 class="azcase-text-color">Admin: Public Advanced Search Settings</h3>
 <h4>Choose Site/Location Filters for Display</h4>
 <form name="searchusers" action="processadminpublicadvancedsearch.php" method="POST">
 <table class="hoursTable">
