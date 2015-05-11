@@ -132,6 +132,6 @@ Arizona Center for Afterschool Excellence
 }
 
 
-header("Location: http://104.131.19.183/php/endadminedituser.php");
+header("Location: http://azcase.nijel.org/php/endadminedituser.php");
 ?>
 

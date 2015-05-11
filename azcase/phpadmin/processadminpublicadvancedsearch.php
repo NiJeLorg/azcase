@@ -432,6 +432,6 @@ if ($pgerror1!=FALSE) {
 }else{}
 
 
-header("Location: http://104.131.19.183/php/adminpublicadvancedsearch.php");
+header("Location: http://azcase.nijel.org/php/adminpublicadvancedsearch.php");
 ?>
 

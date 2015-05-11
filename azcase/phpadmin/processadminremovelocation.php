@@ -31,6 +31,6 @@ $removelocation = "DELETE FROM azcase_locations WHERE locationid = $locationid;"
 pg_send_query($connection, $removelocation);
 
 
-header("Location: http://104.131.19.183/php/endadminremovelocation.php");
+header("Location: http://azcase.nijel.org/php/endadminremovelocation.php");
 ?>
 

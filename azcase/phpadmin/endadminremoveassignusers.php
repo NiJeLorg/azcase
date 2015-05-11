@@ -29,7 +29,7 @@ for ($lt = 0; $lt < pg_numrows($basicinforesult); $lt++) {
 ?>
 <body>
 <h3 class="azcase-text-color">Users Removed from Managing Data for <?php echo $username; ?> (<?php echo $useremail1; ?>)</h3>
-<p><a href="http://104.131.19.183/" target="_top">Back to Admin Dashboard</a></p>
+<p><a href="http://azcase.nijel.org/" target="_top">Back to Admin Dashboard</a></p>
 
 <?php
 

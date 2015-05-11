@@ -7,9 +7,9 @@ $thankyou = $_REQUEST['thankyou'];
 if ($thankyou==1 || !$thankyou) {
 	// unset userid session 
 	unset($_SESSION['POSTuserid']);
-	echo "<script>parent.window.location = 'http://104.131.19.183/'</script>";
+	echo "<script>parent.window.location = 'http://azcase.nijel.org/'</script>";
 }elseif ($thankyou==2) {
-	header("Location: http://104.131.19.183/php/newsites.php");
+	header("Location: http://azcase.nijel.org/php/newsites.php");
 }else{}
 
 ?>

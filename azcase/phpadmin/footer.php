@@ -1,4 +1,4 @@
-<? 
+<?php 
 // Footer 
 ?>
 <div class="clearfix"></div>

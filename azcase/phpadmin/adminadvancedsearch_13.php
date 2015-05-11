@@ -14,7 +14,7 @@ if ($summary13=='t' || $cd13=='t' || $sld13=='t' || $elm13=='t' || $union13=='t'
 ?>
 <div class="clear"></div>
 <h3>Who Preforms Staff Training</h3>
-<?
+<?php
 // if summary table is selected
 if ($summary13=='t') {
 
@@ -30,7 +30,7 @@ $where = $whereverified . $and0 . $azcongresswhere . $and1 . $statelegwhere . $a
 		<th>Category</th>
 		<th>Number of Sites</th>
 	</tr>	
-<?
+<?php
 $summary13row_0 = array( );
 $summary13row_0[] = 'Category';
 $summary13row_0[] = 'Number of Sites';
@@ -496,7 +496,7 @@ $training_needssecond10count = number_format($training_needssecond10count);
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($summary1=='t') {
 
@@ -956,7 +956,7 @@ fclose($cd13file);
 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by Congressional District</name>
@@ -969,7 +969,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -1027,7 +1027,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites - Second Most Important Area for Staff Training: Other</th>
 	
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1038,7 +1038,7 @@ echo $tablebody;
 <a href="export/advancedsearch_congressionaldistrict13.kml" style="text-decoration:none"><img src="icons/google_earth.png" border="0" /> Export as KML (Launches in Google Earth)</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($cd13=='t') {
 
@@ -1500,7 +1500,7 @@ for($i = 0; $i <= $count; $i++) {
 fclose($sld13file); 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by State Legislative District</name>
@@ -1513,7 +1513,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -1571,7 +1571,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites - Second Most Important Area for Staff Training: Youth Engagement</th>
 		<th>Number of Sites - Second Most Important Area for Staff Training: Other</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1583,7 +1583,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($sld13=='t') {
 
@@ -2046,7 +2046,7 @@ for($i = 0; $i <= $count; $i++) {
 fclose($elm13file); 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by Elementary School District</name>
@@ -2059,7 +2059,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -2117,7 +2117,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites - Second Most Important Area for Staff Training: Youth Engagement</th>
 		<th>Number of Sites - Second Most Important Area for Staff Training: Other</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -2129,7 +2129,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($elm13=='t') {
 
@@ -2592,7 +2592,7 @@ for($i = 0; $i <= $count; $i++) {
 fclose($union13file); 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by Secondary/Union School District</name>
@@ -2605,7 +2605,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -2663,7 +2663,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites - Second Most Important Area for Staff Training: Youth Engagement</th>
 		<th>Number of Sites - Second Most Important Area for Staff Training: Other</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -2675,7 +2675,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($union13=='t') {
 
@@ -3138,7 +3138,7 @@ for($i = 0; $i <= $count; $i++) {
 fclose($city13file); 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by City</name>
@@ -3151,7 +3151,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -3209,7 +3209,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites - Second Most Important Area for Staff Training: Youth Engagement</th>
 		<th>Number of Sites - Second Most Important Area for Staff Training: Other</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -3221,7 +3221,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($city13=='t') {
 
@@ -3781,7 +3781,7 @@ fclose($activity13file);
 		<th>Number of Sites - Second Most Important Area for Staff Training: Youth Engagement</th>
 		<th>Number of Sites - Second Most Important Area for Staff Training: Other</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -3790,7 +3790,7 @@ echo $tablebody;
 <a href="exportcsv.php?filename=advancedsearch_activity13.csv" style="text-decoration:none"><img src="icons/csv.png" border="0" /> Export as CSV</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($activity13=='t') {
 
@@ -4275,7 +4275,7 @@ fclose($ages13file);
 		<th>Number of Sites - Second Most Important Area for Staff Training: Youth Engagement</th>
 		<th>Number of Sites - Second Most Important Area for Staff Training: Other</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -4284,7 +4284,7 @@ echo $tablebody;
 <a href="exportcsv.php?filename=advancedsearch_ages13.csv" style="text-decoration:none"><img src="icons/csv.png" border="0" /> Export as CSV</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($ages13=='t') {
 

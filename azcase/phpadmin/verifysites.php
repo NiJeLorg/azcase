@@ -209,7 +209,7 @@ $().ready(new function(){
 			alert("You can only edit one program at a time. Please select only one program to edit. Thanks!");
 		} else {
 			var siteid = $("#verifyTable input:checkbox:checked").attr("name");
-			parent.window.location = "http://104.131.19.183/editPrograms?siteid=" + siteid;	
+			parent.window.location = "http://azcase.nijel.org/editPrograms?siteid=" + siteid;	
 		}
 	});
 

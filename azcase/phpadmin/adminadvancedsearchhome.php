@@ -188,19 +188,87 @@ $cities .= "</table>";
 <h3 class="azcase-text-color">Admin: Advanced Search</h3>
 <h4 class="azcase-text-color">Choose Site/Location Filters (Optional)</h4>
 <form name="searchusers" action="adminadvancedsearch.php" method="POST">
-<div class="boxes">
-	<h4 class="heading">Select Data by Congressional District</h4>
-		<div class="panel"><?php echo $azcongress; ?></div>
-	<h4 class="heading">Select Data by State Legislative District</h4>
-		<div class="panel"><?php echo $stateleg; ?></div>
-	<h4 class="heading">Select Data by Elementary School District</h4>
-		<div class="panel"><?php echo $elemschooldistrict; ?></div>
-	<h4 class="heading">Select Data by Secondary/Union School District</h4>
-		<div class="panel"><?php echo $unionschooldistrict; ?></div>
-	<h4 class="heading">Select Data by City</h4>
-		<div class="panel"><?php echo $cities; ?></div>
-	<h4 class="heading">Select Data by Activity</h4>
-		<div class="panel">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Select Data by Congressional District
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <?php echo $azcongress; ?>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Select Data by State Legislative District
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <?php echo $stateleg; ?>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Select Data by Elementary School District
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <?php echo $elemschooldistrict; ?>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Select Data by Secondary/Union School District
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body">
+        <?php echo $unionschooldistrict; ?>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Select Data by City
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="panel-body">
+        <?php echo $cities; ?>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingSix">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          Select Data by Activity
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+      <div class="panel-body">
 			<table cellpadding="0">
 				<tr>
 					<td align="right"><input type="checkbox" name="catfilter" value="t" onClick="catfilterGroup.check(this)"> </td>
@@ -237,11 +305,19 @@ $cities .= "</table>";
 					<td align="left" width="350">Support Services (medical, dental, mental health, etc.)</td>
 				</tr>
 			</table>
-
 		</div>
-	<h4 class="heading">Select Data by Ages Served</h4>
-		<div class="panel">
-			<table cellpadding="0">
+    </div>
+    <div class="panel panel-default">
+	    <div class="panel-heading" role="tab" id="headingSeven">
+	      <h4 class="panel-title">
+	        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+	          Select Data by Ages Served
+	        </a>
+	      </h4>
+	    </div>
+	    <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+	      <div class="panel-body">
+	        <table cellpadding="0">
 				<tr>
 					<td align="right"><input type="checkbox" name="agefilter" value="t" onClick="agefilterGroup.check(this)"> </td>
 					<td align="left" width="350">Check/Uncheck All</td>
@@ -257,10 +333,19 @@ $cities .= "</table>";
 					<td align="left" width="350">15 - 18</td>
 				</tr>
 			</table>
-
-		</div>
-	<h4 class="heading">Select Data by School Year or Summer Sites</h4>
-		<div class="panel">
+	      </div>
+	    </div>
+	  </div>
+	<div class="panel panel-default">
+	    <div class="panel-heading" role="tab" id="headingEight">
+	      <h4 class="panel-title">
+	        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+	          Select Data by School Year or Summer Sites
+	        </a>
+	      </h4>
+	    </div>
+	    <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+	      <div class="panel-body">
 			<table cellpadding="0">
 				<tr>
 					<td align="right"><input type="radio" name="summeronly" value="f"> </td>
@@ -273,11 +358,10 @@ $cities .= "</table>";
 					<td></td>
 				</tr>
 			</table>
-
-		</div>
-
-
-
+	      </div>
+	    </div>
+	  </div>
+  </div>
 </div>
 <br />
 <div class="clear"></div>
@@ -468,11 +552,6 @@ $cities .= "</table>";
 
 <?php
 
-// close admin = TRUE
-}else{}
-
-// close logged_in
-}else{}
 
 // create footer
 require('footer.php');
@@ -481,7 +560,7 @@ require('footer.php');
 
 <script type="text/javascript">
 $(document).ready(function(){
-
+ 
 	$('.panel').hide();
 
 	$('.heading').collapser({

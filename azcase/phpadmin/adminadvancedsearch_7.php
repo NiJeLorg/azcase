@@ -14,7 +14,7 @@ if ($summary7=='t' || $cd7=='t' || $sld7=='t' || $elm7=='t' || $union7=='t' || $
 ?>
 <div class="clear"></div>
 <h3>Race/Ethnicity Distribution</h3>
-<?
+<?php
 // if summary table is selected
 if ($summary7=='t') {
 
@@ -30,7 +30,7 @@ $where = $whereverified . $and0 . $azcongresswhere . $and1 . $statelegwhere . $a
 		<th>Category</th>
 		<th>Number of Sites/Percent Category</th>
 	</tr>	
-<?
+<?php
 $summary7row_0 = array( );
 $summary7row_0[] = 'Category';
 $summary7row_0[] = 'Number of Sites/Percent Category';
@@ -181,7 +181,7 @@ $otherraceavg = number_format($otherraceavg, 2) . '%';
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($summary1=='t') {
 
@@ -387,7 +387,7 @@ fclose($cd7file);
 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by Congressional District</name>
@@ -400,7 +400,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -435,7 +435,7 @@ fclose($locationkmlfile);
 		<th>Average Percentage of Whites</th>
 		<th>Average Percentage of Other Race or Ethnicity</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -446,7 +446,7 @@ echo $tablebody;
 <a href="export/advancedsearch_congressionaldistrict7.kml" style="text-decoration:none"><img src="icons/google_earth.png" border="0" /> Export as KML (Launches in Google Earth)</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($cd7=='t') {
 
@@ -657,7 +657,7 @@ for($i = 0; $i <= $count; $i++) {
 fclose($sld7file); 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by State Legislative District</name>
@@ -670,7 +670,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -706,7 +706,7 @@ fclose($locationkmlfile);
 		<th>Average Percentage of Whites</th>
 		<th>Average Percentage of Other Race or Ethnicity</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -718,7 +718,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($sld7=='t') {
 
@@ -930,7 +930,7 @@ for($i = 0; $i <= $count; $i++) {
 fclose($elm7file); 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by Elementary School District</name>
@@ -943,7 +943,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -979,7 +979,7 @@ fclose($locationkmlfile);
 		<th>Average Percentage of Whites</th>
 		<th>Average Percentage of Other Race or Ethnicity</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -991,7 +991,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($elm7=='t') {
 
@@ -1203,7 +1203,7 @@ for($i = 0; $i <= $count; $i++) {
 fclose($union7file); 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by Secondary/Union School District</name>
@@ -1216,7 +1216,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -1252,7 +1252,7 @@ fclose($locationkmlfile);
 		<th>Average Percentage of Whites</th>
 		<th>Average Percentage of Other Race or Ethnicity</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1264,7 +1264,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($union7=='t') {
 
@@ -1476,7 +1476,7 @@ for($i = 0; $i <= $count; $i++) {
 fclose($city7file); 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by City</name>
@@ -1489,7 +1489,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -1525,7 +1525,7 @@ fclose($locationkmlfile);
 		<th>Average Percentage of Whites</th>
 		<th>Average Percentage of Other Race or Ethnicity</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1537,7 +1537,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($city7=='t') {
 
@@ -1831,7 +1831,7 @@ fclose($activity7file);
 		<th>Average Percentage of Whites</th>
 		<th>Average Percentage of Other Race or Ethnicity</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1840,7 +1840,7 @@ echo $tablebody;
 <a href="exportcsv.php?filename=advancedsearch_activity7.csv" style="text-decoration:none"><img src="icons/csv.png" border="0" /> Export as CSV</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($activity7=='t') {
 
@@ -2074,7 +2074,7 @@ fclose($ages7file);
 		<th>Average Percentage of Whites</th>
 		<th>Average Percentage of Other Race or Ethnicity</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -2083,7 +2083,7 @@ echo $tablebody;
 <a href="exportcsv.php?filename=advancedsearch_ages7.csv" style="text-decoration:none"><img src="icons/csv.png" border="0" /> Export as CSV</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($ages7=='t') {
 

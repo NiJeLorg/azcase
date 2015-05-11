@@ -269,6 +269,6 @@ if (!$locationname5 || !$address5 || !$city5 || !$state5 || !$zip5) {
 } // close if location5 exists
 
 
-header('Location: http://104.131.19.183/php/endnewlocations.php');
+header('Location: http://azcase.nijel.org/php/endnewlocations.php');
 ?>
 

@@ -14,7 +14,7 @@ if ($summary12=='t' || $cd12=='t' || $sld12=='t' || $elm12=='t' || $union12=='t'
 ?>
 <div class="clear"></div>
 <h3>Staff Professional Development</h3>
-<?
+<?php
 // if summary table is selected
 if ($summary12=='t') {
 
@@ -30,7 +30,7 @@ $where = $whereverified . $and0 . $azcongresswhere . $and1 . $statelegwhere . $a
 		<th>Category</th>
 		<th>Number of Sites</th>
 	</tr>	
-<?
+<?php
 $summary12row_0 = array( );
 $summary12row_0[] = 'Category';
 $summary12row_0[] = 'Number of Sites';
@@ -542,7 +542,7 @@ $prodevelop_rankleast55count = number_format($prodevelop_rankleast55count);
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($summary1=='t') {
 
@@ -1034,7 +1034,7 @@ fclose($cd12file);
 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by Congressional District</name>
@@ -1047,7 +1047,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -1108,7 +1108,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites that Rank Supervision Last</th>
 	
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1119,7 +1119,7 @@ echo $tablebody;
 <a href="export/advancedsearch_congressionaldistrict12.kml" style="text-decoration:none"><img src="icons/google_earth.png" border="0" /> Export as KML (Launches in Google Earth)</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($cd12=='t') {
 
@@ -1614,7 +1614,7 @@ for($i = 0; $i <= $count; $i++) {
 fclose($sld12file); 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by State Legislative District</name>
@@ -1627,7 +1627,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -1688,7 +1688,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites that Rank Peer to Peer Coaching Last</th>
 		<th>Number of Sites that Rank Supervision Last</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1700,7 +1700,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($sld12=='t') {
 
@@ -2196,7 +2196,7 @@ for($i = 0; $i <= $count; $i++) {
 fclose($elm12file); 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by Elementary School District</name>
@@ -2209,7 +2209,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -2270,7 +2270,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites that Rank Peer to Peer Coaching Last</th>
 		<th>Number of Sites that Rank Supervision Last</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -2282,7 +2282,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($elm12=='t') {
 
@@ -2778,7 +2778,7 @@ for($i = 0; $i <= $count; $i++) {
 fclose($union12file); 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by Secondary/Union School District</name>
@@ -2791,7 +2791,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -2852,7 +2852,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites that Rank Peer to Peer Coaching Last</th>
 		<th>Number of Sites that Rank Supervision Last</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -2864,7 +2864,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($union12=='t') {
 
@@ -3360,7 +3360,7 @@ for($i = 0; $i <= $count; $i++) {
 fclose($city12file); 
 
 // create kml header with five thematic styles
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory Sites by City</name>
@@ -3373,7 +3373,7 @@ $kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 	  <ScreenOverlay>
 	    <visibility>1</visibility>
 	    <Icon>
-	      <href>http://104.131.19.183/php/icons/legend.png</href>
+	      <href>http://azcase.nijel.org/php/icons/legend.png</href>
 	    </Icon>
 	    <overlayXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
 	    <screenXY x=\"0\" y=\"0\" xunits=\"fraction\" yunits=\"fraction\"/>
@@ -3434,7 +3434,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites that Rank Peer to Peer Coaching Last</th>
 		<th>Number of Sites that Rank Supervision Last</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -3446,7 +3446,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($city12=='t') {
 
@@ -4040,7 +4040,7 @@ fclose($activity12file);
 		<th>Number of Sites that Rank Peer to Peer Coaching Last</th>
 		<th>Number of Sites that Rank Supervision Last</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -4049,7 +4049,7 @@ echo $tablebody;
 <a href="exportcsv.php?filename=advancedsearch_activity12.csv" style="text-decoration:none"><img src="icons/csv.png" border="0" /> Export as CSV</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($activity12=='t') {
 
@@ -4568,7 +4568,7 @@ fclose($ages12file);
 		<th>Number of Sites that Rank Peer to Peer Coaching Last</th>
 		<th>Number of Sites that Rank Supervision Last</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -4577,7 +4577,7 @@ echo $tablebody;
 <a href="exportcsv.php?filename=advancedsearch_ages12.csv" style="text-decoration:none"><img src="icons/csv.png" border="0" /> Export as CSV</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($ages12=='t') {
 

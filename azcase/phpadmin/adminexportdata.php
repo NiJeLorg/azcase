@@ -1652,7 +1652,7 @@ if ($countschoolyear>0) {
 		$sitename = addslashes($sitename);
 		$sitename = trim($sitename);
 
-		$schoolyearsites .= '<li><a href="http://104.131.19.183/php/site.php?siteid=';
+		$schoolyearsites .= '<li><a href="http://azcase.nijel.org/php/site.php?siteid=';
 		$schoolyearsites .= $siteid;
 		$schoolyearsites .= '&locationid=';
 		$schoolyearsites .= $locationid;
@@ -1689,7 +1689,7 @@ if ($countsummer>0) {
 		$sitename = addslashes($sitename);
 		$sitename = trim($sitename);
 
-		$summersites .= '<li><a href="http://104.131.19.183/php/site.php?siteid=';
+		$summersites .= '<li><a href="http://azcase.nijel.org/php/site.php?siteid=';
 		$summersites .= $siteid;
 		$summersites .= '&locationid=';
 		$summersites .= $locationid;
@@ -1734,7 +1734,7 @@ for($i = 0; $i <= $ltcsv; $i++) {
 fclose($locationfile); 
 
 // put together the locations kml
-$kmlheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+$kmlheader = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
 <kml xmlns:geo=\"http://www.opengis.net/kml/2.2\">
 <Document>
   <name>Arizona Afterschool Program Directory All Locations</name>

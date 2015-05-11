@@ -190,6 +190,6 @@ if (!$transportcost) {
 require('updatenewsummersitesurvey.php');
 
 
-header("Location: http://104.131.19.183/php/newsummersitesurvey.php?lastsiteid=$siteid");
+header("Location: http://azcase.nijel.org/php/newsummersitesurvey.php?lastsiteid=$siteid");
 ?>
 

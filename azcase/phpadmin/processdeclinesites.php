@@ -133,6 +133,6 @@ for ($lt = 0; $lt < pg_numrows($siteidloopresult); $lt++) {
 } // close for loop
 
 
-header("Location: http://104.131.19.183/php/thankyoudecline.php");
+header("Location: http://azcase.nijel.org/php/thankyoudecline.php");
 ?>
 

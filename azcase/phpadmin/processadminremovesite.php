@@ -31,6 +31,6 @@ $removesite = "DELETE FROM azcase_sites WHERE siteid = $siteid;";
 pg_send_query($connection, $removesite);
 
 
-header("Location: http://104.131.19.183/php/endadminremovesite.php");
+header("Location: http://azcase.nijel.org/php/endadminremovesite.php");
 ?>
 

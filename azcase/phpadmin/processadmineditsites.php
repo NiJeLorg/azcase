@@ -325,6 +325,6 @@ require('adminupdateeditsites.php');
 
 
 
-header("Location: http://104.131.19.183/php/admineditsitesurvey.php?siteid=$siteid&locationid=$locationid");
+header("Location: http://azcase.nijel.org/php/admineditsitesurvey.php?siteid=$siteid&locationid=$locationid");
 ?>
 

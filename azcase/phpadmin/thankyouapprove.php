@@ -15,7 +15,7 @@ require('header.php');
 ?>
 <body>
 <h3 class="azcase-text-color">Sites Approved Successfully!</h3>
-<p><a href="http://104.131.19.183/" target="_top">Back to Admin Dashboard</a></p>
+<p><a href="http://azcase.nijel.org/" target="_top">Back to Admin Dashboard</a></p>
 <p>You successfully approved a group of sites. An email was sent to each user associated with each site you approved to notify them of this action. Thanks!</p>
 <?php
 

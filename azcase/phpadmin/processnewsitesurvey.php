@@ -189,6 +189,6 @@ if (!$transportcost) {
 require('insertnewsitesurvey.php');
 
 
-header("Location: http://104.131.19.183/php/newsitesurvey.php?lastsiteid=$siteid");
+header("Location: http://azcase.nijel.org/php/newsitesurvey.php?lastsiteid=$siteid");
 ?>
 

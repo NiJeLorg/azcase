@@ -32,6 +32,6 @@ $renewed = "true";
 //close loop
 }
 
-header("Location: http://104.131.19.183/php/emailalertstatus.php?renew=$renewed");
+header("Location: http://azcase.nijel.org/php/emailalertstatus.php?renew=$renewed");
 
 ?>

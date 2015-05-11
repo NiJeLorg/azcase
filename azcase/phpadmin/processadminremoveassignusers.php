@@ -34,6 +34,6 @@ for ($lt = 0; $lt < pg_numrows($assignloopresult); $lt++) {
 	}else{} // if assignuser
 } // close siteid/userid insert loop
 
-header("Location: http://104.131.19.183/php/endadminremoveassignusers.php?userid=$userid");
+header("Location: http://azcase.nijel.org/php/endadminremoveassignusers.php?userid=$userid");
 ?>
 
