@@ -495,7 +495,7 @@ for ($lt = 0; $lt < pg_numrows($sitesresult); $lt++) {
 	</tr>
 </table>
 <br />
-<input type="submit" value="Save" name="action" />
+<input class="btn btn-default" type="submit" value="Save" name="action" />
 </form>
 <br />
 <br />
