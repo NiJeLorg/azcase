@@ -221,6 +221,6 @@ if ($countsite==0) {
 }else{}
 
 
-header("Location: http://maps.nijel.org/azcase_dev/editbatchsitesurvey.php?lastsiteid=$siteid");
+header("Location: http://azcase.nijel.org/phpsite/editbatchsitesurvey.php?lastsiteid=$siteid");
 ?>
 

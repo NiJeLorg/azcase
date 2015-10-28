@@ -182,8 +182,8 @@ $countuserlocation = pg_result($countuserlocationresult, 0, 0);
 
 if ($countuserlocation>0) {
 	// set icon for user location
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/yourlocations.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/yourlocations.shadow.png']";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/yourlocations.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/yourlocations.shadow.png']";
 	
 	// set popup for location so user can't select it
 	$contentsLayer .= '["<h2>You Operate At This Location</h2>';
@@ -199,8 +199,8 @@ if ($countuserlocation>0) {
 	$countjustadd = pg_result($countjustaddresult, 0, 0);
 	if ($countjustadd>0) {
 		// set icon for location not assocaited with this user
-		$iconsLayer .= "['http://maps.nijel.org/azcase/icons/justadd.png']";
-		$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/justadd.shadow.png']";
+		$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/justadd.png']";
+		$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/justadd.shadow.png']";
 
 		// set popup for location with link for user to select it
 		$contentsLayer .= '["<h2>You Selelcted This Location</h2>';
@@ -211,8 +211,8 @@ if ($countuserlocation>0) {
 		$contentsLayer .= ' <br \>"]';
 	}else{
 		// set icon for location not assocaited with this user
-		$iconsLayer .= "['http://maps.nijel.org/azcase/icons/icon.png']";
-		$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/icon.shadow.png']";
+		$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/icon.png']";
+		$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/icon.shadow.png']";
 
 		// set popup for location with link for user to select it
 		$contentsLayer .= '["<h2><a href=\"newlocations.php?setlocation=';

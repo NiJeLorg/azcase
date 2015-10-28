@@ -212,6 +212,6 @@ require('inserteditsitesurvey.php');
 // close logged_in
 }else{}
 
-header("Location: http://maps.nijel.org/azcase_dev/thankyoueditsite.php");
+header("Location: http://azcase.nijel.org/phpsite/thankyoueditsite.php");
 ?>
 

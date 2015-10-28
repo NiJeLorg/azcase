@@ -60,6 +60,6 @@ pg_send_query($connection, $removesite);
 }else{}
 
 
-header("Location: http://maps.nijel.org/azcase_dev/endadminremovesite.php?searchname=$searchname&searchemail=$searchemail&searchphone=$searchphone");
+header("Location: http://azcase.nijel.org/phpsite/endadminremovesite.php?searchname=$searchname&searchemail=$searchemail&searchphone=$searchphone");
 ?>
 

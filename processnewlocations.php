@@ -416,6 +416,6 @@ if (!$locationname5 || !$address5 || !$city5 || !$state5 || !$zip5) {
 }else{}
 
 
-header('Location: http://maps.nijel.org/azcase_dev/newsites.php');
+header('Location: http://azcase.nijel.org/phpsite/newsites.php');
 ?>
 

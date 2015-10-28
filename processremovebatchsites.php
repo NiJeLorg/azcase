@@ -58,6 +58,6 @@ for ($lt = 0; $lt < pg_numrows($siteidloopresult); $lt++) {
 }else{}
 
 
-header("Location: http://maps.nijel.org/azcase_dev/thankyouremovebatchsite.php");
+header("Location: http://azcase.nijel.org/phpsite/thankyouremovebatchsite.php");
 ?>
 

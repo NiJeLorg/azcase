@@ -212,6 +212,6 @@ require('insertnewsitesurvey.php');
 }else{}
 
 
-header("Location: http://maps.nijel.org/azcase_dev/newsitesurvey.php?lastsiteid=$siteid");
+header("Location: http://azcase.nijel.org/phpsite/newsitesurvey.php?lastsiteid=$siteid");
 ?>
 

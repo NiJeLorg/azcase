@@ -18,9 +18,9 @@ if($logged_in){
 $thankyou = $_REQUEST['thankyou'];
 
 if ($thankyou==1 || !$thankyou) {
-	header("Location: http://maps.nijel.org/azcase_dev/providerhome.php");
+	header("Location: http://azcase.nijel.org/phpsite/providerhome.php");
 }elseif ($thankyou==2) {
-	header("Location: http://maps.nijel.org/azcase_dev/newsites.php");
+	header("Location: http://azcase.nijel.org/phpsite/newsites.php");
 }else{}
 
 

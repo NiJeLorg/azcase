@@ -343,6 +343,6 @@ require('adminupdateeditsites.php');
 }else{}
 
 
-header("Location: http://maps.nijel.org/azcase_dev/admineditsitesurvey.php?siteid=$siteid&locationid=$locationid&searchname=$searchname&searchemail=$searchemail&searchphone=$searchphone");
+header("Location: http://azcase.nijel.org/phpsite/admineditsitesurvey.php?siteid=$siteid&locationid=$locationid&searchname=$searchname&searchemail=$searchemail&searchphone=$searchphone");
 ?>
 

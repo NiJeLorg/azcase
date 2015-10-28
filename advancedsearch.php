@@ -492,89 +492,89 @@ $name = trim($name);
 // set style as numers for first twenty points, then regular icon for subsequent points
 
 if ($lt==0) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue01.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue01.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue01.png\" alt=\"1\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue01.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue01.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue01.png\" alt=\"1\" /></td>";
 }elseif ($lt==1) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue02.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue02.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue02.png\" alt=\"2\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue02.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue02.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue02.png\" alt=\"2\" /></td>";
 }elseif ($lt==2) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue03.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue03.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue03.png\" alt=\"3\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue03.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue03.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue03.png\" alt=\"3\" /></td>";
 }elseif ($lt==3) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue04.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue04.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue04.png\" alt=\"4\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue04.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue04.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue04.png\" alt=\"4\" /></td>";
 }elseif ($lt==4) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue05.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue05.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue05.png\" alt=\"5\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue05.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue05.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue05.png\" alt=\"5\" /></td>";
 }elseif ($lt==5) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue06.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue06.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue06.png\" alt=\"6\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue06.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue06.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue06.png\" alt=\"6\" /></td>";
 }elseif ($lt==6) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue07.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue07.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue07.png\" alt=\"7\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue07.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue07.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue07.png\" alt=\"7\" /></td>";
 }elseif ($lt==7) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue08.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue08.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue08.png\" alt=\"8\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue08.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue08.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue08.png\" alt=\"8\" /></td>";
 }elseif ($lt==8) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue09.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue09.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue09.png\" alt=\"9\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue09.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue09.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue09.png\" alt=\"9\" /></td>";
 }elseif ($lt==9) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue10.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue10.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue10.png\" alt=\"10\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue10.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue10.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue10.png\" alt=\"10\" /></td>";
 }elseif ($lt==10) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue11.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue11.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue11.png\" alt=\"11\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue11.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue11.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue11.png\" alt=\"11\" /></td>";
 }elseif ($lt==11) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue12.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue12.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue12.png\" alt=\"12\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue12.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue12.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue12.png\" alt=\"12\" /></td>";
 }elseif ($lt==12) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue13.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue13.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue13.png\" alt=\"13\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue13.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue13.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue13.png\" alt=\"13\" /></td>";
 }elseif ($lt==13) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue14.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue14.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue14.png\" alt=\"14\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue14.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue14.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue14.png\" alt=\"14\" /></td>";
 }elseif ($lt==14) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue15.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue15.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue15.png\" alt=\"15\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue15.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue15.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue15.png\" alt=\"15\" /></td>";
 }elseif ($lt==15) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue16.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue16.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue16.png\" alt=\"16\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue16.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue16.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue16.png\" alt=\"16\" /></td>";
 }elseif ($lt==16) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue17.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue17.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue17.png\" alt=\"17\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue17.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue17.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue17.png\" alt=\"17\" /></td>";
 }elseif ($lt==17) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue18.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue18.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue18.png\" alt=\"18\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue18.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue18.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue18.png\" alt=\"18\" /></td>";
 }elseif ($lt==18) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue19.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue19.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue19.png\" alt=\"19\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue19.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue19.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue19.png\" alt=\"19\" /></td>";
 }elseif ($lt==19) {
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue20.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/darkblue20.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/darkblue20.png\" alt=\"20\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue20.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/darkblue20.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/darkblue20.png\" alt=\"20\" /></td>";
 }else{
-	$iconsLayer .= "['http://maps.nijel.org/azcase/icons/icon.png']";
-	$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/icon.shadow.png']";
-	$sidebar .= "<tr><td><img src=\"http://maps.nijel.org/azcase/icons/icon.png\" alt=\"icon\" /></td>";
+	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/icon.png']";
+	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/icon.shadow.png']";
+	$sidebar .= "<tr><td><img src=\"http://azcase.nijel.org/phpsite/azcase/icons/icon.png\" alt=\"icon\" /></td>";
 }
 
 
@@ -636,12 +636,12 @@ if ($countschoolyear>0) {
 		}
 
 		if ($wp_pledge_id) {
-			$pledgeIcon = '<img src=\"http://maps.nijel.org/azcase_dev/Pledge_Icon.png\" style=\"width: 24px; height: 24px; padding-left: 5px; margin-bottom: -7px;\" />';
+			$pledgeIcon = '<img src=\"http://azcase.nijel.org/phpsite/Pledge_Icon.png\" style=\"width: 24px; height: 24px; padding-left: 5px; margin-bottom: -7px;\" />';
 		} else {
 			$pledgeIcon = '';
 		}
 
-		$schoolyearsites .= '<li><a href=\"http://maps.nijel.org/azcase_dev/advancedsite.php?siteid=';
+		$schoolyearsites .= '<li><a href=\"http://azcase.nijel.org/phpsite/advancedsite.php?siteid=';
 		$schoolyearsites .= $siteid;
 		$schoolyearsites .= '&locationid=';
 		$schoolyearsites .= $locationid;
@@ -767,12 +767,12 @@ if ($countsummer>0) {
 		}
 
 		if ($wp_pledge_id) {
-			$pledgeIcon = '<img src=\"http://maps.nijel.org/azcase_dev/Pledge_Icon.png\" style=\"width: 24px; height: 24px; padding-left: 5px; margin-bottom: -7px;\" />';
+			$pledgeIcon = '<img src=\"http://azcase.nijel.org/phpsite/Pledge_Icon.png\" style=\"width: 24px; height: 24px; padding-left: 5px; margin-bottom: -7px;\" />';
 		} else {
 			$pledgeIcon = '';
 		}
 
-		$summersites .= '<li><a href=\"http://maps.nijel.org/azcase_dev/advancedsite.php?siteid=';
+		$summersites .= '<li><a href=\"http://azcase.nijel.org/phpsite/advancedsite.php?siteid=';
 		$summersites .= $siteid;
 		$summersites .= '&locationid=';
 		$summersites .= $locationid;

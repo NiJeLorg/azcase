@@ -718,6 +718,6 @@ require('insertnewsites.php');
 }else{}
 
 
-header('Location: http://maps.nijel.org/azcase_dev/newsitesurvey.php');
+header('Location: http://azcase.nijel.org/phpsite/newsitesurvey.php');
 ?>
 

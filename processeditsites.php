@@ -347,6 +347,6 @@ require('inserteditsites.php');
 }else{}
 
 
-header("Location: http://maps.nijel.org/azcase_dev/editsitesurvey.php?siteid=$siteid&siteid_old=$siteid_old&locationid=$locationid&locationid_old=$locationid_old");
+header("Location: http://azcase.nijel.org/phpsite/editsitesurvey.php?siteid=$siteid&siteid_old=$siteid_old&locationid=$locationid&locationid_old=$locationid_old");
 ?>
 

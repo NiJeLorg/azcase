@@ -46,7 +46,7 @@ $countquery = "SELECT count(*) FROM azcase_user_sites_junction WHERE siteid = $s
 $countresult = pg_query($connection, $countquery);
 $countsite = pg_result($countresult, 0, 0);
 if ($countsite==0) {
-	header("Location: http://maps.nijel.org/azcase_dev/thankyousites.php");
+	header("Location: http://azcase.nijel.org/phpsite/thankyousites.php");
 }else{
 
 // create header

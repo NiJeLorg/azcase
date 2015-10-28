@@ -63,6 +63,6 @@ pg_send_query($connection, $removelocation);
 }else{}
 
 
-header("Location: http://maps.nijel.org/azcase_dev/endadminremovelocation.php?zoom=$zoom&searchstreet=$searchstreet&searchcity=$searchcity&searchstate=$searchstate&searchzip=$searchzip");
+header("Location: http://azcase.nijel.org/phpsite/endadminremovelocation.php?zoom=$zoom&searchstreet=$searchstreet&searchcity=$searchcity&searchstate=$searchstate&searchzip=$searchzip");
 ?>
 

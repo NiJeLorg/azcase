@@ -335,8 +335,8 @@ $name = addslashes($name);
 $name = trim($name);
 
 
-$iconsLayer .= "['http://maps.nijel.org/azcase/icons/icon.png']";
-$shadowsLayer .= "['http://maps.nijel.org/azcase/icons/icon.shadow.png']";
+$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/icon.png']";
+$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/icon.shadow.png']";
 
 // clear variables
 $schoolyearsites = '';
@@ -377,7 +377,7 @@ if ($countschoolyear>0) {
 			$sitename = $sitenamesp;
 		}else{}
 
-		$schoolyearsites .= '<li><a href=\"http://maps.nijel.org/azcase/site.php?siteid=';
+		$schoolyearsites .= '<li><a href=\"http://azcase.nijel.org/phpsite/azcase/site.php?siteid=';
 		$schoolyearsites .= $siteid;
 		$schoolyearsites .= '&locationid=';
 		$schoolyearsites .= $locationid;
@@ -394,7 +394,7 @@ if ($countschoolyear>0) {
 		$schoolyearsites .= '&zoom=13';
 		$schoolyearsites .= '\">';
 		$schoolyearsites .= $sitename;
-		$schoolyearsites .= '</a> | <a href=\"http://maps.nijel.org/azcase/editsite.php?siteid=';
+		$schoolyearsites .= '</a> | <a href=\"http://azcase.nijel.org/phpsite/azcase/editsite.php?siteid=';
 		$schoolyearsites .= $siteid;
 		$schoolyearsites .= '\">Edit</a></li>';
 
@@ -440,7 +440,7 @@ if ($countsummer>0) {
 			$sitename = $sitenamesp;
 		}else{}
 
-		$summersites .= '<li><a href=\"http://maps.nijel.org/azcase/site.php?siteid=';
+		$summersites .= '<li><a href=\"http://azcase.nijel.org/phpsite/azcase/site.php?siteid=';
 		$summersites .= $siteid;
 		$summersites .= '&locationid=';
 		$summersites .= $locationid;
@@ -458,7 +458,7 @@ if ($countsummer>0) {
 		$summersites .= $zoom;
 		$summersites .= '\">';
 		$summersites .= $sitename;
-		$summersites .= '</a> | <a href=\"http://maps.nijel.org/azcase/editsite.php?siteid=';
+		$summersites .= '</a> | <a href=\"http://azcase.nijel.org/phpsite/azcase/editsite.php?siteid=';
 		$summersites .= $siteid;
 		$summersites .= '\">Edit</a></li>';
 
