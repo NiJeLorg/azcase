@@ -63,7 +63,7 @@ for ($lt = 0; $lt < pg_numrows($adminresult); $lt++) {
 	$message = "
 	Hello $email,
 	<br /><br />
-	A user has edited a group of sites in the AZ Afterschool Program Directory, and before they are updated to refect the new data, an adminitrator must appove these changes. You as an administrator can approve or decline these changes by logging in to the system at the link below. 
+	A user has edited a group of sites in the AZ Afterschool Program Directory, and before they are updated to reflect the new data, an administrator must approve these changes. You as an administrator can approve or decline these changes by logging in to the system at the link below. 
 	<br /><br />
 	<a href=\"$url\">$url</a>
 	<br /><br />
@@ -87,7 +87,7 @@ $url = "http://azafterschool.org/directory/";
 $message = "
 Hello " . $_SESSION['useremail'] . ",
 <br /><br />
-Thank you for editing a group of your sites in the to the AZ Afterschool Program Directory! Before changes appear on the public map, they will need be verified by an adminitrator at the Arizona Center for Afterschool Excellence. When that happens, we will notify you at this email address. These sites now appear in your provider dashboard under \"Existing Sites,\" with a darker grey shading indicating that these sites have not yet been verified. You can get to your provider dashboard by going to the main AZ Afterschool Program Directory page and clicking on \"Provider Login\".
+Thank you for editing a group of your sites in the to the AZ Afterschool Program Directory! Before changes appear on the public map, they will need be verified by an administrator at the Arizona Center for Afterschool Excellence. When that happens, we will notify you at this email address. These sites now appear in your provider dashboard under \"Existing Sites,\" with a darker grey shading indicating that these sites have not yet been verified. You can get to your provider dashboard by going to the main AZ Afterschool Program Directory page and clicking on \"Provider Login\".
 <br /><br />
 <a href=\"$url\">$url</a>
 <br /><br />

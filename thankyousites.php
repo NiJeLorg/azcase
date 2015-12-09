@@ -47,7 +47,7 @@ for ($lt = 0; $lt < pg_numrows($adminresult); $lt++) {
 	$message = "
 	Hello $email,
 	<br /><br />
-	New sites have just been added to the AZ Afterschool Program Directory, and before they appear on the public map, an adminitrator must appove these new sites. You as an administrator can approve or decline these new sites by logging in to the system at the link below. 
+	New sites have just been added to the AZ Afterschool Program Directory, and before they appear on the public map, an administrator must approve these new sites. You as an administrator can approve or decline these new sites by logging in to the system at the link below. 
 	<br /><br />
 	<a href=\"$url\">$url</a>
 	<br /><br />
@@ -71,7 +71,7 @@ $url = "http://azafterschool.org/directory/";
 $message = "
 Hello " . $_SESSION['useremail'] . ",
 <br /><br />
-Thank you for adding new sites to the AZ Afterschool Program Directory! Before these sites appear on the public map, they will need be verified by an adminitrator at the Arizona Center for Afterschool Excellence. When that happens, we will notify you at this email address. These sites now appear in your provider dashboard under \"Existing Sites,\" with a darker grey shading indicating that these sites have not yet been verified. You can get to your provider dashboard by going to the main AZ Afterschool Program Directory page and clicking on \"Provider Login\".
+Thank you for adding new sites to the AZ Afterschool Program Directory! Before these sites appear on the public map, they will need be verified by an administrator at the Arizona Center for Afterschool Excellence. When that happens, we will notify you at this email address. These sites now appear in your provider dashboard under \"Existing Sites,\" with a darker grey shading indicating that these sites have not yet been verified. You can get to your provider dashboard by going to the main AZ Afterschool Program Directory page and clicking on \"Provider Login\".
 <br /><br />
 <a href=\"$url\">$url</a>
 <br /><br />

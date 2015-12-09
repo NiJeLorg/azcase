@@ -182,7 +182,7 @@ $otheruserstable .= "<td align=\"center\"><input type=\"checkbox\" name=\"$assig
 $otheruserstable .= "
 </table>
 <br />
-<input type=\"submit\" name=\"remove\" value=\"Remove Adminitrators\" />
+<input type=\"submit\" name=\"remove\" value=\"Remove Administrators\" />
 </form>
 ";
 
