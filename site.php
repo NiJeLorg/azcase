@@ -592,9 +592,9 @@ if ($wp_pledge_id) {
 	$sitenamesearch = str_replace($search, "", $sitename);
 	$preps = array(' and', ' an', ' a', ' the', ' or', ' of', ' by');
 	$sitenamesearch = str_replace($preps, "", $sitenamesearch);
-	//let's only use the first four words for matching
+	//let's only use the first three words for matching
 	$sitenamesearch = explode(" ", $sitenamesearch);
-	$sitenamesearch = array_slice($sitenamesearch, 0, 5);
+	$sitenamesearch = array_slice($sitenamesearch, 0, 2);
 	$sitenamesearch = implode(" ", $sitenamesearch);
 
 	$WPUrl = "http://azafterschool.org/wp-json/posts?type=pledge&filter[s]=" . urlencode($sitenamesearch);

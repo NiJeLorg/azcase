@@ -299,11 +299,32 @@ if ($countschoolyear>0) {
 			$wp_pledge_id = pg_result($pledgerecord, $pledgecount, 0);
 		}
 
+		if (!$wp_pledge_id) {
+			// remove extraneous characters
+			$search =  '!"#$%&/()=?*+\'-.,;:_' ;
+			$search = str_split($search);
+			$sitenamesearch = str_replace($search, "", $sitename);
+			$preps = array(' and', ' an', ' a', ' the', ' or', ' of', ' by');
+			$sitenamesearch = str_replace($preps, "", $sitenamesearch);
+			//let's only use the first three words for matching
+			$sitenamesearch = explode(" ", $sitenamesearch);
+			$sitenamesearch = array_slice($sitenamesearch, 0, 2);
+			$sitenamesearch = implode(" ", $sitenamesearch);
+
+			$WPUrl = "http://azafterschool.org/wp-json/posts?type=pledge&filter[s]=" . urlencode($sitenamesearch);
+			$pledgeQuery = file_get_contents($WPUrl);
+			$pledgeData = json_decode($pledgeQuery);
+			if ($pledgeData) {
+				$wp_pledge_id = 1;
+			}
+		}
+
 		if ($wp_pledge_id) {
 			$pledgeIcon = '<img src=\"http://azcase.nijel.org/phpsite/Pledge_Icon.png\" style=\"width: 24px; height: 24px; padding-left: 5px; margin-bottom: -7px;\" />';
 		} else {
 			$pledgeIcon = '';
 		}
+
 
 		$schoolyearsites .= '<li><a href=\"http://azcase.nijel.org/phpsite/site.php?siteid=';
 		$schoolyearsites .= $siteid;
@@ -374,6 +395,26 @@ if ($countsummer>0) {
 		for ($pledgecount = 0; $pledgecount < pg_numrows($pledgerecord); $pledgecount++) {
 			$wp_pledge_id = pg_result($pledgerecord, $pledgecount, 0);
 		}
+
+		if (!$wp_pledge_id) {
+			// remove extraneous characters
+			$search =  '!"#$%&/()=?*+\'-.,;:_' ;
+			$search = str_split($search);
+			$sitenamesearch = str_replace($search, "", $sitename);
+			$preps = array(' and', ' an', ' a', ' the', ' or', ' of', ' by');
+			$sitenamesearch = str_replace($preps, "", $sitenamesearch);
+			//let's only use the first three words for matching
+			$sitenamesearch = explode(" ", $sitenamesearch);
+			$sitenamesearch = array_slice($sitenamesearch, 0, 2);
+			$sitenamesearch = implode(" ", $sitenamesearch);
+
+			$WPUrl = "http://azafterschool.org/wp-json/posts?type=pledge&filter[s]=" . urlencode($sitenamesearch);
+			$pledgeQuery = file_get_contents($WPUrl);
+			$pledgeData = json_decode($pledgeQuery);
+			if ($pledgeData) {
+				$wp_pledge_id = 1;
+			}
+		}		
 
 		if ($wp_pledge_id) {
 			$pledgeIcon = '<img src=\"http://azcase.nijel.org/phpsite/Pledge_Icon.png\" style=\"width: 24px; height: 24px; padding-left: 5px; margin-bottom: -7px;\" />';
