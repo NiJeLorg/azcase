@@ -312,8 +312,9 @@ if ($countschoolyear>0) {
 			$sitenamesearch = implode(" ", $sitenamesearch);
 
 			$WPUrl = "http://azafterschool.org/wp-json/posts?type=pledge&filter[s]=" . urlencode($sitenamesearch);
-			$pledgeQuery = file_get_contents($WPUrl);
-			$pledgeData = json_decode($pledgeQuery);
+			//$pledgeQuery = file_get_contents($WPUrl);
+			//$pledgeData = json_decode($pledgeQuery);
+			$pledgeData = 1;
 			if ($pledgeData) {
 				$wp_pledge_id = 1;
 			}
@@ -409,8 +410,9 @@ if ($countsummer>0) {
 			$sitenamesearch = implode(" ", $sitenamesearch);
 
 			$WPUrl = "http://azafterschool.org/wp-json/posts?type=pledge&filter[s]=" . urlencode($sitenamesearch);
-			$pledgeQuery = file_get_contents($WPUrl);
-			$pledgeData = json_decode($pledgeQuery);
+			//$pledgeQuery = file_get_contents($WPUrl);
+			//$pledgeData = json_decode($pledgeQuery);
+			$pledgeData = '';
 			if ($pledgeData) {
 				$wp_pledge_id = 1;
 			}
