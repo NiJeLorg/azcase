@@ -644,7 +644,7 @@ if ($countschoolyear>0) {
 			$sitenamesearch = str_replace($preps, "", $sitenamesearch);
 			//let's only use the first three words for matching
 			$sitenamesearch = explode(" ", $sitenamesearch);
-			$sitenamesearch = array_slice($sitenamesearch, 0, 2);
+			$sitenamesearch = array_slice($sitenamesearch, 0, 3);
 			$sitenamesearch = implode(" ", $sitenamesearch);
 
 			$WPUrl = "http://azafterschool.org/wp-json/posts?type=pledge&filter[s]=" . urlencode($sitenamesearch);
@@ -795,7 +795,7 @@ if ($countsummer>0) {
 			$sitenamesearch = str_replace($preps, "", $sitenamesearch);
 			//let's only use the first three words for matching
 			$sitenamesearch = explode(" ", $sitenamesearch);
-			$sitenamesearch = array_slice($sitenamesearch, 0, 2);
+			$sitenamesearch = array_slice($sitenamesearch, 0, 3);
 			$sitenamesearch = implode(" ", $sitenamesearch);
 
 			$WPUrl = "http://azafterschool.org/wp-json/posts?type=pledge&filter[s]=" . urlencode($sitenamesearch);
