@@ -76,33 +76,50 @@ if ($countemail>0) {
 	<table class=\"hoursTable\">
 		<tr>
 			<td ><b>Name</b></td>
-			<td></td>
+			<td>". $username ."</td>
 		</tr> 
 		<tr class=\"alt\">
 			<td ><b>Email</b></td>
-			<td></td>
+			<td>".$_SESSION['useremail']."</td>
 		</tr> 
 		<tr>
 			<td ><b>Organization Name</b></td>
-			<td></td>
+			<td>".$orgname."</td>
 		</tr> 
 		<tr class=\"alt\">
 			<td ><b>Address</b></td>
-			<td></td>
+			<td>".$printorgaddress."</td>
 		</tr> 
 		<tr>
 			<td ><b>Phone</b></td>
-			<td></td>
+			<td>".$orgphone."</td>
 		</tr> 
 		<tr class=\"alt\">
 			<td ><b>Fax</b></td>
-			<td></td>
+			<td>".$orgfax."</td>
 		</tr> 
 	</table>
 	<br />
 	";
 
 }else{
+	$pagecontent = "
+	<body>
+	<h1>Account Information Updated</h1>
+	<p><a href=\"providerhome.php\">&#60;&#60; Back to Your Provider Dashboard</a> | <a href=\"editprovider.php\">Edit These Data Again</a></p>
+	<p>Thank you for updating your organizational information. Because you changed your email address, you must <a href=\"providerhome.php\">log in</a> again with your new email address to continue using the system. Thank you!</p>"; 
+
+	if(isset($_COOKIE['cookname']) && isset($_COOKIE['cookpass'])) {
+	   setcookie("cookname", "", time()-60*60*24*100, "/");
+	   setcookie("cookpass", "", time()-60*60*24*100, "/");
+	}
+
+	/* Kill session variables */
+	unset($_SESSION['useremail']);
+	unset($_SESSION['password']);
+	$_SESSION = array(); // reset session array
+	session_destroy();   // destroy session.
+   
 }
 
 echo $pagecontent;
