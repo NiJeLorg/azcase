@@ -12,10 +12,10 @@ require("connect.php");
 require('login.php');
 
 // create header
-require('header.php');
+//require('header.php');
 
 // processing login script
-displayLogin();
+//displayLogin();
 
 // requests a user to log in if they haven't already
 global $logged_in;
