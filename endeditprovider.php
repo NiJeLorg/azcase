@@ -66,6 +66,42 @@ if ($countemail>0) {
 	$printorgaddress .= $orgstate . ' ';
 	$printorgaddress .= $orgzip . ' '; 
 
+	$pagecontent = "
+	<body>
+	<h1>Account Information Updated</h1>
+	<p><a href=\"providerhome.php\">&#60;&#60; Back to Your Provider Dashboard</a> | <a href=\"editprovider.php\">Edit These Data Again</a></p>
+	<p>Thank you for updating your organizational information. Please check below to make sure your information is correct.</p>
+	<h1>Your Organization's Information</h1>
+	<p><i>Last Updated:</i> $updated
+	<table class=\"hoursTable\">
+		<tr>
+			<td ><b>Name</b></td>
+			<td>$username</td>
+		</tr> 
+		<tr class=\"alt\">
+			<td ><b>Email</b></td>
+			<td>$_SESSION['useremail']</td>
+		</tr> 
+		<tr>
+			<td ><b>Organization Name</b></td>
+			<td>$orgname</td>
+		</tr> 
+		<tr class=\"alt\">
+			<td ><b>Address</b></td>
+			<td>$printorgaddress</td>
+		</tr> 
+		<tr>
+			<td ><b>Phone</b></td>
+			<td>$orgphone</td>
+		</tr> 
+		<tr class=\"alt\">
+			<td ><b>Fax</b></td>
+			<td>$orgfax</td>
+		</tr> 
+	</table>
+	<br />
+	";
+
 }else{
 }
 
