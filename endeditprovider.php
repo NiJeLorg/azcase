@@ -9,7 +9,7 @@ header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT
 require("connect.php");
 
 // create header
-require('header.php');
+require("header.php");
 
 $useremailsession = pg_escape_string($_SESSION['useremail']);
 // check to see if user changed their email - if so log out and if not print new data
@@ -102,23 +102,6 @@ $pagecontent = "
 ";
 
 }else{
-$pagecontent = "
-<body>
-<h1>Account Information Updated</h1>
-<p><a href=\"providerhome.php\">&#60;&#60; Back to Your Provider Dashboard</a> | <a href=\"editprovider.php\">Edit These Data Again</a></p>
-<p>Thank you for updating your organizational information. Because you changed your email address, you must <a href=\"providerhome.php\">log in</a> again with your new email address to continue using the system. Thank you!</p>"; 
-
-if(isset($_COOKIE['cookname']) && isset($_COOKIE['cookpass'])){
-   setcookie("cookname", "", time()-60*60*24*100, "/");
-   setcookie("cookpass", "", time()-60*60*24*100, "/");
-}
-
-   /* Kill session variables */
-   unset($_SESSION['useremail']);
-   unset($_SESSION['password']);
-   $_SESSION = array(); // reset session array
-   session_destroy();   // destroy session.
-
 }
 
 echo $pagecontent;
