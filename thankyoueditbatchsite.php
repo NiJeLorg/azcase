@@ -41,7 +41,7 @@ if ($pgerror1!=FALSE) {
 	require('footer.php');
 	$to = "jd@nijel.org";
 	$subject = "AZ Afterschool Program Directory Error: thankyoueditbatchsite.php Failed";
-	$message = "User:" . $_SESSION['useremail'] . "\nPage: thankyoueditbatchsite.php\nFailed Query: $updatesitejunc\nError: $pgerror1";
+	$message = "User:" . $_SESSION['useremail'] . "\nPage: thankyoueditbatchsite.php\nFailed Query:" .$updatesitejunc. "\nError:" .$pgerror1;
 	mail($to,$subject,$message);
 	die ();
 }else{}
@@ -65,7 +65,7 @@ for ($lt = 0; $lt < pg_numrows($adminresult); $lt++) {
 	<br /><br />
 	A user has edited a group of sites in the AZ Afterschool Program Directory, and before they are updated to reflect the new data, an administrator must approve these changes. You as an administrator can approve or decline these changes by logging in to the system at the link below. 
 	<br /><br />
-	<a href=\"$url\">$url</a>
+	<a href=\"". $url ."\">". $url ."</a>
 	<br /><br />
 	Once you log in, go to \"Verify Sites\" in the \"Actions\" section of your administrator dashboard to verify these edits. 
 	<br /><br />
@@ -89,7 +89,7 @@ Hello " . $_SESSION['useremail'] . ",
 <br /><br />
 Thank you for editing a group of your sites in the to the AZ Afterschool Program Directory! Before changes appear on the public map, they will need be verified by an administrator at the Arizona Center for Afterschool Excellence. When that happens, we will notify you at this email address. These sites now appear in your provider dashboard under \"Existing Sites,\" with a darker grey shading indicating that these sites have not yet been verified. You can get to your provider dashboard by going to the main AZ Afterschool Program Directory page and clicking on \"Provider Login\".
 <br /><br />
-<a href=\"$url\">$url</a>
+<a href=\"". $url ."\">". $url ."</a>
 <br /><br />
 Thanks,
 <br />

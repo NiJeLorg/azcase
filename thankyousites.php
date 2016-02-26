@@ -73,7 +73,7 @@ Hello " . $_SESSION['useremail'] . ",
 <br /><br />
 Thank you for adding new sites to the AZ Afterschool Program Directory! Before these sites appear on the public map, they will need be verified by an administrator at the Arizona Center for Afterschool Excellence. When that happens, we will notify you at this email address. These sites now appear in your provider dashboard under \"Existing Sites,\" with a darker grey shading indicating that these sites have not yet been verified. You can get to your provider dashboard by going to the main AZ Afterschool Program Directory page and clicking on \"Provider Login\".
 <br /><br />
-<a href=\"$url\">$url</a>
+<a href=\"". $url ."\">". $url ."</a>
 <br /><br />
 Thanks,
 <br />
@@ -94,7 +94,7 @@ if ($pgerror1!=FALSE) {
 	require('footer.php');
 	$to = "jd@nijel.org";
 	$subject = "AZ Afterschool Program Directory Error: thankyousites.php Failed";
-	$message = "User:" . $_SESSION['useremail'] . "\nPage: thankyousites.php\nFailed Query: $updatesitejunc\nError: $pgerror1";
+	$message = "User:" . $_SESSION['useremail'] . "\nPage: thankyousites.php\nFailed Query: " . $updatesitejunc. "\nError:" .$pgerror1;
 	mail($to,$subject,$message);
 	die ();
 }else{}
