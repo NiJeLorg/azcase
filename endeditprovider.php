@@ -52,6 +52,20 @@ if ($countemail>0) {
 		$orgfax = pg_result($basicinforesult, $lt, 12);
 	}
 
+	// format updated date
+	$updated = date("M j, Y", strtotime($updated));
+
+	// format address
+	$printorgaddress = $orgaddress;
+	if (!$orgaddress2) { 
+		$printorgaddress .= '; '; 
+	}else{ 
+		$printorgaddress .=  ' ' . $orgaddress2 . '; '; 
+	}
+	$printorgaddress .= $orgcity . ' ';
+	$printorgaddress .= $orgstate . ' ';
+	$printorgaddress .= $orgzip . ' '; 
+
 }else{
 }
 
