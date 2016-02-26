@@ -72,31 +72,31 @@ if ($countemail>0) {
 	<p><a href=\"providerhome.php\">&#60;&#60; Back to Your Provider Dashboard</a> | <a href=\"editprovider.php\">Edit These Data Again</a></p>
 	<p>Thank you for updating your organizational information. Please check below to make sure your information is correct.</p>
 	<h1>Your Organization's Information</h1>
-	<p><i>Last Updated:</i> $updated
+	<p><i>Last Updated:</i> 
 	<table class=\"hoursTable\">
 		<tr>
 			<td ><b>Name</b></td>
-			<td>$username</td>
+			<td></td>
 		</tr> 
 		<tr class=\"alt\">
 			<td ><b>Email</b></td>
-			<td>$_SESSION['useremail']</td>
+			<td></td>
 		</tr> 
 		<tr>
 			<td ><b>Organization Name</b></td>
-			<td>$orgname</td>
+			<td></td>
 		</tr> 
 		<tr class=\"alt\">
 			<td ><b>Address</b></td>
-			<td>$printorgaddress</td>
+			<td></td>
 		</tr> 
 		<tr>
 			<td ><b>Phone</b></td>
-			<td>$orgphone</td>
+			<td></td>
 		</tr> 
 		<tr class=\"alt\">
 			<td ><b>Fax</b></td>
-			<td>$orgfax</td>
+			<td></td>
 		</tr> 
 	</table>
 	<br />
