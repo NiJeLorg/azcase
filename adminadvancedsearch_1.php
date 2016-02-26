@@ -14,7 +14,7 @@ if ($summary1=='t' || $cd1=='t' || $sld1=='t' || $elm1=='t' || $union1=='t' || $
 ?>
 <div class="clear"></div>
 <h1>Sites, Activities and Ages Served</h1>
-<?
+<?php
 // if summary table is selected
 if ($summary1=='t') {
 
@@ -30,7 +30,7 @@ $where = $whereverified . $and0 . $azcongresswhere . $and1 . $statelegwhere . $a
 		<th>Category</th>
 		<th>Number of Sites</th>
 	</tr>	
-<?
+<?php
 $summary1row_0 = array( );
 $summary1row_0[] = 'Category';
 $summary1row_0[] = 'Number of Sites';
@@ -360,7 +360,7 @@ $age15_18sitescount = number_format($age15_18sitescount);
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($summary1=='t') {
 
@@ -769,7 +769,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites Serving Ages 12-14</th>
 		<th>Number of Sites Serving Ages 15-18</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -780,7 +780,7 @@ echo $tablebody;
 <a href="export/advancedsearch_congressionaldistrict1.kml" style="text-decoration:none"><img src="icons/google_earth.png" border="0" /> Export as KML (Launches in Google Earth)</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($cd1=='t') {
 
@@ -1193,7 +1193,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites Serving Ages 12-14</th>
 		<th>Number of Sites Serving Ages 15-18</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1205,7 +1205,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($sld1=='t') {
 
@@ -1619,7 +1619,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites Serving Ages 12-14</th>
 		<th>Number of Sites Serving Ages 15-18</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1631,7 +1631,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($elm1=='t') {
 
@@ -2045,7 +2045,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites Serving Ages 12-14</th>
 		<th>Number of Sites Serving Ages 15-18</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -2057,7 +2057,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($union1=='t') {
 
@@ -2471,7 +2471,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites Serving Ages 12-14</th>
 		<th>Number of Sites Serving Ages 15-18</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -2483,7 +2483,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($city1=='t') {
 
@@ -2921,7 +2921,7 @@ fclose($activity1file);
 		<th>Number of Sites Serving Ages 12-14</th>
 		<th>Number of Sites Serving Ages 15-18</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -2930,7 +2930,7 @@ echo $tablebody;
 <a href="exportcsv.php?filename=advancedsearch_activity1.csv" style="text-decoration:none"><img src="icons/csv.png" border="0" /> Export as CSV</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($activity1=='t') {
 
@@ -3291,7 +3291,7 @@ fclose($ages1file);
 		<th>Number of Sites Serving Ages 12-14</th>
 		<th>Number of Sites Serving Ages 15-18</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -3300,7 +3300,7 @@ echo $tablebody;
 <a href="exportcsv.php?filename=advancedsearch_ages1.csv" style="text-decoration:none"><img src="icons/csv.png" border="0" /> Export as CSV</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($ages1=='t') {
 

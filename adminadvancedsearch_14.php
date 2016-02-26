@@ -14,7 +14,7 @@ if ($summary14=='t' || $cd14=='t' || $sld14=='t' || $elm14=='t' || $union14=='t'
 ?>
 <div class="clear"></div>
 <h1>Program Evaluation</h1>
-<?
+<?php
 // if summary table is selected
 if ($summary14=='t') {
 
@@ -30,7 +30,7 @@ $where = $whereverified . $and0 . $azcongresswhere . $and1 . $statelegwhere . $a
 		<th>Category</th>
 		<th>Number of Sites</th>
 	</tr>	
-<?
+<?php
 $summary14row_0 = array( );
 $summary14row_0[] = 'Category';
 $summary14row_0[] = 'Number of Sites';
@@ -181,7 +181,7 @@ $evaluate_type8count = number_format($evaluate_type8count);
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($summary1=='t') {
 
@@ -459,7 +459,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites Perform Evaluations with Other Tools</th>
 	
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -470,7 +470,7 @@ echo $tablebody;
 <a href="export/advancedsearch_congressionaldistrict14.kml" style="text-decoration:none"><img src="icons/google_earth.png" border="0" /> Export as KML (Launches in Google Earth)</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($cd14=='t') {
 
@@ -751,7 +751,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites Perform Evaluations with Nationally Recognized Assessments or Accreditation Tools</th>
 		<th>Number of Sites Perform Evaluations with Other Tools</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -763,7 +763,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($sld14=='t') {
 
@@ -1045,7 +1045,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites Perform Evaluations with Nationally Recognized Assessments or Accreditation Tools</th>
 		<th>Number of Sites Perform Evaluations with Other Tools</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1057,7 +1057,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($elm14=='t') {
 
@@ -1339,7 +1339,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites Perform Evaluations with Nationally Recognized Assessments or Accreditation Tools</th>
 		<th>Number of Sites Perform Evaluations with Other Tools</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1351,7 +1351,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($union14=='t') {
 
@@ -1633,7 +1633,7 @@ fclose($locationkmlfile);
 		<th>Number of Sites Perform Evaluations with Nationally Recognized Assessments or Accreditation Tools</th>
 		<th>Number of Sites Perform Evaluations with Other Tools</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1645,7 +1645,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($city14=='t') {
 
@@ -1952,7 +1952,7 @@ fclose($activity14file);
 		<th>Number of Sites Perform Evaluations with Nationally Recognized Assessments or Accreditation Tools</th>
 		<th>Number of Sites Perform Evaluations with Other Tools</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1961,7 +1961,7 @@ echo $tablebody;
 <a href="exportcsv.php?filename=advancedsearch_activity14.csv" style="text-decoration:none"><img src="icons/csv.png" border="0" /> Export as CSV</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($activity14=='t') {
 
@@ -2190,7 +2190,7 @@ fclose($ages14file);
 		<th>Number of Sites Perform Evaluations with Nationally Recognized Assessments or Accreditation Tools</th>
 		<th>Number of Sites Perform Evaluations with Other Tools</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -2199,7 +2199,7 @@ echo $tablebody;
 <a href="exportcsv.php?filename=advancedsearch_ages14.csv" style="text-decoration:none"><img src="icons/csv.png" border="0" /> Export as CSV</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($ages14=='t') {
 

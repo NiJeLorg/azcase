@@ -14,7 +14,7 @@ if ($summary9=='t' || $cd9=='t' || $sld9=='t' || $elm9=='t' || $union9=='t' || $
 ?>
 <div class="clear"></div>
 <h1>Budget Proportion</h1>
-<?
+<?php
 // if summary table is selected
 if ($summary9=='t') {
 
@@ -30,7 +30,7 @@ $where = $whereverified . $and0 . $azcongresswhere . $and1 . $statelegwhere . $a
 		<th>Category</th>
 		<th>Number of Sites</th>
 	</tr>	
-<?
+<?php
 $summary9row_0 = array( );
 $summary9row_0[] = 'Category';
 $summary9row_0[] = 'Number of Sites';
@@ -150,7 +150,7 @@ $budgetreligiousavg = number_format($budgetreligiousavg, 2) . '%';
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($summary1=='t') {
 
@@ -390,7 +390,7 @@ fclose($locationkmlfile);
 		<th>Average Percentage of Program Budget From Grants</th>
 		<th>Average Percentage of Program Budget From Religious Organizations</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -401,7 +401,7 @@ echo $tablebody;
 <a href="export/advancedsearch_congressionaldistrict9.kml" style="text-decoration:none"><img src="icons/google_earth.png" border="0" /> Export as KML (Launches in Google Earth)</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($cd9=='t') {
 
@@ -648,7 +648,7 @@ fclose($locationkmlfile);
 		<th>Average Percentage of Program Budget From Grants</th>
 		<th>Average Percentage of Program Budget From Religious Organizations</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -660,7 +660,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($sld9=='t') {
 
@@ -908,7 +908,7 @@ fclose($locationkmlfile);
 		<th>Average Percentage of Program Budget From Grants</th>
 		<th>Average Percentage of Program Budget From Religious Organizations</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -920,7 +920,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($elm9=='t') {
 
@@ -1168,7 +1168,7 @@ fclose($locationkmlfile);
 		<th>Average Percentage of Program Budget From Grants</th>
 		<th>Average Percentage of Program Budget From Religious Organizations</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1180,7 +1180,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($union9=='t') {
 
@@ -1428,7 +1428,7 @@ fclose($locationkmlfile);
 		<th>Average Percentage of Program Budget From Grants</th>
 		<th>Average Percentage of Program Budget From Religious Organizations</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1440,7 +1440,7 @@ echo $tablebody;
 <br /><br />
 
 
-<?
+<?php
 
 }else{} // if ($city9=='t') {
 
@@ -1737,7 +1737,7 @@ fclose($activity9file);
 		<th>Average Percentage of Program Budget From Grants</th>
 		<th>Average Percentage of Program Budget From Religious Organizations</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1746,7 +1746,7 @@ echo $tablebody;
 <a href="exportcsv.php?filename=advancedsearch_activity9.csv" style="text-decoration:none"><img src="icons/csv.png" border="0" /> Export as CSV</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($activity9=='t') {
 
@@ -1974,7 +1974,7 @@ fclose($ages9file);
 		<th>Average Percentage of Program Budget From Grants</th>
 		<th>Average Percentage of Program Budget From Religious Organizations</th>
 	</tr>
-<?
+<?php
 echo $tablebody;
 ?>
 </table>
@@ -1983,7 +1983,7 @@ echo $tablebody;
 <a href="exportcsv.php?filename=advancedsearch_ages9.csv" style="text-decoration:none"><img src="icons/csv.png" border="0" /> Export as CSV</a>
 <br /><br />
 
-<?
+<?php
 
 }else{} // if ($ages9=='t') {
 

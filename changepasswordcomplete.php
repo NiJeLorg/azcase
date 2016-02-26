@@ -71,7 +71,7 @@ if(isset($_COOKIE['cookname']) && isset($_COOKIE['cookpass'])){
 <h1>New Password Saved</h1>
 <p>Thank you for updating your password. You must <a href="providerhome.php">login again</a> with this new password to continue.</p>
 
-<?
+<?php
 
 // close logged_in
 }else{}

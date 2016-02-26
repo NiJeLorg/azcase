@@ -1,4 +1,4 @@
-<?
+<?php
 // Template for login page
 ?>
 <body>
@@ -26,7 +26,7 @@
    <div id="clear"></div>
    <br />
    <iframe style="display: block; margin: 0 auto;" src="https://player.vimeo.com/video/122776422?color=ffffff&byline=0&portrait=0" width="800" height="465" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<?
+<?php
 require('footer.php');
 ?>
 
