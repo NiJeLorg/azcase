@@ -12,7 +12,7 @@ require("connect.php");
 require('login.php');
 
 // processing login script
-////displayLogin();
+//displayLogin();
 
 // requests a user to log in if they haven't already
 global $logged_in;
@@ -34,7 +34,7 @@ $record = pg_query($connection, $locationquery);
 // if no locations exist in the search radius, then don't attempt to create the map 
 if (pg_numrows($record)==0) {
 	// if no locations for user, redirect to page for adding new locations
-	header("Location: http://azcase.nijel.org/phpsite/azcase/newlocations.php"); 
+	header("Location: http://azcase.nijel.org/phpsite/newlocations.php"); 
 
 }else{
 
@@ -236,7 +236,7 @@ if ($countschoolyear>0) {
 			$sitename = $sitenamesp;
 		}else{}
 
-		$schoolyearsites .= '<li><a href=\"http://azcase.nijel.org/phpsite/azcase/site.php?siteid=';
+		$schoolyearsites .= '<li><a href=\"http://azcase.nijel.org/phpsite/site.php?siteid=';
 		$schoolyearsites .= $siteid;
 		$schoolyearsites .= '&locationid=';
 		$schoolyearsites .= $locationid;
@@ -253,7 +253,7 @@ if ($countschoolyear>0) {
 		$schoolyearsites .= '&zoom=13';
 		$schoolyearsites .= '\">';
 		$schoolyearsites .= $sitename;
-		$schoolyearsites .= '</a> | <a href=\"http://azcase.nijel.org/phpsite/azcase/editsite.php?siteid=';
+		$schoolyearsites .= '</a> | <a href=\"http://azcase.nijel.org/phpsite/editsite.php?siteid=';
 		$schoolyearsites .= $siteid;
 		$schoolyearsites .= '\">Edit</a></li>';
 
@@ -299,7 +299,7 @@ if ($countsummer>0) {
 			$sitename = $sitenamesp;
 		}else{}
 
-		$summersites .= '<li><a href=\"http://azcase.nijel.org/phpsite/azcase/site.php?siteid=';
+		$summersites .= '<li><a href=\"http://azcase.nijel.org/phpsite/site.php?siteid=';
 		$summersites .= $siteid;
 		$summersites .= '&locationid=';
 		$summersites .= $locationid;
@@ -317,7 +317,7 @@ if ($countsummer>0) {
 		$summersites .= $zoom;
 		$summersites .= '\">';
 		$summersites .= $sitename;
-		$summersites .= '</a> | <a href=\"http://azcase.nijel.org/phpsite/azcase/editsite.php?siteid=';
+		$summersites .= '</a> | <a href=\"http://azcase.nijel.org/phpsite/editsite.php?siteid=';
 		$summersites .= $siteid;
 		$summersites .= '\">Edit</a></li>';
 
