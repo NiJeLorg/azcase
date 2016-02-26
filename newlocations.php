@@ -407,15 +407,15 @@ if ($countnewlocation>0) {
 			<h2>Map Legend</h2>
 			<table>
 				<tr>
-					<td><img src="icons/yourlocations.png"></td>
+					<td><img src="http://azcase.nijel.org/phpsite/azcase/icons/yourlocations.png"></td>
 					<td valign="center">You Operate At This Location</td>
 				</tr>
 				<tr>
-					<td><img src="icons/icon.png"></td>
+					<td><img src="http://azcase.nijel.org/phpsite/azcase/icons/icon.png"></td>
 					<td valign="center">You May Add This Location</td>
 				</tr>
 				<tr>
-					<td><img src="icons/justadd.png"></td>
+					<td><img src="http://azcase.nijel.org/phpsite/azcase/icons/justadd.png"></td>
 					<td valign="center">You Selected This Location</td>
 				</tr>
 			</table>
