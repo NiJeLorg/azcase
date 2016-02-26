@@ -52,7 +52,8 @@ for ($lt = 0; $lt < pg_numrows($useridresult); $lt++) {
 </p>
 </form>
 
-<?
+
+<?php
 
 // close logged_in
 }else{}
