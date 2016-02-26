@@ -19,6 +19,39 @@ $countemail = pg_result($countresult, 0, 0);
 
 if ($countemail>0) {
 
+	// pull basic information for providers and store in varibles
+	$basicinfoquery = "SELECT 
+	userid,
+	username,
+	firstlogin,
+	lastlogintime,
+	updated,
+	orgname,
+	address,
+	address2,
+	city,
+	state,
+	zip,
+	phone,
+	fax
+	FROM azcase_users WHERE useremail = '$useremailsession';";
+	$basicinforesult = pg_query($connection, $basicinfoquery);
+	for ($lt = 0; $lt < pg_numrows($basicinforesult); $lt++) {
+		$userid = pg_result($basicinforesult, $lt, 0);
+		$username = pg_result($basicinforesult, $lt, 1);
+		$firstlogin = pg_result($basicinforesult, $lt, 2);
+		$lastlogintime = pg_result($basicinforesult, $lt, 3);
+		$updated = pg_result($basicinforesult, $lt, 4);
+		$orgname = pg_result($basicinforesult, $lt, 5);
+		$orgaddress = pg_result($basicinforesult, $lt, 6);
+		$orgaddress2 = pg_result($basicinforesult, $lt, 7);
+		$orgcity = pg_result($basicinforesult, $lt, 8);
+		$orgstate = pg_result($basicinforesult, $lt, 9);
+		$orgzip = pg_result($basicinforesult, $lt, 10);
+		$orgphone = pg_result($basicinforesult, $lt, 11);
+		$orgfax = pg_result($basicinforesult, $lt, 12);
+	}
+
 }else{
 }
 
