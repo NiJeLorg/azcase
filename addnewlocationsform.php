@@ -2,8 +2,9 @@
 // create the add new locations where your organization operates form
 ?>
 <br />
-<h1>Add New Locations Where Your Organizaiton Operates</h1>
-<p>Please add any new locations that are not aviable on the map above. You can add up to five new locations here. If you need to add more than five, please return to this form to add more. Thanks! <br />
+<h1>Add New Locations Where Your Organization Operates</h1>
+<p>Please add any new locations that are not 
+available on the map above. You can add up to five new locations here. If you need to add more than five, please return to this form to add more. Thanks! <br />
 <span class="required">* Required</span>
 <form name="newlocation" action="processnewlocations.php" method="POST" onSubmit="return validateForm();">
 <table cellpadding="2">
