@@ -1,4 +1,4 @@
-<? 
+<?php
 // Footer 
 if (!$language) {
 	$language = 1;

@@ -730,7 +730,7 @@ if ($pledgeData) {
 				<b><?php echo $langtext['Address']; ?>: </b><?php echo $printaddress; ?><br />
 				<b><?php echo $langtext['Phone']; ?>: </b><?php echo $phone; ?><br />
 				<?php if (!$fax) {} else { echo '<b>'. $langtext['Fax'] . ':</b> '.$fax.'<br />'; } ?>
-				<b><?php echo $langtext['Email']; ?>:</b> <a href="mailto:<? echo $email; ?>"><? echo $email; ?></a><br /><br />
+				<b><?php echo $langtext['Email']; ?>:</b> <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a><br /><br />
 				<b><?php echo $langtext['Activities']; ?>:</b><br />
 				<?php echo $activities; ?>
 				<b><?php echo $langtext['Ages Served']; ?>:</b> <?php echo $agesserved; ?>				
