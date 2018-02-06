@@ -14,7 +14,7 @@ require('header.php');
 ?>
 <body>
 <h3 class='azcase-text-color'>Site Removed</h3>
-<p><a href="http://azcase.nijel.org/" target="_top">Back to Admin Dashboard</a></p>
+<p><a href="https://azcase.nijel.org/" target="_top">Back to Admin Dashboard</a></p>
 
 <?php
 

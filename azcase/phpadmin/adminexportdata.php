@@ -1652,7 +1652,7 @@ if ($countschoolyear>0) {
 		$sitename = addslashes($sitename);
 		$sitename = trim($sitename);
 
-		$schoolyearsites .= '<li><a href="http://azcase.nijel.org/php/site.php?siteid=';
+		$schoolyearsites .= '<li><a href="https://azcase.nijel.org/php/site.php?siteid=';
 		$schoolyearsites .= $siteid;
 		$schoolyearsites .= '&locationid=';
 		$schoolyearsites .= $locationid;
@@ -1689,7 +1689,7 @@ if ($countsummer>0) {
 		$sitename = addslashes($sitename);
 		$sitename = trim($sitename);
 
-		$summersites .= '<li><a href="http://azcase.nijel.org/php/site.php?siteid=';
+		$summersites .= '<li><a href="https://azcase.nijel.org/php/site.php?siteid=';
 		$summersites .= $siteid;
 		$summersites .= '&locationid=';
 		$summersites .= $locationid;

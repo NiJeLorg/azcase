@@ -351,6 +351,6 @@ for ($lt = 0; $lt < pg_numrows($siteidloopresult); $lt++) {
 }else{}
 
 
-header("Location: http://azcase.nijel.org/phpsite/editbatchsitesurvey.php");
+header("Location: https://azcase.nijel.org/phpsite/editbatchsitesurvey.php");
 ?>
 

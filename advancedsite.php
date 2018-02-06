@@ -659,7 +659,7 @@ $contentsLayer .= ':</b> ';
 $contentsLayer .= $printaddress;
 $contentsLayer .= ' <br /><b>';
 $contentsLayer .= $langtext['Public Transit Directions To Here From'];
-$contentsLayer .= ' </b><br /><form action=\"http://maps.google.com/maps\" method=\"get\" target=\"_top\"><input type=\"hidden\" name=\"f\" value=\"d\" /><input type=\"hidden\" name=\"source\" value=\"s_d\" /><input type=\"text\" name=\"saddr\" id=\"saddr\" value=\"';
+$contentsLayer .= ' </b><br /><form action=\"https://maps.google.com/maps\" method=\"get\" target=\"_top\"><input type=\"hidden\" name=\"f\" value=\"d\" /><input type=\"hidden\" name=\"source\" value=\"s_d\" /><input type=\"text\" name=\"saddr\" id=\"saddr\" value=\"';
 $contentsLayer .= $printsearchaddress;
 $contentsLayer .= '\" /><input type=\"submit\" value=\"';
 $contentsLayer .= $langtext['Go!'];
@@ -848,7 +848,7 @@ require('footer.php');
 ?>
 
 <!--****Google Maps Key Script****-->
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC70RNwqu3YmSo5D-iEYDCQRWRB0Gt9QOQ&sensor=false<?php if ($language==2) { echo '&language=es';} else{} ?>"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC70RNwqu3YmSo5D-iEYDCQRWRB0Gt9QOQ&sensor=false<?php if ($language==2) { echo '&language=es';} else{} ?>"></script>
 
 <!--****Javascript that creates the map****-->
 <script type="text/javascript">

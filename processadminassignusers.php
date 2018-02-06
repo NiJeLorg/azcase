@@ -33,7 +33,7 @@ if ($validator->check_email_address($useremail)) {
 	if ($countemail>0) {
 		/* Notify that no email exists and kill script */
 		require('header.php');
-		echo "<h1>Email Address Already in Use</h1><p>The email address you entered is already in use in the system. If you need to request a new password using that email address <a href=\"http://azcase.nijel.org/phpsite/forgotpassword.php\">go here</a>. If you'd like to sign up will a different email account, please go back and try again with another email address.</p><p>Email address entered: <b>$useremail</b></p>";
+		echo "<h1>Email Address Already in Use</h1><p>The email address you entered is already in use in the system. If you need to request a new password using that email address <a href=\"https://azcase.nijel.org/phpsite/forgotpassword.php\">go here</a>. If you'd like to sign up will a different email account, please go back and try again with another email address.</p><p>Email address entered: <b>$useremail</b></p>";
 		require('footer.php');
 		die();
 	}else{}
@@ -133,7 +133,7 @@ for ($lt = 0; $lt < pg_numrows($assignloopresult); $lt++) {
 } // close siteid/userid insert loop
 
 
-$url = "http://azcase.nijel.org/phpsite/resetpassword.php?42=$randomtemppass";
+$url = "https://azcase.nijel.org/phpsite/resetpassword.php?42=$randomtemppass";
 $to = "$useremail";
 $subject = "AZ Afterschool Program Directory | New Account and Access to Data for $orgname";
 $message = "
@@ -158,6 +158,6 @@ mail($to,$subject,$message,$headers);
 	echo "<h1>Invalid Email Address</h1><p>The email address you entered was invalid. Please go back and try again.</p><p>Email address entered: <b>$useremail</b></p>";
 }
 
-header("Location: http://azcase.nijel.org/phpsite/endadminassignusers.php?useremail=$useremail&userid=$userid&searchusername=$searchusername&searchuseremail=$searchuseremail&searchorgname=$searchorgname");
+header("Location: https://azcase.nijel.org/phpsite/endadminassignusers.php?useremail=$useremail&userid=$userid&searchusername=$searchusername&searchuseremail=$searchuseremail&searchorgname=$searchorgname");
 ?>
 

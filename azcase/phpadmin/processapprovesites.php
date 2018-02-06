@@ -105,6 +105,6 @@ for ($lt = 0; $lt < pg_numrows($siteidloopresult); $lt++) {
 	}else{} // close if ($_REQUEST["$siteidloop"]=='t')
 } // close for loop
 
-header("Location: http://azcase.nijel.org/php/thankyouapprove.php");
+header("Location: https://azcase.nijel.org/php/thankyouapprove.php");
 ?>
 

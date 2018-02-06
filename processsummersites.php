@@ -237,6 +237,6 @@ for ($lt1 = 0; $lt1 < pg_numrows($siteidresult); $lt1++) {
 }else{}
 
 
-header("Location: http://azcase.nijel.org/phpsite/newsummersites.php");
+header("Location: https://azcase.nijel.org/phpsite/newsummersites.php");
 ?>
 

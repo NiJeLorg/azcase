@@ -335,8 +335,8 @@ $name = addslashes($name);
 $name = trim($name);
 
 
-$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/icon.png']";
-$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/icon.shadow.png']";
+$iconsLayer .= "['https://azcase.nijel.org/phpsite/azcase/icons/icon.png']";
+$shadowsLayer .= "['https://azcase.nijel.org/phpsite/azcase/icons/icon.shadow.png']";
 
 // clear variables
 $schoolyearsites = '';
@@ -377,7 +377,7 @@ if ($countschoolyear>0) {
 			$sitename = $sitenamesp;
 		}else{}
 
-		$schoolyearsites .= '<li><a href=\"http://azcase.nijel.org/phpsite/site.php?siteid=';
+		$schoolyearsites .= '<li><a href=\"https://azcase.nijel.org/phpsite/site.php?siteid=';
 		$schoolyearsites .= $siteid;
 		$schoolyearsites .= '&locationid=';
 		$schoolyearsites .= $locationid;
@@ -394,7 +394,7 @@ if ($countschoolyear>0) {
 		$schoolyearsites .= '&zoom=13';
 		$schoolyearsites .= '\">';
 		$schoolyearsites .= $sitename;
-		$schoolyearsites .= '</a> | <a href=\"http://azcase.nijel.org/phpsite/editsite.php?siteid=';
+		$schoolyearsites .= '</a> | <a href=\"https://azcase.nijel.org/phpsite/editsite.php?siteid=';
 		$schoolyearsites .= $siteid;
 		$schoolyearsites .= '\">Edit</a></li>';
 
@@ -440,7 +440,7 @@ if ($countsummer>0) {
 			$sitename = $sitenamesp;
 		}else{}
 
-		$summersites .= '<li><a href=\"http://azcase.nijel.org/phpsite/site.php?siteid=';
+		$summersites .= '<li><a href=\"https://azcase.nijel.org/phpsite/site.php?siteid=';
 		$summersites .= $siteid;
 		$summersites .= '&locationid=';
 		$summersites .= $locationid;
@@ -458,7 +458,7 @@ if ($countsummer>0) {
 		$summersites .= $zoom;
 		$summersites .= '\">';
 		$summersites .= $sitename;
-		$summersites .= '</a> | <a href=\"http://azcase.nijel.org/phpsite/editsite.php?siteid=';
+		$summersites .= '</a> | <a href=\"https://azcase.nijel.org/phpsite/editsite.php?siteid=';
 		$summersites .= $siteid;
 		$summersites .= '\">Edit</a></li>';
 
@@ -505,7 +505,7 @@ if ($language==2) {
 
 $mapjs = "
 <!--****Google Maps Key Script****-->
-<script type=\"text/javascript\" src=\"http://maps.googleapis.com/maps/api/js?key=AIzaSyC70RNwqu3YmSo5D-iEYDCQRWRB0Gt9QOQ&sensor=false$mapjslang\"></script>
+<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyC70RNwqu3YmSo5D-iEYDCQRWRB0Gt9QOQ&sensor=false$mapjslang\"></script>
 
 <!--****Javascript that creates the map****-->
 <script type=\"text/javascript\">

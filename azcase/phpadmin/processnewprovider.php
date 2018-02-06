@@ -90,6 +90,6 @@ if ($pgerror1!=FALSE) {
 	echo "<h3>Invalid Email Address</h3><p>The email address you entered was invalid. Please go back and try again.</p><p>Email address entered: <strong>$useremail</strong></p>";
 }
 
-header('Location: http://azcase.nijel.org/php/endnewprovider.php');
+header('Location: https://azcase.nijel.org/php/endnewprovider.php');
 ?>
 

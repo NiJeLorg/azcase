@@ -84,6 +84,6 @@ require('geocode.php');
 }else{}
 
 
-header("Location: http://azcase.nijel.org/phpsite/endadmineditlocation.php?locationid=$locationid&zoom=$zoom&searchstreet=$searchstreet&searchcity=$searchcity&searchstate=$searchstate&searchzip=$searchzip");
+header("Location: https://azcase.nijel.org/phpsite/endadmineditlocation.php?locationid=$locationid&zoom=$zoom&searchstreet=$searchstreet&searchcity=$searchcity&searchstate=$searchstate&searchzip=$searchzip");
 ?>
 

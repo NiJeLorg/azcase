@@ -699,6 +699,6 @@ require('insertnewsites.php');
 // create session var with user id
 $_SESSION['POSTuserid'] = $userid;
 
-header('Location: http://azcase.nijel.org/php/newsitesurvey.php');
+header('Location: https://azcase.nijel.org/php/newsitesurvey.php');
 ?>
 

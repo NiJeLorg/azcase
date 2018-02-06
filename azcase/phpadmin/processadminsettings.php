@@ -48,7 +48,7 @@ if ($useremail!=$_SESSION['useremail']) {
 	if ($countemail>0) {
 	/* Notify that no email exists and kill script */
 		require('header.php');
-		echo "<h3>Email Address Already in Use</h3><p>The email address you entered is already in use in the system. If you need to request a new password using that email address <a href=\"http://azcase.nijel.org/php/forgotpassword.php\">go here</a>. If you'd like to sign up will a different email account, please go back and try again with another email address.</p><p>Email address entered: <strong>$useremail</strong></p>";
+		echo "<h3>Email Address Already in Use</h3><p>The email address you entered is already in use in the system. If you need to request a new password using that email address <a href=\"https://azcase.nijel.org/php/forgotpassword.php\">go here</a>. If you'd like to sign up will a different email account, please go back and try again with another email address.</p><p>Email address entered: <strong>$useremail</strong></p>";
 		require('footer.php');
 		die();
 	}else{}
@@ -132,6 +132,6 @@ if ($pgerror1!=FALSE) {
 }else{}
 
 
-header('Location: http://azcase.nijel.org/php/endadminsettings.php');
+header('Location: https://azcase.nijel.org/php/endadminsettings.php');
 ?>
 

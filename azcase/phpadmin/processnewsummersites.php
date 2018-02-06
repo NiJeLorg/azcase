@@ -421,7 +421,7 @@ if (!$_REQUEST['button2']) {
 		die ();
 	}else{}
 	
-	header("Location: http://azcase.nijel.org/php/newsummersites.php?lastsiteid=$siteid");
+	header("Location: https://azcase.nijel.org/php/newsummersites.php?lastsiteid=$siteid");
 
 }elseif (!$_REQUEST['button1']) {
 	// update all summer sites with these data
@@ -440,7 +440,7 @@ if (!$_REQUEST['button2']) {
 		die ();
 	}else{}
 
-	header("Location: http://azcase.nijel.org/php/newsummersitesurvey.php");
+	header("Location: https://azcase.nijel.org/php/newsummersitesurvey.php");
 
 } // close if action
 

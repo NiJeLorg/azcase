@@ -432,6 +432,6 @@ if ($pgerror1!=FALSE) {
 }else{}
 
 
-header("Location: http://azcase.nijel.org/phpsite/adminpublicadvancedsearch.php");
+header("Location: https://azcase.nijel.org/phpsite/adminpublicadvancedsearch.php");
 ?>
 

@@ -57,7 +57,7 @@ if ($countpass==0) {
 	$subject = "AZ Afterschool Program Directory | Password Reset";
 	$headers = "From: Genevieve Burns <gburns@azafterschool.org> \r\n";
 	$headers .= "Content-type: text/html\r\n"; 
-	$url = "http://azcase.nijel.org/phpsite/resetpassword.php?42=$randompassword";
+	$url = "https://azcase.nijel.org/phpsite/resetpassword.php?42=$randompassword";
 
 	$message = "
 Hello $email,

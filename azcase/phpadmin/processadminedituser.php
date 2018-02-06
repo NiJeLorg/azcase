@@ -106,7 +106,7 @@ if ($useremail!=$useremailold) {
 	$subject = "AZ Afterschool Program Directory | User Account Changes";
 	$headers = "From: Genevieve Burns <gburns@azafterschool.org> \r\n";
 	$headers .= "Content-type: text/html\r\n"; 
-	$url = "http://azcase.nijel.org/phpsite/resetpassword.php?42=$randompassword";
+	$url = "https://azcase.nijel.org/phpsite/resetpassword.php?42=$randompassword";
 
 	$message = "
 Hello $useremail,
@@ -132,6 +132,6 @@ Arizona Center for Afterschool Excellence
 }
 
 
-header("Location: http://azcase.nijel.org/php/endadminedituser.php");
+header("Location: https://azcase.nijel.org/php/endadminedituser.php");
 ?>
 

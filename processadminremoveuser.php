@@ -55,6 +55,6 @@ pg_send_query($connection, $removeuser);
 }else{}
 
 
-header("Location: http://azcase.nijel.org/phpsite/endadminremoveuser.php?searchusername=$searchusername&searchuseremail=$searchuseremail&searchorgname=$searchorgname");
+header("Location: https://azcase.nijel.org/phpsite/endadminremoveuser.php?searchusername=$searchusername&searchuseremail=$searchuseremail&searchorgname=$searchorgname");
 ?>
 

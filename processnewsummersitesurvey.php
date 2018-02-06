@@ -212,6 +212,6 @@ require('updatenewsummersitesurvey.php');
 }else{}
 
 
-header("Location: http://azcase.nijel.org/phpsite/newsummersitesurvey.php?lastsiteid=$siteid");
+header("Location: https://azcase.nijel.org/phpsite/newsummersitesurvey.php?lastsiteid=$siteid");
 ?>
 

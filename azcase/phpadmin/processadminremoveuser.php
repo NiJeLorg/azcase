@@ -31,6 +31,6 @@ $removeuser = "DELETE FROM azcase_users WHERE userid = $userid;";
 pg_send_query($connection, $removeuser);
 
 
-header("Location: http://azcase.nijel.org/php/endadminremoveuser.php");
+header("Location: https://azcase.nijel.org/php/endadminremoveuser.php");
 ?>
 

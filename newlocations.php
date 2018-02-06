@@ -179,8 +179,8 @@ $countuserlocation = pg_result($countuserlocationresult, 0, 0);
 
 if ($countuserlocation>0) {
 	// set icon for user location
-	$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/yourlocations.png']";
-	$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/yourlocations.shadow.png']";
+	$iconsLayer .= "['https://azcase.nijel.org/phpsite/azcase/icons/yourlocations.png']";
+	$shadowsLayer .= "['https://azcase.nijel.org/phpsite/azcase/icons/yourlocations.shadow.png']";
 	
 	// set popup for location so user can't select it
 	$contentsLayer .= '["<h2>You Operate At This Location</h2>';
@@ -196,8 +196,8 @@ if ($countuserlocation>0) {
 	$countjustadd = pg_result($countjustaddresult, 0, 0);
 	if ($countjustadd>0) {
 		// set icon for location not assocaited with this user
-		$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/justadd.png']";
-		$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/justadd.shadow.png']";
+		$iconsLayer .= "['https://azcase.nijel.org/phpsite/azcase/icons/justadd.png']";
+		$shadowsLayer .= "['https://azcase.nijel.org/phpsite/azcase/icons/justadd.shadow.png']";
 
 		// set popup for location with link for user to select it
 		$contentsLayer .= '["<h2>You Selelcted This Location</h2>';
@@ -208,8 +208,8 @@ if ($countuserlocation>0) {
 		$contentsLayer .= ' <br \>"]';
 	}else{
 		// set icon for location not assocaited with this user
-		$iconsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/icon.png']";
-		$shadowsLayer .= "['http://azcase.nijel.org/phpsite/azcase/icons/icon.shadow.png']";
+		$iconsLayer .= "['https://azcase.nijel.org/phpsite/azcase/icons/icon.png']";
+		$shadowsLayer .= "['https://azcase.nijel.org/phpsite/azcase/icons/icon.shadow.png']";
 
 		// set popup for location with link for user to select it
 		$contentsLayer .= '["<h2><a href=\"newlocations.php?setlocation=';
@@ -255,7 +255,7 @@ if ($language==2) {
 
 $mapjs = "
 <!--****Google Maps Key Script****-->
-<script type=\"text/javascript\" src=\"http://maps.googleapis.com/maps/api/js?key=AIzaSyC70RNwqu3YmSo5D-iEYDCQRWRB0Gt9QOQ&sensor=false$mapjslang\"></script>
+<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyC70RNwqu3YmSo5D-iEYDCQRWRB0Gt9QOQ&sensor=false$mapjslang\"></script>
 
 <!--****Javascript that creates the map****-->
 <script type=\"text/javascript\">
@@ -407,15 +407,15 @@ if ($countnewlocation>0) {
 			<h2>Map Legend</h2>
 			<table>
 				<tr>
-					<td><img src="http://azcase.nijel.org/phpsite/azcase/icons/yourlocations.png"></td>
+					<td><img src="https://azcase.nijel.org/phpsite/azcase/icons/yourlocations.png"></td>
 					<td valign="center">You Operate At This Location</td>
 				</tr>
 				<tr>
-					<td><img src="http://azcase.nijel.org/phpsite/azcase/icons/icon.png"></td>
+					<td><img src="https://azcase.nijel.org/phpsite/azcase/icons/icon.png"></td>
 					<td valign="center">You May Add This Location</td>
 				</tr>
 				<tr>
-					<td><img src="http://azcase.nijel.org/phpsite/azcase/icons/justadd.png"></td>
+					<td><img src="https://azcase.nijel.org/phpsite/azcase/icons/justadd.png"></td>
 					<td valign="center">You Selected This Location</td>
 				</tr>
 			</table>

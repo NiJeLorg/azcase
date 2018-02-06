@@ -207,6 +207,6 @@ require('updateadmineditsitesurvey.php');
 }else{}
 
 
-header("Location: http://azcase.nijel.org/phpsite/thankyouadmineditsite.php?searchname=$searchname&searchemail=$searchemail&searchphone=$searchphone");
+header("Location: https://azcase.nijel.org/phpsite/thankyouadmineditsite.php?searchname=$searchname&searchemail=$searchemail&searchphone=$searchphone");
 ?>
 
