@@ -3,7 +3,7 @@ define("MAPS_HOST", "maps.googleapis.com");
 define("API_KEY", "AIzaSyBao-t3WsnhKNqNVnHdGsOwYLycL2pnw0E");
 
 // https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
-$base_url = "http://" . MAPS_HOST . "/maps/api/geocode/json";
+$base_url = "https://" . MAPS_HOST . "/maps/api/geocode/json";
 $params = "&key=" . API_KEY;
 
 include ('connect.php');

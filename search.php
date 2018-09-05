@@ -18,7 +18,7 @@ define("MAPS_HOST", "maps.googleapis.com");
 define("API_KEY", "AIzaSyBao-t3WsnhKNqNVnHdGsOwYLycL2pnw0E");
 
 // https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
-$base_url = "http://" . MAPS_HOST . "/maps/api/geocode/json";
+$base_url = "https://" . MAPS_HOST . "/maps/api/geocode/json";
 $params = "&key=" . API_KEY;
 
 $zoom = $_REQUEST['zoom'];
@@ -116,8 +116,6 @@ $record = pg_query($connection, $locationquery);
 // if no locations exist in the search radius, then return a polite fail
 if (pg_numrows($record)==0) {
 	echo "<body>";
-	echo $json->status;
-	echo $request_url;
 	echo $langtext['No Locations Match Your Search Criteria. Unfortunately, your search returned no matching results. Please go back and pick a new location or select different search criteria. Thank you.'];
 	require('footer.php');
 	die();
