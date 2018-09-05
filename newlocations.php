@@ -55,7 +55,7 @@ if (!$setlocation) {
 // create a map that shows both locations where this organization already operates and all other locations. limit to a search radius to limit the number of points
 // allow for searching in address box across the top
 define("MAPS_HOST", "maps.googleapis.com");
-define("API_KEY", "AIzaSyBao-t3WsnhKNqNVnHdGsOwYLycL2pnw0E");
+define("API_KEY", "AIzaSyCb30KK9LewMPnmUAmeviWwTuJdAUES4WU");
 
 // https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
 $base_url = "https://" . MAPS_HOST . "/maps/api/geocode/json";
