@@ -116,6 +116,7 @@ $record = pg_query($connection, $locationquery);
 // if no locations exist in the search radius, then return a polite fail
 if (pg_numrows($record)==0) {
 	echo "<body>";
+	echo $json->status;
 	echo $langtext['No Locations Match Your Search Criteria. Unfortunately, your search returned no matching results. Please go back and pick a new location or select different search criteria. Thank you.'];
 	require('footer.php');
 	die();
