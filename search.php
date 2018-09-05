@@ -15,9 +15,11 @@ require('header.php');
 require('language.php');
 
 define("MAPS_HOST", "maps.googleapis.com");
+define("API_KEY", "AIzaSyBao-t3WsnhKNqNVnHdGsOwYLycL2pnw0E");
 
+// https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
 $base_url = "http://" . MAPS_HOST . "/maps/api/geocode/json";
-$params = "&sensor=false";
+$params = "&key=" . API_KEY;
 
 $zoom = $_REQUEST['zoom'];
 $language = $_REQUEST['language'];
@@ -540,7 +542,7 @@ require('footer.php');
 ?>
 
 <!--****Google Maps Key Script****-->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC70RNwqu3YmSo5D-iEYDCQRWRB0Gt9QOQ&sensor=false<?php if ($language==2) { echo '&language=es';} else{} ?>"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBao-t3WsnhKNqNVnHdGsOwYLycL2pnw0E<?php if ($language==2) { echo '&language=es';} else{} ?>"></script>
 
 <!--****Javascript that creates the map****-->
 <script type="text/javascript">

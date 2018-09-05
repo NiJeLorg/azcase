@@ -1,13 +1,16 @@
 <?php
 define("MAPS_HOST", "maps.googleapis.com");
+define("API_KEY", "AIzaSyBao-t3WsnhKNqNVnHdGsOwYLycL2pnw0E");
+
+// https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
+$base_url = "http://" . MAPS_HOST . "/maps/api/geocode/json";
+$params = "&key=" . API_KEY;
 
 include ('connect.php');
 
 // declare my query and execute
 $query = pg_exec($connection, "SELECT locationid, address, city, zip FROM azcase_locations WHERE lat is NULL AND lon is NULL;");
 
-$base_url = "http://" . MAPS_HOST . "/maps/api/geocode/json";
-$params = "&sensor=false";
 
 // Iterate through the rows, geocoding each address
 for ($lt = 0; $lt < pg_numrows($query); $lt++) {

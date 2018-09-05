@@ -367,7 +367,7 @@ if ($language==2) {
 
 $mapjs = "
 <!--****Google Maps Key Script****-->
-<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyC70RNwqu3YmSo5D-iEYDCQRWRB0Gt9QOQ&sensor=false$mapjslang\"></script>
+<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBao-t3WsnhKNqNVnHdGsOwYLycL2pnw0E$mapjslang\"></script>
 
 <!--****Javascript that creates the map****-->
 <script type=\"text/javascript\">

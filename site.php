@@ -752,7 +752,7 @@ require('footer.php');
 ?>
 
 <!--****Google Maps Key Script****-->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC70RNwqu3YmSo5D-iEYDCQRWRB0Gt9QOQ&sensor=false<?php if ($language==2) { echo '&language=es';} else{} ?>"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBao-t3WsnhKNqNVnHdGsOwYLycL2pnw0E<?php if ($language==2) { echo '&language=es';} else{} ?>"></script>
 
 <!--****Javascript that creates the map****-->
 <script type="text/javascript">
