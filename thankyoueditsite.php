@@ -40,7 +40,7 @@ for ($lt = 0; $lt < pg_numrows($adminresult); $lt++) {
 
 	/* Send new password to this email address */
 	$subject = "AZ Afterschool Program Directory | A Site Has Been Edited";
-	$headers = "From: Genevieve Burns <gburns@azafterschool.org> \r\n";
+	$headers = "From: AzCASE <azcase.directory@gmail.com> \r\n";
 	$headers .= "Content-type: text/html\r\n"; 
 	$url = "http://azafterschool.org/directory/";
 
@@ -64,7 +64,7 @@ for ($lt = 0; $lt < pg_numrows($adminresult); $lt++) {
 
 // email user and thank them for adding their data, verification process
 $subject = "AZ Afterschool Program Directory | One of Your Sites Has Been Edited";
-$headers = "From: Genevieve Burns <gburns@azafterschool.org> \r\n";
+$headers = "From: AzCASE <azcase.directory@gmail.com> \r\n";
 $headers .= "Content-type: text/html\r\n"; 
 $url = "http://azafterschool.org/directory/";
 

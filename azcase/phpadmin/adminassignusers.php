@@ -137,7 +137,7 @@ if ($validator->check_email_address($email)) {
 
 		/* Send email lettign new user know they've been assigned to manage data  */
 		$subject = "AZ Afterschool Program Directory | Access to Data for $orgname";
-		$headers = "From: Genevieve Burns <gburns@azafterschool.org> \r\n";
+		$headers = "From: AzCASE <azcase.directory@gmail.com> \r\n";
 		$headers .= "Content-type: text/html\r\n"; 
 		$url = "http://azafterschool.org/directory/";
 

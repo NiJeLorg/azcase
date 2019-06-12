@@ -115,7 +115,7 @@ for ($lt = 0; $lt < pg_numrows($siteidloopresult); $lt++) {
 
 			/* Send new password to this email address */
 			$subject = "AZ Afterschool Program Directory | $sitename Has Been Declined";
-			$headers = "From: Genevieve Burns <gburns@azafterschool.org> \r\n";
+			$headers = "From: AzCASE <azcase.directory@gmail.com> \r\n";
 			$headers .= "Content-type: text/html\r\n"; 
 			$url = "http://azafterschool.org/directory/";
 			$comments = $_REQUEST["declinecomment_$siteidloop"];
@@ -130,7 +130,7 @@ for ($lt = 0; $lt < pg_numrows($siteidloopresult); $lt++) {
 			Thank you again for adding your site, $sitename, located at $locationname</b> ($printaddress) to the AZ Afterschool Program Directory. Unfortunately, we declined to include this site in our directory. The data you added does not meet our criteria for inclusion on the map.
 			<br /><br />
 			$comments
-			If you believe this has been done in error, please email us at <a href=\"mailto:Genevieve Burns <gburns@azafterschool.org> \">Genevieve Burns <gburns@azafterschool.org> </a> and let us know which site at which location you believe was declined in error.
+			If you believe this has been done in error, please email us at <a href=\"mailto:AzCASE <azcase.directory@gmail.com> \">AzCASE <azcase.directory@gmail.com> </a> and let us know which site at which location you believe was declined in error.
 			<br /><br />
 			Thanks,
 			<br />

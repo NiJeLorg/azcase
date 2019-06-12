@@ -147,7 +147,7 @@ Thanks,
 <br />
 Arizona Center for Afterschool Excellence
 ";
-$headers = "From: Genevieve Burns <gburns@azafterschool.org> \r\n";
+$headers = "From: AzCASE <azcase.directory@gmail.com> \r\n";
 $headers .= "Content-type: text/html\r\n"; 
 mail($to,$subject,$message,$headers);
 
